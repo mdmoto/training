@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章：户用技术规范、结构边界、关键参数与失效模式 - 硬核修订分章版</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">分章目录</a>
+                <span>/</span>
+                <span>第 03 章</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">返回目录</a>
+                <a class="split-pill" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">硬核修订分章版 · 第 03 章</div>
+            <h1>第二章：户用技术规范、结构边界、关键参数与失效模式</h1>
+            <div class="split-hero-subtitle">本章把户用项目最关键的四类内容拆开说明：设备与标准、屋顶与结构、直流与逆变器设计、交付与失效模式。重点不只是知道“别人怎么做”，更要知道“为什么这样做”。</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">03</span><span class="split-meta-label">当前章节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">本章小节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">可跳读</span><span class="split-meta-label">支持按小节快速定位</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">上一章</a>
+                <a class="split-pill" href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">下一章</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">本章导航</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-2-1-户用光伏系统到底由什么组成-每个部件负责什么"><span class="split-nav-index">01</span><span class="split-nav-text">2.1 户用光伏系统到底由什么组成，每个部件负责什么</span></a><a class="split-nav-item" href="#sec-02-2-2-组件-逆变器-屋顶之间最关键的-8-个技术参数"><span class="split-nav-index">02</span><span class="split-nav-text">2.2 组件、逆变器、屋顶之间最关键的 8 个技术参数</span></a><a class="split-nav-item" href="#sec-03-2-3-最基础-也最实用的算法-串长怎么判-为什么不能只凭经验"><span class="split-nav-index">03</span><span class="split-nav-text">2.3 最基础、也最实用的算法：串长怎么判，为什么不能只凭经验</span></a><a class="split-nav-item" href="#sec-04-2-4-屋顶结构分类与防水节点-不是打一圈胶-而是先判断荷载和渗漏路径"><span class="split-nav-index">04</span><span class="split-nav-text">2.4 屋顶结构分类与防水节点：不是打一圈胶，而是先判断荷载和渗漏路径</span></a><a class="split-nav-item" href="#sec-05-2-5-海边-盐雾-高温环境下-为什么材料和测试等级要提高"><span class="split-nav-index">05</span><span class="split-nav-text">2.5 海边、盐雾、高温环境下，为什么材料和测试等级要提高</span></a><a class="split-nav-item" href="#sec-06-2-6-调试-交付和文件包-完工不等于交付完成"><span class="split-nav-index">06</span><span class="split-nav-text">2.6 调试、交付和文件包：完工不等于交付完成</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">快捷跳转</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">上一章</a>
+                            <a href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">下一章</a>
+                            <a href="index.html">章节目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">阅读提示</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>先看章节导语，再按导航选择重点小节。</li>
+                            <li>带公式、表格、出处的内容可直接作为工作参考。</li>
+                            <li>涉及政策、税务和并网时，以最新官方口径为准。</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">章节导语</div>
+                    <div class="chapter-intro">本章把户用项目最关键的四类内容拆开说明：设备与标准、屋顶与结构、直流与逆变器设计、交付与失效模式。重点不只是知道“别人怎么做”，更要知道“为什么这样做”。</div>
+                </div>
+        <section id="sec-01-2-1-户用光伏系统到底由什么组成-每个部件负责什么" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 01</div>
+<h3>2.1 户用光伏系统到底由什么组成，每个部件负责什么</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>2.1 户用光伏系统到底由什么组成，每个部件负责什么</h3>
+<p>新人入行最常见的错误之一，是把“光伏系统”理解成组件 + 逆变器两样东西。真正的并网户用系统至少包含：组件、支架系统、直流线缆与连接器、汇流/隔离与保护、逆变器、交流配电与保护、接地与等电位、监控系统、标识、以及与建筑连接的结构与防水节点。任何一个环节出错，系统都可能在几年内出现问题。</p>
+<p>必须明确：户用项目不是组件买对就赢。组件决定发电与耐久底线，逆变器决定转换、并网与监控体验，支架和连接决定机械稳定性，直流侧和接地决定安全性，建筑连接节点决定渗漏与维护风险。只有把系统看成完整系统，而不是一堆设备，团队才会真正做出好项目。</p>
+<p>从标准角度看，组件常见的第一层标准是 <b>IEC 61215</b>，它针对户外长期运行所需的设计鉴定与型式试验；第二层是 <b>IEC 61730</b>，它强调电气与机械安全、防触电、防火和人身伤害风险。61215 更偏“设计与耐久资格”，61730 更偏“安全资格”。销售和工程至少要知道这两个标准不是一回事。</p>
+<div class="term-box"><strong>【本节必须会背的术语】</strong><b>IEC 61215</b>：光伏组件设计鉴定与型式认可，关注长期户外运行适用性。<br><b>IEC 61730</b>：光伏组件安全资格，关注防触电、防火和机械/环境应力下的人身安全。<br><b>IEC 62548</b>：光伏阵列设计要求，涵盖直流配线、电气保护、开关与接地。<br><b>IEC 62446-1</b>：并网光伏系统的测试、文件交接、调试与检查要求。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://reference.globalspec.com/standard/14643871/iec-61215-1-2021">IEC 61215-1 条目摘要</a><span class="source-note">：说明其为户外长期运行组件的设计鉴定与型式认可。</span></li><li><span class="source-badge international">国际/标准</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/59803">IEC 61730-1 官方页</a><span class="source-note">：强调 PV 组件安全、电击/火灾/机械伤害防范。</span></li><li><span class="source-badge international">国际/标准</span><b>[03]</b> <a href="https://webstore.iec.ch/en/publication/64171">IEC 62548-1 官方页</a><span class="source-note">：说明包含直流配线、电气保护、开关与接地。</span></li><li><span class="source-badge international">国际/标准</span><b>[04]</b> <a href="https://webstore.iec.ch/en/publication/24057">IEC 62446-1 官方页</a><span class="source-note">：说明交付文档、调试、检查和再检要求。</span></li></ol></div>
+</section><section id="sec-02-2-2-组件-逆变器-屋顶之间最关键的-8-个技术参数" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 02</div>
+<h3>2.2 组件、逆变器、屋顶之间最关键的 8 个技术参数</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>2.2 组件、逆变器、屋顶之间最关键的 8 个技术参数</h3>
+<p>如果让新人记一堆型号没有意义，真正应该记的是参数和它们之间的关系。户用项目里最关键的参数包括：组件功率、Voc、Vmp、Isc、温度系数、逆变器 MPPT 电压范围、逆变器最大直流输入电压、以及屋顶方位/倾角/可利用面积。只要这几组参数关系没搞清楚，后面的排布和选型都可能偏掉。</p>
+<p>尤其要纠正一个常见误区：组件功率更高并不等于系统一定更好。若组件尺寸变大、开路电压更高、串长受限、屋面碎片化更严重，或者逆变器 MPPT 匹配变差，那么‘单块功率更高’反而未必带来更好的系统结果。判断方案优劣时，必须从“比单块参数”升级到“看系统匹配”。</p>
+<p>逆变器参数则至少要看四件事：最大直流输入电压、MPPT 工作区间、每路 MPPT 允许的串数/电流、以及并网和监控能力。很多户用项目的问题不是逆变器品牌差，而是前期串长设计和 MPPT 分配做错，导致早晚时段和高温时段效率被吃掉。</p>
+<table class="note-table"><tr><th>参数</th><th>它决定什么</th><th>新人常见误区</th><th>培训口径</th></tr><tr><td>Voc</td><td>低温时串最大电压风险</td><td>只看 STC 标称，不看低温修正</td><td>必须校核最低温工况下是否超逆变器上限</td></tr><tr><td>Vmp</td><td>组件主要工作电压</td><td>误以为只要 Voc 不超就够</td><td>要确保大多数工况落在 MPPT 区间内</td></tr><tr><td>Isc</td><td>短路电流与保护/线缆校核</td><td>只看功率不看电流</td><td>并联数变化时电流侧风险上升</td></tr><tr><td>功率温度系数</td><td>高温降额</td><td>按实验室额定值幻想现场产能</td><td>泰国高温环境必须考虑热衰减</td></tr><tr><td>MPPT 数量</td><td>多朝向/遮挡适配性</td><td>把不同朝向硬并到一路</td><td>屋顶碎片化时 MPPT 策略很关键</td></tr><tr><td>屋顶可用面积</td><td>可装容量上限</td><td>按总面积粗估</td><td>必须扣除边界、通道、阴影和维护空间</td></tr></table>
+</section><section id="sec-03-2-3-最基础-也最实用的算法-串长怎么判-为什么不能只凭经验" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 03</div>
+<h3>2.3 最基础、也最实用的算法：串长怎么判，为什么不能只凭经验</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>2.3 最基础、也最实用的算法：串长怎么判，为什么不能只凭经验</h3>
+<p>户用现场最容易出现“经验主义失误”的地方，就是串长设计。表面上看只是多一块少一块，实质上牵涉低温最大电压、高温 MPPT 下限、朝向混串、遮挡影响和维护便利性。很多系统不是设备不好，而是串设计一开始就没有按边界算清。</p>
+<p>入门阶段至少要掌握一个保守算法：先用最低预期环境温度校核 <b>最大串电压</b>，确保 <span class="formula">串数 × 修正后 Voc &lt; 逆变器最大直流输入电压</span>；再用高温工况校核 <b>工作电压</b>，确保 <span class="formula">串数 × 修正后 Vmp</span> 仍然落在 MPPT 可工作区间内。前者防过压，后者防‘发不起来’。</p>
+<p>泰国虽然不是极寒地区，但也不能因此忽略低温边界。更重要的是，高温才是泰国户用系统更常见的真实场景，高温会拉低组件工作电压并带来功率降额。新员工更应理解：在热带项目里，串长既要防止极端边界错误，更要尽量兼顾高温下的可用性和效率。</p>
+<div class="algorithm-box"><strong>【串长设计培训版算法】</strong>1. 从组件铭牌取得 <b>Voc、Vmp、温度系数</b>。<br>2. 从逆变器资料取得 <b>Max DC Voltage、MPPT Min/Max</b>。<br>3. 用最低温工况估算修正 Voc，验证：<span class="formula">N × Voc(Tmin) &lt; Max DC Voltage</span>。<br>4. 用高温工况估算修正 Vmp，验证：<span class="formula">N × Vmp(Thot) 落入 MPPT 工作区间</span>。<br>5. 若屋顶多朝向或多遮挡，优先分配到不同 MPPT，而不是强行混串。</div>
+<div class="critical-note"><strong>【新人最容易犯的 3 个错】</strong>1. 只看组件功率，不看 Voc/Vmp。<br>2. 只看逆变器总功率，不看 MPPT 边界。<br>3. 把东、西、南不同朝向组件硬并在一起，导致发电曲线畸变。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/64171">IEC 62548-1 官方页</a><span class="source-note">：明确涉及 DC array wiring、电气保护、开关与接地等设计要求。</span></li><li><span class="source-badge international">国际/标准</span><b>[02]</b> <a href="https://reference.globalspec.com/standard/14643871/iec-61215-1-2021">IEC 61215-1 摘要</a><span class="source-note">：强调组件长期户外运行的设计鉴定边界。</span></li></ol></div>
+</section><section id="sec-04-2-4-屋顶结构分类与防水节点-不是打一圈胶-而是先判断荷载和渗漏路径" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 04</div>
+<h3>2.4 屋顶结构分类与防水节点：不是打一圈胶，而是先判断荷载和渗漏路径</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>2.4 屋顶结构分类与防水节点：不是打一圈胶，而是先判断荷载和渗漏路径</h3>
+<p>户用项目最贵的错误，往往不是发电量少了 3%，而是渗漏和结构问题。必须把“结构”和“防水”拆开理解。结构问题先问：屋面是什么材质、承载边界在哪里、固定方式是否适配、长期风载和热胀冷缩会把力带到哪里；防水问题再问：水从哪里来、会沿什么路径走、节点有没有把水导走、密封是否只是辅助而不是唯一依赖。</p>
+<p>对泰国市场常见屋顶，可粗分为混凝土板屋顶、瓷瓦/水泥瓦斜屋顶、金属屋面和局部加建屋顶。不同结构意味着完全不同的固定逻辑。不能形成‘所有屋顶都靠同一种挂钩和胶’的误解。结构适配错误，后面的漏水往往只是结果，不是根因。</p>
+<p>户用防水一定要强调‘结构优先、密封其次’。优先通过构造和路径控制让雨水远离高风险节点，再用密封作为第二道保险。只要把胶当成唯一方案，几年后材料老化、热胀冷缩和暴雨叠加时，问题就会出现。</p>
+<div class="sop-box"><strong>【防水节点 4 步检查法】</strong>1. 先找水路，不先打胶。<br>2. 先判结构，再定固定点。<br>3. 必要开孔必须有导水思路。<br>4. 所有高风险节点都要拍照留档，便于后续追溯。</div>
+<table class="note-table"><tr><th>屋顶类型</th><th>优先关注点</th><th>高频风险</th><th>培训动作</th></tr><tr><td>混凝土板</td><td>固定点、裂缝、排水坡度</td><td>原有微裂缝扩展、积水</td><td>先看裂缝和排水，不急于排布</td></tr><tr><td>瓷瓦/水泥瓦</td><td>挂钩位置、瓦片切割、破瓦替换</td><td>破瓦、应力集中、穿孔渗漏</td><td>重点检查挂钩与导水节点</td></tr><tr><td>金属屋面</td><td>夹具或固定点、防腐与热胀冷缩</td><td>锈蚀、螺钉松动、热变形</td><td>关注扭矩、防腐和复检周期</td></tr><tr><td>加建/轻型屋顶</td><td>承载与稳定性</td><td>结构不足</td><td>先结构判断，不合适就拒单</td></tr></table>
+</section><section id="sec-05-2-5-海边-盐雾-高温环境下-为什么材料和测试等级要提高" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 05</div>
+<h3>2.5 海边、盐雾、高温环境下，为什么材料和测试等级要提高</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>2.5 海边、盐雾、高温环境下，为什么材料和测试等级要提高</h3>
+<p>泰国不是单一气候场景。内陆高温、海边盐雾、旅游地区高湿度和暴雨工况并存，所以“同一套材料到处装”并不是专业做法。尤其在靠海和高湿热区域，支架、紧固件、接插件、汇流盒、线缆护套和组件边框的耐腐蚀性必须更谨慎评估。</p>
+<p>IEC 61701 专门描述了光伏组件的盐雾腐蚀测试序列，用来评估组件面对含氯盐雾环境时的耐受性。对海边项目而言，这一标准不是一个装饰性参数，而是帮助你区分‘普通内陆项目可接受’和‘海边项目应提高要求’的重要参考。</p>
+<p>另外，PID（Potential-Induced Degradation，电势诱导衰减）在高温高湿环境下也更值得关注。IEC TS 62804 系列就是针对 PID 耐受性的测试方法。不要求一线人员成为失效分析专家，但必须知道：泰国项目在组件选型时，除了看功率和价格，还要考虑高温、高湿、盐雾和系统电压应力下的长期稳定性。</p>
+<div class="term-box"><strong>【高风险环境术语】</strong><b>IEC 61701</b>：盐雾腐蚀测试。<br><b>PID</b>：Potential-Induced Degradation，电势诱导衰减，会影响组件长期输出。<br><b>热降额</b>：组件与逆变器在高温下输出下降的现象。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/59588">IEC 61701 官方条目</a><span class="source-note">：盐雾腐蚀测试标准。</span></li><li><span class="source-badge international">国际/标准</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/71747">IEC TS 62804-1 条目</a><span class="source-note">：针对 PID 的测试方法与耐受性评估。</span></li></ol></div>
+</section><section id="sec-06-2-6-调试-交付和文件包-完工不等于交付完成" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 06</div>
+<h3>2.6 调试、交付和文件包：完工不等于交付完成</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>2.6 调试、交付和文件包：完工不等于交付完成</h3>
+<p>很多团队把组件装上、逆变器亮灯就当作完工，但 IEC 62446-1 的思路非常明确：并网光伏系统交付还需要文件、调试、检查和客户交接。这里的重点不是背标准编号，而是掌握一套基本交付框架。</p>
+<p>一套合格的交付文件包至少应包含：系统单线图、设备清单、关键铭牌信息、调试与检查记录、绝缘/极性/通断等测试结果、监控平台交接、保修说明和客户可理解的操作说明。没有文件的系统，未来售后、并网补件和责任界定都会非常痛苦。</p>
+<p>第二章结尾需要建立一个观念：技术能力不是只体现在会装，更体现在会检查、会记录、会解释、会交接。真正好的户用项目，是客户三个月后回头看，仍然觉得“这家公司是有体系的”。</p>
+<div class="algorithm-box"><strong>【交付前 6 项必检】</strong>1. 组件阵列与固定件外观/扭矩复核。<br>2. 直流极性、绝缘、开路电压抽检。<br>3. 交流接线、保护、接地连续性检查。<br>4. 逆变器告警、监控与并网状态确认。<br>5. 图纸、照片、设备序列号和资料归档。<br>6. 客户讲解与签字交接。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/24057">IEC 62446-1 官方页</a><span class="source-note">：明确要求交付文档、调试和检查。</span></li><li><span class="source-badge international">国际/标准</span><b>[02]</b> <a href="https://www.hioki.com/us-en/learning/common-devices/PV-test-standard.html">Hioki 对 IEC 62446-1 的说明</a><span class="source-note">：以工程实践方式解释 DC 测试、文档和周期性检查。</span></li></ol></div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">硬核修订分章版 · 更适合培训阅读、内部学习与网页部署浏览</div>
+                    <div class="split-footer-actions">
+                        <a href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">上一章</a>
+                        <a class="primary" href="index.html">返回目录</a>
+                        <a href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">下一章</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

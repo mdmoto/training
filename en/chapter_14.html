@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13: Hard-core version of typical project case collection, using cases to build judgment and calculation capabilities - English Edition</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">Split Index</a>
+                <span>/</span>
+                <span>Chapter 14</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">Back to Index</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_en.html">Full Version</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">English Edition · Chapter 14</div>
+            <h1>Chapter 13: Hard-core version of typical project case collection, using cases to build judgment and calculation capabilities</h1>
+            <div class="split-hero-subtitle">Case chapters can’t just tell stories. A truly valuable case must at least include: customer profile, billing structure, key assumptions, system boundaries, calculation logic, decision points, risk points and review conclusions. The following cases are all developed according to this structure.</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">14</span><span class="split-meta-label">Current Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">5</span><span class="split-meta-label">Sections in This Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">Enabled</span><span class="split-meta-label">Quick Navigation</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_13.html">Previous</a>
+                <a class="split-pill" href="chapter_15.html">Next</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">Chapter Navigation</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-13-1-case-1-why-is-it-not-recommended-to-blindly-fill-villas-for-high-net-worth-households"><span class="split-nav-index">01</span><span class="split-nav-text">13.1 Case 1: Why is it not recommended to blindly fill villas for high-net-worth households?</span></a><a class="split-nav-item" href="#sec-02-13-2-case-2-clinic-dental-store-why-is-it-a-small-commercial-entry-level-model"><span class="split-nav-index">02</span><span class="split-nav-text">13.2 Case 2: Clinic/dental store, why is it a small commercial entry-level model?</span></a><a class="split-nav-item" href="#sec-03-13-3-case-3-tourist-villa-b-b-why-the-income-must-be-ranged"><span class="split-nav-index">03</span><span class="split-nav-text">13.3 Case 3: Tourist villa/B&B, why the income must be ranged</span></a><a class="split-nav-item" href="#sec-04-13-4-case-4-light-factory-warehousing-why-a-big-roof-may-not-be-a-good-deal"><span class="split-nav-index">04</span><span class="split-nav-text">13.4 Case 4: Light factory/warehousing, why a big roof may not be a good deal</span></a><a class="split-nav-item" href="#sec-05-13-5-case-5-eaas-pilot-why-choose-the-best-customer-first"><span class="split-nav-index">05</span><span class="split-nav-text">13.5 Case 5: EaaS pilot, why choose the best customer first?</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Quick Actions</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_13.html">Previous Chapter</a>
+                            <a href="chapter_15.html">Next Chapter</a>
+                            <a href="index.html">Back to Index</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Reading Tips</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>Read the chapter intro first, then jump to the most relevant section.</li>
+                            <li>Sections with formulas, tables, and sources can be used directly as work references.</li>
+                            <li>For policy, tax, and grid-connection topics, always follow the latest official rules.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">Chapter Introduction</div>
+                    <div class="chapter-intro">Case chapters can’t just tell stories. A truly valuable case must at least include: customer profile, billing structure, key assumptions, system boundaries, calculation logic, decision points, risk points and review conclusions. The following cases are all developed according to this structure.</div>
+                </div>
+        <section id="sec-01-13-1-case-1-why-is-it-not-recommended-to-blindly-fill-villas-for-high-net-worth-households" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 01</div>
+<h3>13.1 Case 1: Why is it not recommended to blindly fill villas for high-net-worth households?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>13.1 Case 1: Why is it not recommended to blindly fill villas for high-net-worth households?</h3>
+<p>Customer portrait: Self-owned house in the suburbs of Bangkok, 7 air conditioners, there are elderly people and people working from home during the day, the monthly electricity bill has been historically high, and the visible roof surface is obvious. The first demand of customers is not the lowest price, but beauty, stability and after-sales certainty.</p>
+<p>Key judgment: This type of customer has higher spontaneous self-use value, but is also most likely to amplify problems after delivery due to aesthetics, leakage and effect expectations. Therefore, the value of the project is not to install it to the maximum, but to install it to the best match.</p>
+<p>Calculation logic: First estimate the conservative spontaneous self-use rate based on the stable load during the day, and then calculate the annual savings under different capacity plans. If continued expansion of the system leads to a rapid increase in the proportion of food delivery, we should not continue to expand just because the roof can still fit in it.</p>
+<div class="algorithm-box"><strong>[Key points of judgment in Case 1]</strong>The same customer publishes at least two versions of the plan:<b>Matching plan</b>and<b>roof extreme solution</b>, and ask newcomers to explain why the latter is not necessarily superior.</div>
+<div class="case-box"><strong>[Conclusion of review]</strong>For high-net-worth households, it is not a question of price, but a question of certainty. The real deal points are: reasonable plan, good-looking delivery, clear boundaries, and trustworthy after-sales service.</div>
+</section><section id="sec-02-13-2-case-2-clinic-dental-store-why-is-it-a-small-commercial-entry-level-model" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 02</div>
+<h3>13.2 Case 2: Clinic/dental store, why is it a small commercial entry-level model?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>13.2 Case 2: Clinic/dental store, why is it a small commercial entry-level model?</h3>
+<p>Customer portrait: The business hours are stable, the load is concentrated during the day, the boss makes decisions himself, and the requirements for cleanliness of the venue are high. The bill shows obvious energy consumption during the day, so it is suitable for a self-contained roof system.</p>
+<p>Key judgment: This type of project is more suitable for early-stage teams to accumulate small commercial capabilities than complex factories, because it combines stable load, better repayment, and case display value.</p>
+<p>Calculation logic: First identify its Schedule category, and then estimate power savings based on business hours and TOU structure; if there is a demand fee, handle it conservatively and do not overstate the demand improvement.</p>
+<div class="case-box"><strong>[Conclusion of review]</strong>Customers such as clinics/dentists are most suitable for establishing basic capabilities such as bill analysis, construction low-interference organization, concise proposals, and monthly report output.</div>
+</section><section id="sec-03-13-3-case-3-tourist-villa-b-b-why-the-income-must-be-ranged" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 03</div>
+<h3>13.3 Case 3: Tourist villa/B&B, why the income must be ranged</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>13.3 Case 3: Tourist villa/B&B, why the income must be ranged</h3>
+<p>Customer profile: Living part of the time, renting part of the time for short periods, obvious off-peak and peak seasons, large load fluctuations during the day. Customers often have high electricity bills and are willing to pay for good-looking and low-disruption construction.</p>
+<p>Key Judgment: This type of project cannot promise a payback period based on a fixed monthly load because occupancy rates, rental patterns and air conditioning usage intensity will all fluctuate.</p>
+<p>Calculation logic: Make at least three income ranges: off-season, mid-season, and peak season, so that customers know the upper and lower limits of the system value.</p>
+<div class="critical-note"><strong>[Case Three Red Line]</strong>For homestay/short-term rental projects, do not promise a single point of payback period, but a range.</div>
+</section><section id="sec-04-13-4-case-4-light-factory-warehousing-why-a-big-roof-may-not-be-a-good-deal" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 04</div>
+<h3>13.4 Case 4: Light factory/warehousing, why a big roof may not be a good deal</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>13.4 Case 4: Light factory/warehousing, why a big roof may not be a good deal</h3>
+<p>Customer portrait: The roof area is large and the bill seems high, but the property rights, lease term, structural life, demand structure and boss's decision-making style are all more complex.</p>
+<p>Key judgment: Teams are most likely to be attracted by "large area" and "large total price", but ignore that such projects have higher requirements on structure, demand, electricity price, repayment and contract capabilities.</p>
+<p>Calculation logic: In addition to power saving, demand, voltage level, minimum charges, construction impact and payment ability must be taken into consideration.</p>
+<div class="case-box"><strong>[Conclusion of review]</strong>Area is not value, matching is value. If organizational skills are not prepared, a large roof project can easily swallow up the profits earned from many previous smaller projects.</div>
+</section><section id="sec-05-13-5-case-5-eaas-pilot-why-choose-the-best-customer-first" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 05</div>
+<h3>13.5 Case 5: EaaS pilot, why choose the best customer first?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>13.5 Case 5: EaaS pilot, why choose the best customer first?</h3>
+<p>Customer portrait: stable address, stable billing, clear load, willing to cooperate with information and monitoring, and good payment behavior. The goal is not to pursue short-term contract signings, but to verify the long-term service model.</p>
+<p>Key judgment: The value of pilot projects lies in ‘learning to do’, not ‘doing more’. If the most complex customers are selected from the beginning, the team will mix model issues with customer issues and fail to learn real experience.</p>
+<p>Calculation logic: In addition to project savings, it also depends on monthly service fees, customer willingness to continue paying, outage response, contract termination and residual value treatment.</p>
+<div class="quote-box"><strong>[Case Study Five Sentences]</strong>The success criterion of an EaaS pilot is not the number of orders signed, but whether the organization knows how to make the next order more stable.</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">English split edition · suitable for training, internal learning, and web deployment</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_13.html">Previous Chapter</a>
+                        <a class="primary" href="index.html">Back to Index</a>
+                        <a href="chapter_15.html">Next Chapter</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

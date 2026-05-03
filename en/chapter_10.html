@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9: Hardcore version of organizational training, RACI, recurrent training mechanism and talent echelon - English Edition</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">Split Index</a>
+                <span>/</span>
+                <span>Chapter 10</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">Back to Index</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_en.html">Full Version</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">English Edition · Chapter 10</div>
+            <h1>Chapter 9: Hardcore version of organizational training, RACI, recurrent training mechanism and talent echelon</h1>
+            <div class="split-hero-subtitle">Many companies understand training as ‘sending materials to employees for review’. As a result, after reading the training, everyone on site still does their own thing. The focus of this chapter is to transform training from content to system: who is responsible, how to train, how to retrain, how to evaluate, and how to upgrade.</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">10</span><span class="split-meta-label">Current Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">Sections in This Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">Enabled</span><span class="split-meta-label">Quick Navigation</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_09.html">Previous</a>
+                <a class="split-pill" href="chapter_11.html">Next</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">Chapter Navigation</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-9-1-don-t-rush-into-lectures-first-determine-the-raci"><span class="split-nav-index">01</span><span class="split-nav-text">9.1 Don’t rush into lectures, first determine the RACI</span></a><a class="split-nav-item" href="#sec-02-9-2-the-most-practical-raci-for-photovoltaic-companies-is-not-the-full-table-but-the-high-frequency-task-table"><span class="split-nav-index">02</span><span class="split-nav-text">9.2 The most practical RACI for photovoltaic companies is not the full table, but the high-frequency task table</span></a><a class="split-nav-item" href="#sec-03-9-3-training-should-not-only-look-at-class-rates-but-should-use-kirkpatrick-thinking-to-look-at-4-levels-of-results"><span class="split-nav-index">03</span><span class="split-nav-text">9.3 Training should not only look at class rates, but should use Kirkpatrick thinking to look at 4 levels of results</span></a><a class="split-nav-item" href="#sec-04-9-4-show-me-four-step-method-demonstration-repetition-retelling-and-spot-check"><span class="split-nav-index">04</span><span class="split-nav-text">9.4 Show-Me four-step method: demonstration, repetition, retelling, and spot check</span></a><a class="split-nav-item" href="#sec-05-9-5-30-60-90-days-for-new-employees-not-a-feeling-period-but-a-capability-milestone"><span class="split-nav-index">05</span><span class="split-nav-text">9.5 30/60/90 days for new employees, not a feeling period, but a capability milestone</span></a><a class="split-nav-item" href="#sec-06-9-6-how-do-managers-know-whether-training-is-in-vain"><span class="split-nav-index">06</span><span class="split-nav-text">9.6 How do managers know whether training is in vain?</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Quick Actions</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_09.html">Previous Chapter</a>
+                            <a href="chapter_11.html">Next Chapter</a>
+                            <a href="index.html">Back to Index</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Reading Tips</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>Read the chapter intro first, then jump to the most relevant section.</li>
+                            <li>Sections with formulas, tables, and sources can be used directly as work references.</li>
+                            <li>For policy, tax, and grid-connection topics, always follow the latest official rules.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">Chapter Introduction</div>
+                    <div class="chapter-intro">Many companies understand training as ‘sending materials to employees for review’. As a result, after reading the training, everyone on site still does their own thing. The focus of this chapter is to transform training from content to system: who is responsible, how to train, how to retrain, how to evaluate, and how to upgrade.</div>
+                </div>
+        <section id="sec-01-9-1-don-t-rush-into-lectures-first-determine-the-raci" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 01</div>
+<h3>9.1 Don’t rush into lectures, first determine the RACI</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>9.1 Don’t rush into lectures, first determine the RACI</h3>
+<p>Once a project is coordinated across sales, engineering, procurement, finance, and after-sales, it will inevitably encounter a problem: who is responsible for doing it, who is responsible for making decisions, who needs to be consulted, and who needs to be synchronized. If this matter is not defined in advance, no matter how much training is done, each other will blame each other during the execution stage. RACI is one of the most practical methods of assigning responsibilities.</p>
+<p>PMI's public documents use RACI as a common practice in the Responsibility Assignment Matrix, emphasizing that roles should be clear early in the project. For photovoltaic companies, RACI is most suitable to solve problems such as ‘who initiates the survey, who makes the decision on the plan, who approves the alternative materials, who submits the grid connection data, who keeps track of the final payment, and who closes the after-sales work order’.</p>
+<p>The most important thing here is not to memorize the English words Responsible, Accountable, Consulted, and Informed, but to know that each high-frequency task must have only one final decision-maker. As long as there are two Accountables for a task, the organization will slow down; if there is no Accountable for a task, the organization will get out of control.</p>
+<div class="term-box"><strong>[RACI’s simplest explanation]</strong><b>R</b>: Responsible, executor.<br><b>A</b>: Accountable, the person who makes the final decision and is responsible for the results.<br><b>C</b>: Consulted, needs to be consulted.<br><b>I</b>:Informed, needs to be synchronized.</div>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge industry">Industry</span><b>[01]</b> <a href="https://www.pmi.org/learning/library/best-practices-managing-people-quality-management-7012">PMI document explains the Responsibility Assignment Matrix</a><span class="source-note">: Point out that RACI is often used to clarify project roles and responsibilities.</span></li></ol></div>
+</section><section id="sec-02-9-2-the-most-practical-raci-for-photovoltaic-companies-is-not-the-full-table-but-the-high-frequency-task-table" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 02</div>
+<h3>9.2 The most practical RACI for photovoltaic companies is not the full table, but the high-frequency task table</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>9.2 The most practical RACI for photovoltaic companies is not the full table, but the high-frequency task table</h3>
+<p>Many companies create huge management tables as soon as they do RACI, and in the end no one reads it. What is more suitable for you is to make a high-frequency task list first. For example: preliminary screening of clues, survey arrangements, plan review, quotation approval, contract signing, start of construction, approval of alternative materials, grid connection data submission, balance collection, and after-sales work order upgrade. As long as the role of each item is clear, organizational efficiency will be significantly improved.</p>
+<p>The greatest value of RACI lies in knowing ‘when to upgrade’ instead of having to do everything yourself. As long as you know who you need to talk to for decisions on what types of issues, the probability of making big mistakes will be significantly reduced.</p>
+<table class="note-table"><tr><th>Task</th><th>R</th><th>A</th><th>C</th><th>I</th></tr><tr><td>Initial screening of clues</td><td>sales consultant</td><td>sales Executive</td><td>market</td><td>project</td></tr><tr><td>Program review</td><td>Solution engineer</td><td>Technical person in charge</td><td>Sales/Project Manager</td><td>purchase</td></tr><tr><td>Substitute material approval</td><td>Proposed by Procurement or Project Manager</td><td>Technical person in charge</td><td>After-sales/Finance</td><td>Sale</td></tr><tr><td>Submit grid connection data</td><td>Project Clerk/Project Manager</td><td>project manager</td><td>Engineer/Customer</td><td>Sales/Finance</td></tr><tr><td>After-sales upgrade</td><td>customer service</td><td>After-sales supervisor</td><td>Project Manager/Technical</td><td>Sale</td></tr></table>
+</section><section id="sec-03-9-3-training-should-not-only-look-at-class-rates-but-should-use-kirkpatrick-thinking-to-look-at-4-levels-of-results" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 03</div>
+<h3>9.3 Training should not only look at class rates, but should use Kirkpatrick thinking to look at 4 levels of results</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>9.3 Training should not only look at class rates, but should use Kirkpatrick thinking to look at 4 levels of results</h3>
+<p>The most common misunderstanding in training is that ‘everyone comes to class’ means the training is effective. The reason why the Kirkpatrick model is classic is that it breaks down the training effect into four levels from shallow to deep: response, learning, behavior, and result. In other words, the employee feels that the class is well taught, but it is only Level 1; what really matters is whether he has learned it, whether he can do it when he returns to his job, and whether it has improved organizational results in the end.</p>
+<p>For photovoltaic companies, this model is very practical. For example, if a new employee participates in the training on grid connection materials, the first level can measure the degree of satisfaction; the second level can test whether he understands concepts such as CA, single-line diagrams, and Zero Export; the third level can test whether he can really prepare materials independently; and the fourth level can test whether the completion rate of one-time grid connection submission has been improved. Only at the fourth level is training truly relevant to operations.</p>
+<p>Therefore, Chapter 9 must correct a common misunderstanding: do not make training an activity, but make training a result improvement project.</p>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge industry">Industry</span><b>[01]</b> <a href="http://www.kirkpatrickpartners.com/the-kirkpatrick-model/">Kirkpatrick Partners explains the model</a><span class="source-note">: Emphasis on moving from learning activities to behavior and business results.</span></li><li><span class="source-badge industry">Industry</span><b>[02]</b> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3070232/">PMC 对 Kirkpatrick 模型的综述</a><span class="source-note">: Indicates that it has been used in training effectiveness research for a long time.</span></li></ol></div>
+</section><section id="sec-04-9-4-show-me-four-step-method-demonstration-repetition-retelling-and-spot-check" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 04</div>
+<h3>9.4 Show-Me four-step method: demonstration, repetition, retelling, and spot check</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>9.4 Show-Me four-step method: demonstration, repetition, retelling, and spot check</h3>
+<p>The core of Show-Me is to break down live actions into four replicable steps: demonstration, repetition, retelling, and spot check. Demonstration solves 'seeing the correct action', repetition solves 'can do it with hands', retelling solves 'clearly explains in mind', and spot check solves 'can continue to do it right after returning to the scene'.</p>
+<p>The reason why many trainings fail is not because the content is wrong, but because of the lack of spot checks. Just because new employees did something right at the training site does not mean they will still do it right a week or a month later. As long as there are no spot checks, standard actions will fall back into old habits.</p>
+<div class="algorithm-box"><strong>[4-step method for on-site execution]</strong>1. Demonstration: Old employees do it completely.<br>2. Repeat: The new person does it again under supervision.<br>3. Retell: The newcomer tells why he did it.<br>4. Spot check: Check again after a week and a month to see if you are still doing it right.</div>
+</section><section id="sec-05-9-5-30-60-90-days-for-new-employees-not-a-feeling-period-but-a-capability-milestone" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 05</div>
+<h3>9.5 30/60/90 days for new employees, not a feeling period, but a capability milestone</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>9.5 30/60/90 days for new employees, not a feeling period, but a capability milestone</h3>
+<p>Many companies say that new employees have a probation period, but there are no competency milestones, so in the end supervisors can only judge whether a person is good or not based on their feelings. A better approach is to split the 30/60/90 days into capability nodes: 30 days to see understanding and basic actions, 60 days to see how to independently complete basic tasks, and 90 days to see whether you can handle and upgrade problems independently within boundaries.</p>
+<p>For sales positions, they should be able to complete the initial screening of leads and basic questions within 30 days; they should be able to complete proposal explanations under supervision within 60 days; and they should be able to independently complete a set of standard processes within 90 days. For engineering positions, candidates should be able to understand materials and construction methods within 30 days; be able to complete standard nodes within 60 days; and be able to lead small tasks independently within 90 days. The same goes for customer service and project clerks, there must be a clear path.</p>
+<p>As long as there are no 30/60/90 day milestones, so-called ‘training’ can easily degenerate into vague feeling management.</p>
+</section><section id="sec-06-9-6-how-do-managers-know-whether-training-is-in-vain" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 06</div>
+<h3>9.6 How do managers know whether training is in vain?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>9.6 How do managers know whether training is in vain?</h3>
+<p>Whether the training is effective should not just rely on the teacher's feeling, but should depend on whether the business indicators change. For example, after the completion of Chapter 2 technical training, has the rework rate decreased? After the completion of Chapter 4, the grid connection training, has the completeness rate of one-time submission of materials improved? After the completion of Chapter 5, the sales training, has it been measured whether the contract signing rate has improved. As long as the training topics and indicators can be linked, training will truly enter the management system.</p>
+<p>Therefore, training leaders and department heads should form a fixed action: before each training begins, determine which behavior and which indicator to change; after the training is completed, the results will be viewed in 30 days, 60 days, and 90 days. In this way, organizations will no longer regard training as a cost item that has been done many times but cannot tell the effect.</p>
+<div class="kpi-box"><strong>[Chapter 9 Implementation KPI]</strong>1. 30/60/90 day pass rate for new hires.<br>2. Spot check pass rate of key actions.<br>3. Improve the completeness rate of one-time submission of grid connection data.<br>4. Rework rate improvement.<br>5. Performance improvement rate 90 days after training.</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">English split edition · suitable for training, internal learning, and web deployment</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_09.html">Previous Chapter</a>
+                        <a class="primary" href="index.html">Back to Index</a>
+                        <a href="chapter_11.html">Next Chapter</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

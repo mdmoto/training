@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Hardcore version of quotation, gross profit, cash flow, exchange rate and inventory model - English Edition</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">Split Index</a>
+                <span>/</span>
+                <span>Chapter 08</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">Back to Index</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_en.html">Full Version</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">English Edition · Chapter 08</div>
+            <h1>Chapter 7: Hardcore version of quotation, gross profit, cash flow, exchange rate and inventory model</h1>
+            <div class="split-hero-subtitle">The core of the financial chapter is not to keep accounts, but to help business and engineering understand: why some orders seem to be profitable, but in the end they drag down cash flow and after-sales service. This chapter focuses on reconstructing five things: tax base, quotation structure, real profit, repayment design, exchange rate and inventory control.</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">08</span><span class="split-meta-label">Current Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">7</span><span class="split-meta-label">Sections in This Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">Enabled</span><span class="split-meta-label">Quick Navigation</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_07.html">Previous</a>
+                <a class="split-pill" href="chapter_09.html">Next</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">Chapter Navigation</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-7-1-let-s-first-explain-the-basics-of-taxation-vat-cit-and-service-fee-accrual"><span class="split-nav-index">01</span><span class="split-nav-text">7.1 Let’s first explain the basics of taxation: VAT, CIT, and service fee accrual.</span></a><a class="split-nav-item" href="#sec-02-7-2-quotation-is-not-a-pat-on-the-head-how-should-the-standard-quotation-structure-be-broken-down"><span class="split-nav-index">02</span><span class="split-nav-text">7.2 Quotation is not a pat on the head: How should the standard quotation structure be broken down?</span></a><a class="split-nav-item" href="#sec-03-7-3-gross-profit-is-not-equal-to-real-profit-we-must-think-in-terms-of-profit-waterfall-chart"><span class="split-nav-index">03</span><span class="split-nav-text">7.3 Gross profit is not equal to real profit: we must think in terms of profit waterfall chart</span></a><a class="split-nav-item" href="#sec-04-7-4-payment-collection-design-why-node-arrangement-is-more-important-than-payment-techniques"><span class="split-nav-index">04</span><span class="split-nav-text">7.4 Payment collection design: why node arrangement is more important than payment techniques</span></a><a class="split-nav-item" href="#sec-05-7-5-exchange-rate-is-not-a-financial-abstraction-but-a-real-cost-variable-for-chinese-supply-chain-companies"><span class="split-nav-index">05</span><span class="split-nav-text">7.5 Exchange rate is not a financial abstraction, but a real cost variable for Chinese supply chain companies</span></a><a class="split-nav-item" href="#sec-06-7-6-inventory-and-spare-parts-why-stocking-too-much-and-having-nothing-at-all-are-both-dangerous"><span class="split-nav-index">06</span><span class="split-nav-text">7.6 Inventory and spare parts: Why ‘stocking too much’ and ‘having nothing at all’ are both dangerous</span></a><a class="split-nav-item" href="#sec-07-7-7-financial-kpis-that-management-must-look-at-otherwise-profits-will-only-remain-in-their-feelings"><span class="split-nav-index">07</span><span class="split-nav-text">7.7 Financial KPIs that management must look at, otherwise profits will only remain in their feelings.</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Quick Actions</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_07.html">Previous Chapter</a>
+                            <a href="chapter_09.html">Next Chapter</a>
+                            <a href="index.html">Back to Index</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Reading Tips</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>Read the chapter intro first, then jump to the most relevant section.</li>
+                            <li>Sections with formulas, tables, and sources can be used directly as work references.</li>
+                            <li>For policy, tax, and grid-connection topics, always follow the latest official rules.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">Chapter Introduction</div>
+                    <div class="chapter-intro">The core of the financial chapter is not to keep accounts, but to help business and engineering understand: why some orders seem to be profitable, but in the end they drag down cash flow and after-sales service. This chapter focuses on reconstructing five things: tax base, quotation structure, real profit, repayment design, exchange rate and inventory control.</div>
+                </div>
+        <section id="sec-01-7-1-let-s-first-explain-the-basics-of-taxation-vat-cit-and-service-fee-accrual" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 01</div>
+<h3>7.1 Let’s first explain the basics of taxation: VAT, CIT, and service fee accrual.</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>7.1 Let’s first explain the basics of taxation: VAT, CIT, and service fee accrual.</h3>
+<p>The English page of the Revenue Department provides a basic foundation that is very suitable for training. First, the general rate of VAT in Thailand is currently<b>7%</b>; Second, any person who continues to sell goods or provide services in Thailand and whose annual turnover exceeds<b>1.8 million THB</b>entities should generally be included in the VAT system; third, the general corporate income tax (CIT) tax rate is<b>20%</b>net profit. That said, quote and profit discussions go beyond just looking at the ‘total price’ and also understand how taxes and bills impact cash flow.</p>
+<p>The same set of RD materials also gives common withholding tax standards: for example, payments to Thai companies or foreign companies with permanent establishments in Thailand<b>Service and professional service fees</b>, the common withholding tax rate is<b>3%</b>; Payment to a foreign company without a permanent establishment in Thailand is usually<b>5%</b>. This makes sense for your settlement design with Chinese suppliers, overseas technical services, or local subcontracting.</p>
+<p>Business teams need to know: Tax isn’t just for accountants. VAT affects customer bills and repayment experience, CIT affects profit caliber, and withholding tax affects service fee settlement and contract net amount. Without talking about taxes, the quotation can easily appear high or low, but the team themselves don’t know why.</p>
+<div class="term-box"><strong>[Financial base noun]</strong><b>VAT</b>:VAT.<br><b>CIT</b>: Corporate income tax.<br><b>WHT</b>: Withholding tax/withholding tax.<br><b>Output Tax / Input Tax</b>: Output tax / input tax.</div>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge official">Official</span><b>[01]</b> <a href="https://www.rd.go.th/english/6043.html">RD Value Added Tax English page</a><span class="source-note">: Provides explanations of VAT 7%, 1.8 million THB registration threshold, VAT 30 and VAT 36.</span></li><li><span class="source-badge official">Official</span><b>[02]</b> <a href="https://www.rd.go.th/english/6044.html">RD Corporate Income Tax English page</a><span class="source-note">: Provides CIT 20%, CIT 50/51/54, service fee withholding tax and other information.</span></li><li><span class="source-badge official">Official</span><b>[03]</b> <a href="https://www.rd.go.th/english/52471.html">RD Thailand Tax Rate page</a><span class="source-note">: Summarize VAT, CIT, service fee withholding tax and other public information.</span></li></ol></div>
+</section><section id="sec-02-7-2-quotation-is-not-a-pat-on-the-head-how-should-the-standard-quotation-structure-be-broken-down" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 02</div>
+<h3>7.2 Quotation is not a pat on the head: How should the standard quotation structure be broken down?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>7.2 Quotation is not a pat on the head: How should the standard quotation structure be broken down?</h3>
+<p>The most effective way to train business and finance is not to tell everyone ‘how much gross profit is required’, but to first break down the quotation structure. A standard photovoltaic project quotation should at least be broken down into: main equipment materials, auxiliary materials, labor, survey and design, logistics and hoisting, grid connection and data, after-sales reserves, marketing allocation, exchange rate buffer and target gross profit. Only after taking it apart did the team know what they were selling.</p>
+<p>The front-line quotations for many projects seemed reasonable, but later it was discovered that the manpower for grid connection information, after-sales visits, image archiving, customer training, and even monitoring and commissioning were not included at all. The result is not that customers take advantage, but that the company itself forgets about the costs it must bear.</p>
+<p>Therefore, quotation templates must be standardized. It is not for administrative beauty, but to prevent the same company from quoting two completely different sets of cost logic for similar projects.</p>
+<div class="algorithm-box"><strong>[Standard quotation formula]</strong><span class="formula">Quoted total cost before tax = main materials + auxiliary materials + labor + survey and design + logistics hoisting + grid connection information + after-sales reserves + marketing allocation + exchange rate buffer</span><br><span class="formula">Price before tax = Total cost before tax ÷ (1 - Target gross profit margin)</span><br><span class="formula">Quotation including tax = Quotation before tax × (1 + VAT)</span></div>
+</section><section id="sec-03-7-3-gross-profit-is-not-equal-to-real-profit-we-must-think-in-terms-of-profit-waterfall-chart" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 03</div>
+<h3>7.3 Gross profit is not equal to real profit: we must think in terms of profit waterfall chart</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>7.3 Gross profit is not equal to real profit: we must think in terms of profit waterfall chart</h3>
+<p>The most common misunderstanding in business is to regard the contract gross profit as the final profit. In fact, what you get at the moment of signing the contract is only the "quotation gross profit", and there are still a lot of variables that may erode the project income from the real profit. The correct training method is to use a profit waterfall chart.</p>
+<p>The basic logic of the profit waterfall is: starting from the contract revenue, first subtract direct materials and direct labor to get the project gross profit; then subtract survey and design, grid connection data, transportation, and installation management to get the contribution gross profit; then subtract rework, after-sales reserves, exchange rate losses, bad debt provisions, and marketing apportionment to get close to the real operating profit. As long as the team does not have this awareness, it will continue to overestimate its ability to make money.</p>
+<p>Management should require project reviews to look at at least three levels of profit: quoted gross profit, completion gross profit, and true profit after 90 days. Only in this way can we see whether the problem lies in quotation, delivery or after-sales.</p>
+<table class="note-table"><tr><th>Profit level</th><th>Contains content</th><th>Why is it important</th></tr><tr><td>Quotation gross profit</td><td>Contract amount - direct main materials/labor budget</td><td>The easiest to look good and the easiest to distort</td></tr><tr><td>gross profit on completion</td><td>Plus actual purchasing, actual labor, shipping, management</td><td>Reflect execution deviation</td></tr><tr><td>real profit</td><td>Then deduct rework, after-sales, exchange rate, bad debts, and marketing allocation.</td><td>Reflect on whether this order is worth doing.</td></tr></table>
+</section><section id="sec-04-7-4-payment-collection-design-why-node-arrangement-is-more-important-than-payment-techniques" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 04</div>
+<h3>7.4 Payment collection design: why node arrangement is more important than payment techniques</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>7.4 Payment collection design: why node arrangement is more important than payment techniques</h3>
+<p>Companies with good cash flow may not necessarily be the most aggressive in collecting payments, but they must design payment collection nodes more scientifically from the beginning of the contract. For household projects, it is recommended to at least bind the repayment to verifiable nodes of the project, such as signing deposit, pre-construction/material arrival, completion of main installation, grid connection/acceptance delivery. For small commercial and complex projects, more emphasis should be placed on synchronization with design, equipment procurement and grid connection nodes.</p>
+<p>There are two extremes that are most feared in the payment collection design: one is that the balance is left behind for the purpose of signing the contract, causing the system to generate electricity but the customer has no pressure to pay; the other is that the node setting is out of touch with the actual project, and the customer feels forced to pay and lacks cooperation. A truly mature node design not only protects cash flow, but also conforms to project reality.</p>
+<p>Sales must know: every time a node is relaxed, the company is incurring additional financing costs. Project managers also need to know: If the final payment is delayed due to poor documentation or acceptance, it is not a financial problem in nature, but a delivery problem.</p>
+<div class="algorithm-box"><strong>[Simple quantification of repayment risk]</strong><span class="formula">Weighted number of days for payment = ∑ (proportion of each payment amount × estimated number of days for payment)</span><br><span class="formula">Project cash gap ≈ peak expenditure on procurement and labor - money collected during the same period</span><br>Management should at least look at: the weighted collection days of each type of project, the overdue rate of final payment, and the number of projects with outstanding final payment before grid connection.</div>
+</section><section id="sec-05-7-5-exchange-rate-is-not-a-financial-abstraction-but-a-real-cost-variable-for-chinese-supply-chain-companies" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 05</div>
+<h3>7.5 Exchange rate is not a financial abstraction, but a real cost variable for Chinese supply chain companies</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>7.5 Exchange rate is not a financial abstraction, but a real cost variable for Chinese supply chain companies</h3>
+<p>Since a large amount of your main materials come from China, the exchange rate is not a problem of the financial department itself, but a profit variable determined by quotation, procurement and payment collection. BOT's foreign exchange page publishes the average buying and selling exchange rate of commercial banks and the weighted inter-bank exchange rate every day, which shows that companies can establish their own exchange rate observation habits instead of passively accepting the results when purchasing and paying.</p>
+<p>For example, on April 30, 2026, the BOT page shows that the weighted interbank exchange rate is approximately<b>32.769 THB/USD</b>. This number by itself won’t tell you whether the project is making money, but it reminds you: there must be buffering logic for cross-currency purchases. If the quotation is locked in THB and the purchase is settled in RMB/USD, the quotation validity period, advance payment time and price locking rhythm will all affect the final gross profit.</p>
+<p>The most important thing in the training is not to let the business learn hedging, but to let the business know that the quotation validity period, deposit ratio, purchase price lock and exchange rate buffer are not deliberately conservative in finance, but to protect project profits.</p>
+<div class="sop-box"><strong>[Simplified Management Method for Exchange Rate Risk]</strong>1. Set the quotation validity period for projects exceeding a certain amount.<br>2. Prioritize locking key equipment after receiving the down payment.<br>3. There is an exchange rate buffer column in the quotation template.<br>4. Check the BOT exchange rate every week instead of worrying about it just before payment.</div>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge official">Official</span><b>[01]</b> <a href="https://www.bot.or.th/en/statistics/exchange-rate.html">BOT Daily Foreign Exchange Rates</a><span class="source-note">: You can check the daily exchange rate and the average buying and selling price of commercial banks.</span></li></ol></div>
+</section><section id="sec-06-7-6-inventory-and-spare-parts-why-stocking-too-much-and-having-nothing-at-all-are-both-dangerous" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 06</div>
+<h3>7.6 Inventory and spare parts: Why ‘stocking too much’ and ‘having nothing at all’ are both dangerous</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>7.6 Inventory and spare parts: Why ‘stocking too much’ and ‘having nothing at all’ are both dangerous</h3>
+<p>Inventory management is most afraid of two extremes: Either for fear of shortage, a large amount of money is invested in slow-moving parts; or in order to reduce inventory, on-site and after-sales are frequently interrupted due to missing parts. Especially when there are many household projects and scattered small businesses, what is really needed is tiered inventory: standard auxiliary materials are always in stock, key spare parts are in limited stock, and main equipment is locked by project.</p>
+<p>Procurement and warehouses must know: more inventory is not safer, but the clearer it is, the safer it is. You must at least know which are Class A high-frequency standard parts, which are Class B parts purchased on a project basis, and which are Class C after-sales key spare parts. This layering will be even more important for future EaaS/EMC as downtime losses will be more sensitive.</p>
+<p>Without stratification, companies will fall into a very common vicious cycle: they usually feel like they have a lot of inventory, but when something goes wrong, they are always short of key items.</p>
+<div class="algorithm-box"><strong>[Inventory stratification ideas]</strong>Category A: high frequency, low price, standard parts, suitable for safety stock.<br>Category B: medium price, large project differences, try to purchase by project.<br>Category C: low-frequency but critical after-sales parts, with a small amount of reserves based on historical failure rates.<br><span class="formula">Safety stock ≈ average daily consumption × replenishment cycle + risk buffer</span></div>
+</section><section id="sec-07-7-7-financial-kpis-that-management-must-look-at-otherwise-profits-will-only-remain-in-their-feelings" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 07</div>
+<h3>7.7 Financial KPIs that management must look at, otherwise profits will only remain in their feelings.</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#07</div>
+</div>
+<h3>7.7 Financial KPIs that management must look at, otherwise profits will only remain in their feelings.</h3>
+<p>Financial KPIs should be more than just ‘signings this month’. For a business structure like yours, it makes more sense to look at profit, cash flow, and quality all at the same time. At least it is recommended to look at: quoted gross profit margin, completed gross profit margin, 90-day real profit margin, weighted collection days, balance overdue rate, exchange rate loss rate, inventory turnover days and after-sales reserve utilization rate.</p>
+<p>As long as these items are looked at at the same time, management can quickly determine whether the problem lies in front-end quotation, procurement execution, on-site delivery or after-sales tail. A truly good financial chapter does not make finance more difficult, but allows business and engineering to learn how to keep money.</p>
+<div class="kpi-box"><strong>[Chapter 7 Implementation KPI]</strong>1. Quoted gross profit margin.<br>2. Gross profit margin on completion.<br>3. 90-day true profit margin.<br>4. Weighted number of days for payment.<br>5. Overdue balance rate.<br>6. Exchange rate loss rate.<br>7. Inventory turnover days.<br>8. Utilization rate of after-sales reserves.</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">English split edition · suitable for training, internal learning, and web deployment</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_07.html">Previous Chapter</a>
+                        <a class="primary" href="index.html">Back to Index</a>
+                        <a href="chapter_09.html">Next Chapter</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

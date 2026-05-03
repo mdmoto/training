@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>硬核修订版目录</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+
+
+<style>
+.lang-switcher {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 16px 14px;
+    background: rgba(11, 25, 44, 0.82);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.lang-switcher a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.08);
+}
+.lang-switcher a.active {
+    background: #ffffff;
+    color: #0d2d50;
+    border-color: #ffffff;
+}
+</style>
+
+</head>
+<body>
+<div class="lang-switcher">
+  <a class="active" href="../zh/index.html">中文</a>
+  <a class="" href="../en/index.html">English</a>
+  <a class="" href="../th/index.html">ไทย</a>
+  <a href="../zh/full.html">Full</a>
+</div>
+
+<div class="portal-shell"><div class="portal-container">
+    <section class="portal-hero">
+        <div class="portal-badge">硬核修订版 · 分章浏览</div>
+        <h1 class="portal-title">2026 泰国户用与小商用光伏全员培训资料</h1>
+        <div class="portal-subtitle">
+            本版已将全书统一整理为“<b>定义 + 数据 + 算法 + 出处 + 风险边界</b>”的工作手册写法，
+            内容覆盖 <b>Ft、TOU、并网、805 号法令</b>，并延伸到 <b>财务、运维、EaaS/EMC 和管理动作</b>。
+        </div>
+        <div class="portal-actions">
+            <a class="portal-button primary" href="01_战略总纲_为什么做泰国户用__小商用光伏以及这件事还能做多久.html">从总纲开始</a>
+            <a class="portal-button secondary" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+        </div>
+        <div class="portal-stats">
+            <div class="portal-stat"><div class="portal-stat-value">16</div><div class="portal-stat-label">章节页</div></div>
+            <div class="portal-stat"><div class="portal-stat-value">15 章</div><div class="portal-stat-label">全书已统一精修</div></div>
+            <div class="portal-stat"><div class="portal-stat-value">引用样式</div><div class="portal-stat-label">已全书统一</div></div>
+            <div class="portal-stat"><div class="portal-stat-value">网页版</div><div class="portal-stat-label">适合内网部署浏览</div></div>
+        </div>
+    </section>
+    <section class="chapter-grid">
+        <a class="chapter-card" href="01_战略总纲_为什么做泰国户用__小商用光伏以及这件事还能做多久.html">
+            <div class="chapter-card-top"><span class="chapter-index">01</span><span class="chapter-open">进入本章</span></div>
+            <h3>战略总纲：为什么做泰国户用 + 小商用光伏，以及这件事还能做多久</h3>
+            <p class="chapter-summary">本章围绕 5W1H 展开，集中回答六个核心问题：为什么现在值得做、这件事本质是什么、主要给谁做、在泰国哪些区域更适合做、这个窗口还能持续多久、以及我们应当如何把事情做好。</p>
+        </a>
+        
+        <a class="chapter-card" href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">
+            <div class="chapter-card-top"><span class="chapter-index">02</span><span class="chapter-open">进入本章</span></div>
+            <h3>第一章：泰国电力市场、Ft、TOU、并网与 805 号法令硬核解读</h3>
+            <p class="chapter-summary">本章是进入泰国光伏业务必须掌握的基础课，重点回答四类问题：Ft 到底是什么、TOU 怎么算、户用和小商用为什么适合光伏、805 号法令到底提供了什么激励。所有关键结论尽量对应公开来源，避免把营销口号误……</p>
+        </a>
+        
+        <a class="chapter-card" href="03_第二章_户用技术规范结构边界关键参数与失效模式.html">
+            <div class="chapter-card-top"><span class="chapter-index">03</span><span class="chapter-open">进入本章</span></div>
+            <h3>第二章：户用技术规范、结构边界、关键参数与失效模式</h3>
+            <p class="chapter-summary">本章把户用项目最关键的四类内容拆开说明：设备与标准、屋顶与结构、直流与逆变器设计、交付与失效模式。重点不只是知道“别人怎么做”，更要知道“为什么这样做”。</p>
+        </a>
+        
+        <a class="chapter-card" href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">
+            <div class="chapter-card-top"><span class="chapter-index">04</span><span class="chapter-open">进入本章</span></div>
+            <h3>第三章：小商用测算、电价结构、需量逻辑与提案算法</h3>
+            <p class="chapter-summary">这一章重点解决一个现实问题：很多团队会做户用报价，却不会真正算小商用。结果要么把门店项目按户用思路硬做，要么听老板一句“电费很高”就盲目做大系统。本章直接用 PEA 电价结构和需量规则建立小商用测算框……</p>
+        </a>
+        
+        <a class="chapter-card" href="05_第四章_并网审批资料清单交付文件与项目流程硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">05</span><span class="chapter-open">进入本章</span></div>
+            <h3>第四章：并网审批、资料清单、交付文件与项目流程硬核版</h3>
+            <p class="chapter-summary">本章把“审批、并网、资料、验收”四件事放到一条主线里说明。重点不是记住每个表格编号，而是建立一个清晰认知：并网不是售后补动作，而是项目从签约到 COD 的关键主线。凡是资料意识弱的团队，迟早会在并网、……</p>
+        </a>
+        
+        <a class="chapter-card" href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">06</span><span class="chapter-open">进入本章</span></div>
+            <h3>第五章：营销、线索筛选、提案结构与成交算法硬核版</h3>
+            <p class="chapter-summary">营销和销售最容易被写成鸡汤。本章不讲“要真诚”“要专业”这种空话，而是把真正可执行的部分拆开：线索怎么分级、问题怎么问、提案怎么结构化、什么客户要放弃、哪些话坚决不能说。</p>
+        </a>
+        
+        <a class="chapter-card" href="07_第六章_主体合规合同边界劳动义务与保险留痕硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">07</span><span class="chapter-open">进入本章</span></div>
+            <h3>第六章：主体合规、合同边界、劳动义务与保险留痕硬核版</h3>
+            <p class="chapter-summary">合规章节最忌讳写成‘要合法经营’。本章把管理层和关键岗位最容易踩雷的地方用可执行语言讲清楚：主体如何选、外国人经营边界在哪、合同哪些条款不能删、劳动和工伤责任如何落地、项目资料为什么不仅服务电力公司……</p>
+        </a>
+        
+        <a class="chapter-card" href="08_第七章_报价毛利现金流汇率与库存模型硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">08</span><span class="chapter-open">进入本章</span></div>
+            <h3>第七章：报价、毛利、现金流、汇率与库存模型硬核版</h3>
+            <p class="chapter-summary">财务章的核心不是记账，而是帮助业务和工程理解：为什么有些单子看上去赚钱，最后却把现金流和售后都拖垮。本章重点重构五件事：税务底座、报价结构、真实利润、回款设计、汇率与库存控制。</p>
+        </a>
+        
+        <a class="chapter-card" href="09_第八章_监控告警运维清洗与_SLA_硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">09</span><span class="chapter-open">进入本章</span></div>
+            <h3>第八章：监控、告警、运维、清洗与 SLA 硬核版</h3>
+            <p class="chapter-summary">运维章节最怕写成‘出问题就去修’。真正的运维体系应该回答五个问题：看什么数据、怎么判异常、什么时候上门、哪些事可以预防、客户为什么愿意持续信任你。本章以监控指标、周期检查、清洗策略和工单机制为主线展开……</p>
+        </a>
+        
+        <a class="chapter-card" href="10_第九章_组织训练RACI复训机制与人才梯队硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">10</span><span class="chapter-open">进入本章</span></div>
+            <h3>第九章：组织训练、RACI、复训机制与人才梯队硬核版</h3>
+            <p class="chapter-summary">很多公司把培训理解成‘把资料发给员工看’，结果看完之后现场还是各做各的。本章的重点，是把培训从内容变成系统：谁负责、怎么训练、怎么复训、怎么评估、怎么升级。</p>
+        </a>
+        
+        <a class="chapter-card" href="11_第十章_战略升级品牌资产项目池与资本可读性硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">11</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十章：战略升级、品牌资产、项目池与资本可读性硬核版</h3>
+            <p class="chapter-summary">很多公司把战略升级写成愿景口号，真正有价值的写法应该回答：什么样的公司会被资本、银行和大客户看懂，什么样的公司即使装机很多也依旧不可读。本章从项目池、品牌资产、数据治理和融资可读性四条线展开。</p>
+        </a>
+        
+        <a class="chapter-card" href="12_第十一章_EaaS_EMC_ESCO_商业模型硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">12</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十一章：EaaS / EMC / ESCO 商业模型硬核版</h3>
+            <p class="chapter-summary">这一章首先要把容易混淆的概念分开。EaaS、EMC、ESCO、分期、租赁、PPA 看起来都和‘能源服务’有关，但它们的资产归属、风险承担、客户付费和技术责任完全不同。本章围绕定义、合同结构、现金流、风……</p>
+        </a>
+        
+        <a class="chapter-card" href="13_第十二章_附录术语表公式表与标准资料包硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">13</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十二章：附录、术语表、公式表与标准资料包硬核版</h3>
+            <p class="chapter-summary">附录的作用不是凑页数，而是把前面分散在各章的术语、公式、资料和检查项收束成可查询工具。正文负责建立框架，附录负责快速查找，本章的目标就是把整本资料变成可随手翻的工作手册。</p>
+        </a>
+        
+        <a class="chapter-card" href="14_第十三章_典型项目案例集硬核版用案例建立判断与测算能力.html">
+            <div class="chapter-card-top"><span class="chapter-index">14</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十三章：典型项目案例集硬核版，用案例建立判断与测算能力</h3>
+            <p class="chapter-summary">案例章节不能只是讲故事。真正有价值的案例，至少要包含：客户画像、账单结构、关键假设、系统边界、测算逻辑、决策点、风险点和复盘结论。以下案例均按这个结构展开。</p>
+        </a>
+        
+        <a class="chapter-card" href="15_第十四章_高频问答与统一口径硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">15</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十四章：高频问答与统一口径硬核版</h3>
+            <p class="chapter-summary">FAQ 章节最容易变成‘客服模板’，但真正高价值的 FAQ 应该同时满足三件事：回答客户问题、约束一线风险、统一全员口径。以下问答按‘标准答法 + 不能怎么答 + 为什么’的结构展开。</p>
+        </a>
+        
+        <a class="chapter-card" href="16_第十五章_管理者仪表盘阈值季度动作与拒单标准硬核版.html">
+            <div class="chapter-card-top"><span class="chapter-index">16</span><span class="chapter-open">进入本章</span></div>
+            <h3>第十五章：管理者仪表盘、阈值、季度动作与拒单标准硬核版</h3>
+            <p class="chapter-summary">管理者工具章不能停留在‘要重视指标’。真正能用的章节，必须告诉管理者看什么、看到什么数算危险、什么时候该介入、哪些订单应该拒绝。本章围绕仪表盘、阈值、季度拆解、预算和拒单标准展开。</p>
+        </a>
+        </section><div class="portal-footer"><p>硬核修订版目录页 · 全书已统一为适合网页部署的培训手册风格</p></div></div></div>
+</body>
+</html>

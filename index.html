@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Manual Portal</title>
+  <style>
+    :root {
+      --bg: #0b1626;
+      --bg2: #12243d;
+      --text: #eaf2ff;
+      --muted: #a9b7cc;
+      --line: rgba(255,255,255,0.12);
+      --card: rgba(255,255,255,0.08);
+      --card2: rgba(255,255,255,0.04);
+      --accent: #69a7ff;
+      --accent2: #7ce0c3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Sarabun", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(105,167,255,.22), transparent 26%),
+        radial-gradient(circle at top right, rgba(124,224,195,.18), transparent 20%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      min-height: 100vh;
+    }
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+    .hero {
+      padding: 36px 34px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: 0 24px 64px rgba(0,0,0,.18);
+    }
+    .badge {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      color: #dce9ff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    h1 {
+      margin: 18px 0 12px;
+      font-size: 42px;
+      line-height: 1.2;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+    .grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      box-shadow: 0 18px 42px rgba(0,0,0,.12);
+    }
+    .lang-tag {
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.12);
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+    .card h2 {
+      margin: 16px 0 8px;
+      font-size: 28px;
+    }
+    .card .sub {
+      color: #c9d7ea;
+      font-weight: 600;
+      margin-bottom: 12px;
+      min-height: 48px;
+    }
+    .card .desc {
+      color: var(--muted);
+      line-height: 1.8;
+      min-height: 90px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 132px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .actions a.primary {
+      background: linear-gradient(135deg, #69a7ff, #4d7dff);
+      color: white;
+    }
+    .actions a.secondary {
+      background: rgba(255,255,255,.08);
+      color: #eaf2ff;
+      border: 1px solid var(--line);
+    }
+    .footer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="badge">Cloudflare / GitHub Static Deployment Ready</div>
+      <h1>Thailand Solar Training Manual Portal</h1>
+      <p>本入口页用于部署后的语言切换。每个语言版本都提供分章浏览入口和整合版入口，适合培训阅读、内部复训和跨国协作使用。</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <div class="lang-tag">CN</div>
+        <h2>中文</h2>
+        <div class="sub">硬核修订版 · 主版本</div>
+        <div class="desc">适合中文团队培训、管理复盘、销售与交付共用。保留完整数据、出处、公式和风险边界。</div>
+        <div class="actions">
+          <a class="primary" href="./zh/index.html">进入分章版</a>
+          <a class="secondary" href="./zh/full.html">查看整合版</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="lang-tag">EN</div>
+        <h2>English</h2>
+        <div class="sub">For international teams</div>
+        <div class="desc">Suitable for cross-country collaboration, management review, and international communication with non-Chinese-speaking colleagues.</div>
+        <div class="actions">
+          <a class="primary" href="./en/index.html">Open Split Version</a>
+          <a class="secondary" href="./en/full.html">Open Full Version</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="lang-tag">TH</div>
+        <h2>ไทย</h2>
+        <div class="sub">สำหรับทีมงานท้องถิ่น</div>
+        <div class="desc">เหมาะสำหรับการฝึกอบรมทีมไทย การประสานงานหน้างาน การใช้งานในประเทศ และการอ่านบนเว็บหลังการเผยแพร่</div>
+        <div class="actions">
+          <a class="primary" href="./th/index.html">เปิดแบบแยกบท</a>
+          <a class="secondary" href="./th/full.html">เปิดฉบับเต็ม</a>
+        </div>
+      </article>
+    </section>
+    <div class="footer">Repository prepared for static hosting. Recommended deploy target: Cloudflare Pages with root output at repository root.</div>
+  </div>
+</body>
+</html>

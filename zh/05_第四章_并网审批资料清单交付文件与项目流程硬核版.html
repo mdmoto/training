@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四章：并网审批、资料清单、交付文件与项目流程硬核版 - 硬核修订分章版</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">分章目录</a>
+                <span>/</span>
+                <span>第 05 章</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">返回目录</a>
+                <a class="split-pill" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">硬核修订分章版 · 第 05 章</div>
+            <h1>第四章：并网审批、资料清单、交付文件与项目流程硬核版</h1>
+            <div class="split-hero-subtitle">本章把“审批、并网、资料、验收”四件事放到一条主线里说明。重点不是记住每个表格编号，而是建立一个清晰认知：并网不是售后补动作，而是项目从签约到 COD 的关键主线。凡是资料意识弱的团队，迟早会在并网、售后和税务环节反复返工。</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">05</span><span class="split-meta-label">当前章节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">本章小节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">可跳读</span><span class="split-meta-label">支持按小节快速定位</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">上一章</a>
+                <a class="split-pill" href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">下一章</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">本章导航</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-4-1-并网分两类-自发自用并网-和带售电-零售项目并网"><span class="split-nav-index">01</span><span class="split-nav-text">4.1 并网分两类：自发自用并网，和带售电/零售项目并网</span></a><a class="split-nav-item" href="#sec-02-4-2-mea-并网资料包告诉了我们什么"><span class="split-nav-index">02</span><span class="split-nav-text">4.2 MEA 并网资料包告诉了我们什么</span></a><a class="split-nav-item" href="#sec-03-4-3-pea-ppim-项目流程里-哪些节点最值得写进培训"><span class="split-nav-index">03</span><span class="split-nav-text">4.3 PEA PPIM 项目流程里，哪些节点最值得写进培训</span></a><a class="split-nav-item" href="#sec-04-4-4-zero-export-anti-islanding-routine-test-report-这些词为什么必须懂"><span class="split-nav-index">04</span><span class="split-nav-text">4.4 Zero Export、Anti-Islanding、Routine Test Report 这些词为什么必须懂</span></a><a class="split-nav-item" href="#sec-05-4-5-从签约到-cod-项目经理最实用的倒排法"><span class="split-nav-index">05</span><span class="split-nav-text">4.5 从签约到 COD：项目经理最实用的倒排法</span></a><a class="split-nav-item" href="#sec-06-4-6-交付文件清单-为什么售后-税务和资本都依赖它"><span class="split-nav-index">06</span><span class="split-nav-text">4.6 交付文件清单：为什么售后、税务和资本都依赖它</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">快捷跳转</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">上一章</a>
+                            <a href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">下一章</a>
+                            <a href="index.html">章节目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">阅读提示</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>先看章节导语，再按导航选择重点小节。</li>
+                            <li>带公式、表格、出处的内容可直接作为工作参考。</li>
+                            <li>涉及政策、税务和并网时，以最新官方口径为准。</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">章节导语</div>
+                    <div class="chapter-intro">本章把“审批、并网、资料、验收”四件事放到一条主线里说明。重点不是记住每个表格编号，而是建立一个清晰认知：并网不是售后补动作，而是项目从签约到 COD 的关键主线。凡是资料意识弱的团队，迟早会在并网、售后和税务环节反复返工。</div>
+                </div>
+        <section id="sec-01-4-1-并网分两类-自发自用并网-和带售电-零售项目并网" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 01</div>
+<h3>4.1 并网分两类：自发自用并网，和带售电/零售项目并网</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>4.1 并网分两类：自发自用并网，和带售电/零售项目并网</h3>
+<p>要先把项目类型分清，不然所有流程都会混。以 MEA 为例，其官网专门把 <b>Generator Paralleling（生产自用、不出售）</b> 作为一个清晰入口，提供连接申请表、Zero Export Controller 表单、逆变器并网例行测试报告、工程师证明和并网接线形式文件。这说明一件事：即使是不卖电、只做自发自用的并网系统，也必须走正式连接与文件流程，而不是‘装好了就直接并上去’。</p>
+<p>而 PEA 的 PPIM 项目页面则展示了另一类逻辑，即在政策窗口下参与特定屋顶项目并涉及售电安排时，需要按项目公告、配额、申请、审查、缴费、签约、并网和 COD 节点执行。并网并不是一个单一动作，而是根据项目是否卖电、是否参与特定项目计划、所在地电力机构不同而有不同流程层级。</p>
+<p>这里关键不是死记哪一个单位的哪个系统入口，而是知道：<b>并网 = 项目设计、设备、资料、测试、合同、计量、现场检查共同构成的一条主线</b>。只要把并网理解成“最后再补手续”，大概率会在前面方案和施工阶段埋雷。</p>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.mea.or.th/other-services/electricity-producers/generator-paralleling/ngU5I3Gt3">MEA Generator Paralleling 下载页</a><span class="source-note">：提供连接申请表、Zero Export Controller 表单、并网测试报告、工程师证明等。</span></li><li><span class="source-badge official">官方</span><b>[02]</b> <a href="https://ppim.pea.co.th/project/solar/detail/62885d055bdc7f264c5edcdd">PEA PPIM Rooftop Solar 项目页</a><span class="source-note">：展示售电型项目的流程、缴费、签约、COD 等节点。</span></li></ol></div>
+</section><section id="sec-02-4-2-mea-并网资料包告诉了我们什么" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 02</div>
+<h3>4.2 MEA 并网资料包告诉了我们什么</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>4.2 MEA 并网资料包告诉了我们什么</h3>
+<p>MEA 的“生产自用不出售”连接下载页，本身就是一个很好的样本。因为它并不是只放一个申请表，而是同时放了：连接申请表、连接形式文件、工程师设计/监造证明、逆变器接入 MEA 电网的例行测试报告、Zero Export Controller 表单与填写说明、以及准备就绪后的上传说明。这说明并网本质上包含三类资料：<b>项目身份资料</b>、<b>技术设计资料</b>、<b>设备和测试资料</b>。</p>
+<p>这三类资料的作用不同。项目身份资料用于确认你是谁、在哪个 CA 号或用电点连接；技术设计资料用于说明你准备怎么接、接成什么样、由谁负责设计与监造；设备和测试资料则回答电力机构最关心的问题：你的逆变器和控制设备是否具备安全并网能力、是否会造成反送电或孤岛运行风险、系统是否按规则准备好。</p>
+<p>必须把这个逻辑理解清楚，因为很多前线人员会觉得资料只是行政要求。其实不是。资料是把项目从‘工程队装的设备’变成‘可被电力机构接受的并网系统’的语言。不会说这门语言，项目再好也容易卡。</p>
+<div class="term-box"><strong>【资料分类法】</strong><b>身份资料</b>：客户主体、CA/电表信息、授权书。<br><b>设计资料</b>：单线图、连接方式、容量说明、工程师证明。<br><b>设备资料</b>：逆变器测试报告、控制器资料、设备铭牌、必要认证。</div>
+<div class="technical-spec"><strong>【从 MEA 下载页直接读出的关键意识】</strong>1. 逆变器并网不是只看品牌，要看测试报告。<br>2. 工程师证明不是形式，是责任归属。<br>3. Zero Export 不是口头说说，而要有表单和控制器声明。<br>4. ‘安装完成’和‘资料完成’是两个不同节点。</div>
+</section><section id="sec-03-4-3-pea-ppim-项目流程里-哪些节点最值得写进培训" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 03</div>
+<h3>4.3 PEA PPIM 项目流程里，哪些节点最值得写进培训</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>4.3 PEA PPIM 项目流程里，哪些节点最值得写进培训</h3>
+<p>PEA 的 PPIM 页面给出了一个非常适合培训的流程样本。以住宅售电项目为例，页面明确写到：项目申请后，PEA 会做文件与技术能力审查；在系统中公告结果；通过者需在规定时间内缴纳并网费用、递交原件和补充文件；再签署合同；并要求在约定 SCOD 内完成系统、申请并网、首次同步和商业运行。</p>
+<p>页面还给出了具体的培训价值很高的时间节点：<b>45 天内公告审查结果</b>、<b>30 天内缴费并补交原件</b>、<b>签约后 270 天内完成 COD</b>。这些数字不一定适用于所有项目类型，但它提醒团队一件事：并网从来都不是无限期等待，它是一条带着明确时限和作废风险的流程。</p>
+<p>此外，PEA 项目页还写出了 First Synchronization、COD、豁免许可通知等关键动作，这说明施工队、项目经理和客户三方都需要提前配合。若前期没有把这些节点讲清楚，前线就会把“等电力公司”误以为是一个黑箱，而忽略了大量其实可以前置准备的工作。</p>
+<table class="note-table"><tr><th>流程节点</th><th>PEA 页面可见信息</th><th>培训意义</th><th>典型风险</th></tr><tr><td>审查公告</td><td>45 天内公告结果</td><td>提醒申请不是提交后就结束</td><td>客户误以为立即可装</td></tr><tr><td>缴费/补原件</td><td>30 天内完成</td><td>强调资料完整度与时效</td><td>逾期导致作废</td></tr><tr><td>签约到 COD</td><td>270 天内</td><td>项目排期必须倒推</td><td>施工和资料不一致拖延</td></tr><tr><td>First Synchronization</td><td>PEA 到场检查与首次并联</td><td>并网不是自己合闸</td><td>设备/资料不匹配</td></tr></table>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://ppim.pea.co.th/project/solar/detail/62885d055bdc7f264c5edcdd">PEA PPIM Rooftop Solar 项目页</a><span class="source-note">：列出流程、时间节点、费用和 COD 要求。</span></li></ol></div>
+</section><section id="sec-04-4-4-zero-export-anti-islanding-routine-test-report-这些词为什么必须懂" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 04</div>
+<h3>4.4 Zero Export、Anti-Islanding、Routine Test Report 这些词为什么必须懂</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>4.4 Zero Export、Anti-Islanding、Routine Test Report 这些词为什么必须懂</h3>
+<p>一线培训里最容易被忽略的是“控制和保护词汇”。比如 Zero Export、Anti-Islanding、Routine Test Report。很多团队会说‘我们这个逆变器支持’，但如果连这些词背后的电网意义都不懂，就很难在审批、客户解释和故障应对上真正站住。</p>
+<p>Zero Export 的业务含义很直观：系统被要求不向公共电网反送多余电力，因此需要控制器或逆变器策略把输出限制在本地负荷可消纳范围内。Anti-Islanding 的意义则是防孤岛运行，也就是在公用电网失电时，并网逆变器不能继续维持外部孤立小电网供电，避免对线路检修和人员安全造成风险。IEC 62116 正是与逆变器防孤岛测试相关的重要标准之一。</p>
+<p>MEA 下载页中出现的 <b>Routine Test Report for Inverter Connected to MEA Grid</b>，说明电力机构关注的不只是品牌，而是逆变器是否满足并网行为、保护动作和测试要求。这意味着：不要把设备合规理解成“某品牌名气大”，而要理解成“设备 + 测试 + 文件 + 接入形式”共同满足要求。</p>
+<div class="term-box"><strong>【保护与控制词汇】</strong><b>Zero Export</b>：限制系统不向公共电网反送电。<br><b>Anti-Islanding</b>：防孤岛保护，电网失电时逆变器需停止向外部孤立网络供电。<br><b>Routine Test Report</b>：设备并网测试例行报告，用于证明设备符合接入要求。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.mea.or.th/other-services/electricity-producers/generator-paralleling/ngU5I3Gt3">MEA Generator Paralleling 下载页</a><span class="source-note">：包含 Zero Export 和 Routine Test Report 文件入口。</span></li><li><span class="source-badge international">国际/标准</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/29153">IEC 62116 官方条目</a><span class="source-note">：说明 utility-interconnected PV inverter 的 anti-islanding 测试程序。</span></li></ol></div>
+</section><section id="sec-05-4-5-从签约到-cod-项目经理最实用的倒排法" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 05</div>
+<h3>4.5 从签约到 COD：项目经理最实用的倒排法</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>4.5 从签约到 COD：项目经理最实用的倒排法</h3>
+<p>新人最怕项目流程看起来很长，最后记不住。最实用的做法不是背流程图，而是学会倒排。先看客户希望什么时候用上系统，再看是否涉及售电项目或零回送要求，再倒推申请、勘测、设计、签约、设备采购、施工、资料归档、并网检查、首次并联、COD。只要会倒排，项目经理和销售的协同就会清楚很多。</p>
+<p>对项目经理而言，最常见的风险不是单一施工延期，而是资料、设备、合同和现场准备不同步。比如资料准备晚了，导致明明装好了却不能并网；或施工现场和申请单线图不一致，导致需要补改；或客户授权文件和电表用户不一致，结果流程卡住。倒排法最大的价值，就是提前暴露这种跨部门问题。</p>
+<p>项目经理至少应掌握一份标准倒排表，而不是靠微信群催进度。成熟的项目管理，不是一直盯着今天要做什么，而是知道“如果今天不做，后面哪一个并网节点一定会出问题”。</p>
+<div class="algorithm-box"><strong>【并网项目 8 步倒排】</strong>1. 先定客户目标上线时间/COD。<br>2. 倒推签约与并网申请时间。<br>3. 倒推设计与资料准备时间。<br>4. 倒推设备采购、测试和到货时间。<br>5. 倒推施工窗口与客户停电配合。<br>6. 倒推首次并联/检查预约。<br>7. 检查所有身份、设计、设备文件是否闭环。<br>8. 给客户一个清晰节点表，而不是模糊说“快了”。</div>
+</section><section id="sec-06-4-6-交付文件清单-为什么售后-税务和资本都依赖它" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 06</div>
+<h3>4.6 交付文件清单：为什么售后、税务和资本都依赖它</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>4.6 交付文件清单：为什么售后、税务和资本都依赖它</h3>
+<p>交付文件清单不只是为了并网，更是为了后续售后、税务激励、责任边界和资产化准备。尤其在你未来可能做 EaaS/EMC 或对接资本/银行的背景下，文档质量会直接决定项目是否可读、是否可信、是否可审计。</p>
+<p>建议把文件分成四包：<b>客户合同包</b>、<b>设计与施工包</b>、<b>并网与测试包</b>、<b>运维与售后包</b>。合同包放合同、授权、付款和发票；设计施工包放图纸、照片、材料、设备序列号；并网测试包放申请表、接入形式、测试记录和电力机构往来；运维售后包放监控账号、说明书、保修责任和回访记录。</p>
+<p>必须明确一个底线：没有文档就没有闭环。没有闭环，就没有真正的完工。</p>
+<div class="kpi-box"><strong>【第四章落地 KPI】</strong>1. 并网资料一次提交完整率。<br>2. 完工到首次并联平均天数。<br>3. 申请资料与现场一致率。<br>4. 交付文件包归档完整率。<br>5. 30 天内因资料问题引发的返工率。</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">硬核修订分章版 · 更适合培训阅读、内部学习与网页部署浏览</div>
+                    <div class="split-footer-actions">
+                        <a href="04_第三章_小商用测算电价结构需量逻辑与提案算法.html">上一章</a>
+                        <a class="primary" href="index.html">返回目录</a>
+                        <a href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">下一章</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

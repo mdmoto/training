@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六章：主体合规、合同边界、劳动义务与保险留痕硬核版 - 硬核修订分章版</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">分章目录</a>
+                <span>/</span>
+                <span>第 07 章</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">返回目录</a>
+                <a class="split-pill" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">硬核修订分章版 · 第 07 章</div>
+            <h1>第六章：主体合规、合同边界、劳动义务与保险留痕硬核版</h1>
+            <div class="split-hero-subtitle">合规章节最忌讳写成‘要合法经营’。本章把管理层和关键岗位最容易踩雷的地方用可执行语言讲清楚：主体如何选、外国人经营边界在哪、合同哪些条款不能删、劳动和工伤责任如何落地、项目资料为什么不仅服务电力公司，也服务争议处理。</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">07</span><span class="split-meta-label">当前章节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">本章小节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">可跳读</span><span class="split-meta-label">支持按小节快速定位</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">上一章</a>
+                <a class="split-pill" href="08_第七章_报价毛利现金流汇率与库存模型硬核版.html">下一章</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">本章导航</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-6-1-主体合规第一步-先分清谁签约-谁开票-谁收款-谁施工"><span class="split-nav-index">01</span><span class="split-nav-text">6.1 主体合规第一步：先分清谁签约、谁开票、谁收款、谁施工</span></a><a class="split-nav-item" href="#sec-02-6-2-外国人经营边界-为什么-能不能做-比-能不能装-更先问"><span class="split-nav-index">02</span><span class="split-nav-text">6.2 外国人经营边界：为什么“能不能做”比“能不能装”更先问</span></a><a class="split-nav-item" href="#sec-03-6-3-合同条款里-哪些地方绝对不能写虚"><span class="split-nav-index">03</span><span class="split-nav-text">6.3 合同条款里，哪些地方绝对不能写虚</span></a><a class="split-nav-item" href="#sec-04-6-4-劳动义务-工作时间-假期-加班-不是现场主管说了算"><span class="split-nav-index">04</span><span class="split-nav-text">6.4 劳动义务：工作时间、假期、加班，不是现场主管说了算</span></a><a class="split-nav-item" href="#sec-05-6-5-社保和工伤基金-这是法定义务-不是福利选项"><span class="split-nav-index">05</span><span class="split-nav-text">6.5 社保和工伤基金：这是法定义务，不是福利选项</span></a><a class="split-nav-item" href="#sec-06-6-6-保险-照片-签字-工单-为什么这些不是形式主义"><span class="split-nav-index">06</span><span class="split-nav-text">6.6 保险、照片、签字、工单：为什么这些不是形式主义</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">快捷跳转</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">上一章</a>
+                            <a href="08_第七章_报价毛利现金流汇率与库存模型硬核版.html">下一章</a>
+                            <a href="index.html">章节目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">阅读提示</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>先看章节导语，再按导航选择重点小节。</li>
+                            <li>带公式、表格、出处的内容可直接作为工作参考。</li>
+                            <li>涉及政策、税务和并网时，以最新官方口径为准。</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">章节导语</div>
+                    <div class="chapter-intro">合规章节最忌讳写成‘要合法经营’。本章把管理层和关键岗位最容易踩雷的地方用可执行语言讲清楚：主体如何选、外国人经营边界在哪、合同哪些条款不能删、劳动和工伤责任如何落地、项目资料为什么不仅服务电力公司，也服务争议处理。</div>
+                </div>
+        <section id="sec-01-6-1-主体合规第一步-先分清谁签约-谁开票-谁收款-谁施工" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 01</div>
+<h3>6.1 主体合规第一步：先分清谁签约、谁开票、谁收款、谁施工</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>6.1 主体合规第一步：先分清谁签约、谁开票、谁收款、谁施工</h3>
+<p>跨境经营里最危险的习惯之一，是前端为了方便，用 A 主体报价、B 主体签约、C 主体收款、D 队伍施工，最后连内部都说不清责任链。首先要建立一个最基础的合规意识：<b>项目主体的每个动作都必须对应清楚</b>。至少要回答四个问题：谁是合同相对方、谁开具税票、谁收款、谁对施工和售后承担责任。</p>
+<p>如果这些问题没有在一开始说清楚，后面不止税务和回款会出问题，客户一旦投诉、保险一旦理赔、资本一旦尽调，也会马上暴露。特别是你未来若考虑银行合作或 EaaS/EMC，主体混乱会直接降低可信度。这一章最重要的，不是记住法律名词，而是建立“主体一致性”意识。</p>
+<p>公司内部应规定：未经管理层与财务/法务确认，不得随意更换签约主体、开票主体或收款账户；项目档案中必须能一眼看出每一笔钱对应哪个主体、哪一份合同、哪一个项目。</p>
+</section><section id="sec-02-6-2-外国人经营边界-为什么-能不能做-比-能不能装-更先问" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 02</div>
+<h3>6.2 外国人经营边界：为什么“能不能做”比“能不能装”更先问</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>6.2 外国人经营边界：为什么“能不能做”比“能不能装”更先问</h3>
+<p>泰国 Foreign Business Act（FBA）是外资在泰经营时必须知道的底层边界。无论你是否直接用它去申请许可，你都要知道它在逻辑上做了什么：它把部分业务列入限制清单，并要求外国人/外资控制主体在特定情形下取得许可或证书后才能经营。业务能不能做，不只是市场问题，也是经营资格问题。</p>
+<p>官方翻译文本中，FBA 对“Foreigner”的定义不仅是非泰籍自然人，也包括在泰注册但外资控制的法人；同时，对 List 2、List 3 业务存在审批和证书机制，并明确 Department of Business Development（DBD）作为秘书与执行机构之一。对于你这样的业务，培训里关键不是逐条背清单，而是知道：<b>在进入新业务、扩展服务范围、引入新主体前，必须先做 FBA / BOI / 其他豁免路径判断</b>。</p>
+<p>对管理层而言，这一节最大的价值在于纠偏。不是所有‘市场上别人都这么干’的安排都适合复制，尤其在股权代持、借牌经营、挂靠施工和跨主体收款上，短期方便很可能换来长期风险。</p>
+<div class="term-box"><strong>【主体边界术语】</strong><b>FBA</b>：Foreign Business Act，泰国外资经营限制法。<br><b>FBL</b>：Foreign Business License，针对受限业务的经营许可路径之一。<br><b>FBC</b>：Foreign Business Certificate，常见于 BOI/工业园等法定路径下取得的经营证明。<br><b>DBD</b>：Department of Business Development，泰国商务部下属的企业发展部门。</div>
+<div class="critical-note"><strong>【管理红线】</strong>不要把“能安装项目”误认为“具备合法经营资格”；新业务、新城市、新主体、新股权安排出现时，应先做经营资格判断，再做业绩判断。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://investmentpolicy.unctad.org/investment-laws/laws/40/thailand-foreign-business-act">UNCTAD 收录的 Thailand Foreign Business Act</a><span class="source-note">：可查法条结构、DBD 角色与审批逻辑。</span></li><li><span class="source-badge official">官方</span><b>[02]</b> <a href="https://www.boi.go.th/upload/Foreign%20Business%20Act_5dd766122ff27.pdf">BOI 提供的 FBA 官方英文翻译</a><span class="source-note">：用于理解外资经营限制与证书机制。</span></li></ol></div>
+</section><section id="sec-03-6-3-合同条款里-哪些地方绝对不能写虚" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 03</div>
+<h3>6.3 合同条款里，哪些地方绝对不能写虚</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>6.3 合同条款里，哪些地方绝对不能写虚</h3>
+<p>光伏项目合同最怕两种错误：一种是写得太空，导致后面全靠聊天记录解释；另一种是为了成交故意写得过满，埋下未来扯皮。成熟的合同，不是写得最长，而是把最容易争议的地方提前写清楚。</p>
+<p>对户用项目，至少要明确：系统范围、屋顶边界、原有渗漏或老化责任、施工时间窗口、客户配合事项、监控开通、并网与审批责任、停电行为边界、保修范围和付款节点。对小商用项目，还要明确营业影响、停电/切换安排、变更流程、是否涉及第三方施工、以及客户若延迟配合造成的工期顺延逻辑。</p>
+<p>需要明确：合同不是法务自己看的，它也是销售和项目经理的保护工具。凡是签约前没有讲清楚的，多半会在售后阶段放大成纠纷。</p>
+<div class="sop-box"><strong>【签约前 8 个必须讲清的点】</strong>1. 系统范围。<br>2. 屋顶和建筑边界。<br>3. 并网与审批责任。<br>4. 停电与备电边界。<br>5. 付款节点。<br>6. 施工窗口与客户配合。<br>7. 保修与不保范围。<br>8. 变更流程。</div>
+</section><section id="sec-04-6-4-劳动义务-工作时间-假期-加班-不是现场主管说了算" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 04</div>
+<h3>6.4 劳动义务：工作时间、假期、加班，不是现场主管说了算</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>6.4 劳动义务：工作时间、假期、加班，不是现场主管说了算</h3>
+<p>现场团队管理不能只靠“行业惯例”。泰国的 Labour Protection Act 是劳动保护底层法律，FAOLEX 收录的英文版法文本可作为理解依据。围绕工作时间的核心底线，公开法律解读普遍一致指出：一般工作每日不超过 <b>8 小时</b>、每周不超过 <b>48 小时</b>；对有害工作，通常收紧为每日 <b>7 小时</b>、每周 <b>42 小时</b>。另外，雇主通常需安排不少于 <b>13 天</b> 的节假日（含劳动节）。</p>
+<p>为什么这对光伏公司重要？因为施工和交付往往容易进入赶工状态，班组长最容易通过口头安排长期加班去顶进度。但如果没有制度、同意程序、工资和记录支撑，这不仅是管理问题，也可能变成劳动争议问题。特别是跨城市项目、旺季抢工和外包队混用时，更要有底线意识。</p>
+<p>不要求每个人记住法律条款编号，但至少要知道：工时、假日、加班和危险作业，不是项目经理想怎么排就怎么排。所有制度都应该回到公司书面政策、劳动合同和当地法规要求。</p>
+<div class="critical-note"><strong>【用工培训底线】</strong>不要把长期超时赶工当成组织能力；一旦没有书面制度、记录、补偿和安全管理，所谓“拼命”很可能变成劳动争议与事故风险。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge international">国际/标准</span><b>[01]</b> <a href="https://faolex.fao.org/docs/pdf/tha220781.pdf">FAOLEX 收录的 Labour Protection Act B.E. 2541</a><span class="source-note">：用于理解泰国劳动保护法结构。</span></li><li><span class="source-badge interpretation">解读/参考</span><b>[02]</b> <a href="https://www.lexology.com/library/detail.aspx?g=5d442b21-2c40-4b02-9397-9a025c75a94f">Lexology 对泰国工时与假期的公开解读</a><span class="source-note">：概括 8/48、7/42、至少 13 天节假日等实务点。</span></li></ol></div>
+</section><section id="sec-05-6-5-社保和工伤基金-这是法定义务-不是福利选项" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 05</div>
+<h3>6.5 社保和工伤基金：这是法定义务，不是福利选项</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>6.5 社保和工伤基金：这是法定义务，不是福利选项</h3>
+<p>对雇主来说，社会保险和工伤保障不是‘公司好一点才给’，而是合规底线。SSO（社会保障办公室）为雇主提供了线上雇主服务、雇主注册、被保险人登记和缴费申报入口，这本身就说明：正规用工必须进入制度化管理。</p>
+<p>从公开专业解读看，泰国社保缴费率长期维持雇主与员工各 <b>5%</b> 的结构；2026 年起工资上限基数上调后，月最高缴费额由 750 THB 提升至约 <b>875 THB/方</b>。由于 SSO 官方英文页抓取不稳定，这一数值应标注为‘依据 2026 年公开专业解读汇总，执行时仍应以最新 SSO 公告和实际工资基数为准’。</p>
+<p>比社保更容易被现场忽略的是 Workmen’s Compensation Fund（工伤补偿基金）。SSO 的工伤基金页面明确说明，该基金用于覆盖雇员因工作导致的受伤、疾病、残疾、死亡或失踪等情形；并且在实际就医流程中，雇主需提交指定表单、配合医疗流程和事故资料。项目一旦发生工伤，雇主不能只靠口头安抚，必须按制度处理。</p>
+<div class="term-box"><strong>【雇主必懂的两个基金】</strong><b>Social Security Fund</b>：面向一般社保权益，雇主和员工通常各缴一定比例。<br><b>Workmen’s Compensation Fund</b>：面向工伤、职业病、失能、死亡等工作相关风险，由雇主承担法定义务。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.sso.go.th/eservices/esv/index.jsp">SSO 雇主电子服务入口</a><span class="source-note">：说明雇主注册、被保险人登记、缴费申报等线上服务。</span></li><li><span class="source-badge official">官方</span><b>[02]</b> <a href="https://www.sso.go.th/wpr/main/privilege/%E0%B8%81%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B8%E0%B8%99%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%94%E0%B9%81%E0%B8%97%E0%B8%99_category_list-text-photo_1_126_0">SSO 工伤基金页面</a><span class="source-note">：说明工伤基金覆盖情形。</span></li><li><span class="source-badge official">官方</span><b>[03]</b> <a href="https://www.sso.go.th/wpr/main/service/%E0%B8%81%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B8%E0%B8%99%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%94%E0%B9%81%E0%B8%97%E0%B8%99_detail_detail_1_126_0/44">SSO 工伤送医流程页</a><span class="source-note">：说明工伤送医与表单流程。</span></li><li><span class="source-badge interpretation">解读/参考</span><b>[04]</b> <a href="https://www.hlbthai.com/thailand-social-security-contribution-changes-for-2026/">HLB Thailand 2026 社保上限解读</a><span class="source-note">：用于 2026 工资上限调整公开解读。</span></li></ol></div>
+</section><section id="sec-06-6-6-保险-照片-签字-工单-为什么这些不是形式主义" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 06</div>
+<h3>6.6 保险、照片、签字、工单：为什么这些不是形式主义</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>6.6 保险、照片、签字、工单：为什么这些不是形式主义</h3>
+<p>很多公司直到发生事故或客户索赔，才意识到‘当时没拍、没签、没留档’有多致命。保险和证据留存的关系非常直接：没有清晰的勘测照片、施工节点照片、验收签字、设备序列号和工单记录，理赔和责任界定都可能变得非常被动。</p>
+<p>管理层应该把照片、签字和工单视为风险管理的一部分，而不是行政动作。项目勘测照片保护你在签约前说过什么，施工照片保护你在现场做了什么，验收签字保护你在交付时交了什么，工单记录保护你在售后阶段处理了什么。</p>
+<div class="kpi-box"><strong>【第六章落地 KPI】</strong>1. 合同条款标准版本覆盖率。<br>2. 主体、开票、收款一致率。<br>3. 雇员社保与工伤基金登记完整率。<br>4. 项目关键节点签字/影像留档率。<br>5. 劳动和工伤争议发生率。</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">硬核修订分章版 · 更适合培训阅读、内部学习与网页部署浏览</div>
+                    <div class="split-footer-actions">
+                        <a href="06_第五章_营销线索筛选提案结构与成交算法硬核版.html">上一章</a>
+                        <a class="primary" href="index.html">返回目录</a>
+                        <a href="08_第七章_报价毛利现金流汇率与库存模型硬核版.html">下一章</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

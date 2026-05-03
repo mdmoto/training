@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 3: การคำนวณเชิงพาณิชย์ขนาดเล็ก โครงสร้างราคาไฟฟ้า ตรรกะความต้องการ และอัลกอริธึมข้อเสนอ - ฉบับภาษาไทย</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+        <style>
+            body, table, td, th, a, div, span, p, li {
+                font-family: 'Noto Sans Thai', 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            }
+        </style>
+        
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">สารบัญแยกบท</a>
+                <span>/</span>
+                <span>บทที่ 04</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">กลับไปที่สารบัญ</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_th.html">ฉบับเต็ม</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">ฉบับภาษาไทย · บทที่ 04</div>
+            <h1>บทที่ 3: การคำนวณเชิงพาณิชย์ขนาดเล็ก โครงสร้างราคาไฟฟ้า ตรรกะความต้องการ และอัลกอริธึมข้อเสนอ</h1>
+            <div class="split-hero-subtitle">บทนี้เน้นที่การแก้ปัญหาเชิงปฏิบัติ: หลายทีมจะเสนอราคาให้กับผู้ใช้ แต่จะไม่นับว่าเป็นการใช้งานเชิงพาณิชย์เพียงเล็กน้อย เป็นผลให้ต้องสร้างโครงการร้านค้าตามแนวคิดที่มุ่งเน้นผู้ใช้ ไม่เช่นนั้นระบบอาจถูกขยายแบบสุ่มสี่สุ่มห้าหลังจากได้ยินคำพูดของเจ้านาย: "ค่าไฟฟ้าสูงมาก" บทนี้ใช้โครงสร้างราคาไฟฟ้าและกฎความต้องการไฟฟ้าของ กฟภ. โดยตรงเพื่อสร้างกรอบการคำนวณเชิงพาณิชย์ขนาดเล็ก</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">04</span><span class="split-meta-label">บทปัจจุบัน</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">หัวข้อย่อยในบทนี้</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">พร้อมใช้งาน</span><span class="split-meta-label">การนำทางด่วน</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_03.html">บทก่อนหน้า</a>
+                <a class="split-pill" href="chapter_05.html">บทถัดไป</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">นำทางภายในบท</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-3-1-ก่อนอื่นให้แยกระหว่างตารางที่-2-และตารางที่-3-ไม่เช่นนั้นการคำนวณทั้งหมดอาจผิดพลาดได้"><span class="split-nav-index">01</span><span class="split-nav-text">3.1 ก่อนอื่นให้แยกระหว่างตารางที่ 2 และตารางที่ 3 ไม่เช่นนั้นการคำนวณทั้งหมดอาจผิดพลาดได้</span></a><a class="split-nav-item" href="#sec-02-3-2-การใช้งานเชิงพาณิชย์ขนาดเล็กไม่เพียงแต่ดูที่-kwh-แต่ยังดูที่ความต้องการ-15-นาทีและค่าธรรมเนียมความต้องการขั้นต่ำด้วย"><span class="split-nav-index">02</span><span class="split-nav-text">3.2 การใช้งานเชิงพาณิชย์ขนาดเล็กไม่เพียงแต่ดูที่ kWh แต่ยังดูที่ความต้องการ 15 นาทีและค่าธรรมเนียมความต้องการขั้นต่ำด้วย</span></a><a class="split-nav-item" href="#sec-03-3-3-ตัวเลขสำคัญของตาราง-2-3-พนักงานขายจะต้องสามารถอ่านและพูดได้"><span class="split-nav-index">03</span><span class="split-nav-text">3.3 ตัวเลขสำคัญของตาราง 2/3 พนักงานขายจะต้องสามารถอ่านและพูดได้</span></a><a class="split-nav-item" href="#sec-04-3-4-อัลกอริธึมข้อเสนอสำหรับโครงการเชิงพาณิชย์ขนาดเล็ก-แทนที่จะรายงานขนาดระบบก่อน-ให้คำนวณโครงสร้างการบันทึกก่อน"><span class="split-nav-index">04</span><span class="split-nav-text">3.4 อัลกอริธึมข้อเสนอสำหรับโครงการเชิงพาณิชย์ขนาดเล็ก: แทนที่จะรายงานขนาดระบบก่อน ให้คำนวณโครงสร้างการบันทึกก่อน</span></a><a class="split-nav-item" href="#sec-05-3-5-เมื่อใดที่โครงการเชิงพาณิชย์ขนาดเล็กจำเป็นต้องพิจารณาการจัดเก็บพลังงาน-แทนที่จะเพิ่มส่วนประกอบเพิ่มเติม"><span class="split-nav-index">05</span><span class="split-nav-text">3.5 เมื่อใดที่โครงการเชิงพาณิชย์ขนาดเล็กจำเป็นต้องพิจารณาการจัดเก็บพลังงาน แทนที่จะเพิ่มส่วนประกอบเพิ่มเติม</span></a><a class="split-nav-item" href="#sec-06-3-6-วิธีที่ถูกต้องในการรวมภาษีนิติบุคคลและข้อเสนอของธุรกิจขนาดเล็ก"><span class="split-nav-index">06</span><span class="split-nav-text">3.6 วิธีที่ถูกต้องในการรวมภาษีนิติบุคคลและข้อเสนอของธุรกิจขนาดเล็ก</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">ทางลัด</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_03.html">บทก่อนหน้า</a>
+                            <a href="chapter_05.html">บทถัดไป</a>
+                            <a href="index.html">กลับไปที่สารบัญ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">คำแนะนำการอ่าน</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>อ่านคำนำของบทก่อน แล้วจึงเลือกหัวข้อย่อยที่เกี่ยวข้องมากที่สุด</li>
+                            <li>หัวข้อที่มีสูตร ตาราง และแหล่งอ้างอิง สามารถใช้เป็นเอกสารอ้างอิงในการทำงานได้ทันที</li>
+                            <li>ประเด็นด้านนโยบาย ภาษี และการเชื่อมต่อโครงข่าย ต้องอ้างอิงกติกาทางการล่าสุดเสมอ</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">บทนำของบทนี้</div>
+                    <div class="chapter-intro">บทนี้เน้นที่การแก้ปัญหาเชิงปฏิบัติ: หลายทีมจะเสนอราคาให้กับผู้ใช้ แต่จะไม่นับว่าเป็นการใช้งานเชิงพาณิชย์เพียงเล็กน้อย เป็นผลให้ต้องสร้างโครงการร้านค้าตามแนวคิดที่มุ่งเน้นผู้ใช้ ไม่เช่นนั้นระบบอาจถูกขยายแบบสุ่มสี่สุ่มห้าหลังจากได้ยินคำพูดของเจ้านาย: "ค่าไฟฟ้าสูงมาก" บทนี้ใช้โครงสร้างราคาไฟฟ้าและกฎความต้องการไฟฟ้าของ กฟภ. โดยตรงเพื่อสร้างกรอบการคำนวณเชิงพาณิชย์ขนาดเล็ก</div>
+                </div>
+        <section id="sec-01-3-1-ก่อนอื่นให้แยกระหว่างตารางที่-2-และตารางที่-3-ไม่เช่นนั้นการคำนวณทั้งหมดอาจผิดพลาดได้" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 01</div>
+<h3>3.1 ก่อนอื่นให้แยกระหว่างตารางที่ 2 และตารางที่ 3 ไม่เช่นนั้นการคำนวณทั้งหมดอาจผิดพลาดได้</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>3.1 ก่อนอื่นให้แยกระหว่างตารางที่ 2 และตารางที่ 3 ไม่เช่นนั้นการคำนวณทั้งหมดอาจผิดพลาดได้</h3>
+<p>ขั้นตอนแรกในโครงการเชิงพาณิชย์ขนาดเล็กไม่ใช่การพูดถึงแบรนด์ส่วนประกอบ แต่เพื่อกำหนดโครงสร้างราคาไฟฟ้าที่ลูกค้าเป็นเจ้าของ ตามคู่มือราคาค่าไฟภาษาอังกฤษของ กฟภ.<b>Schedule 2</b>เหมาะสำหรับผู้ใช้ธุรกิจ/บริการทั่วไปและ<b>ความต้องการรวมเฉลี่ย 15 นาทีน้อยกว่า 30 กิโลวัตต์</b>สถานการณ์;<b>Schedule 3</b>แล้วนำไปใช้กับ<b>ความต้องการรวมเฉลี่ย 15 นาทีมีตั้งแต่ 30 กิโลวัตต์ถึงน้อยกว่า 1,000 กิโลวัตต์</b>ผู้ใช้บริการทั่วไปขนาดกลางที่มีปริมาณการใช้ไฟฟ้าเฉลี่ยในช่วง 3 เดือนล่าสุดไม่เกิน 250,000 kWh/เดือน</p>
+<p>เส้นแบ่งเขตนี้มีความสำคัญมาก เนื่องจากเป็นตัวกำหนดว่าคุณกำลังติดต่อกับลูกค้าที่ "จ่ายค่าพลังงานและค่าไฟฟ้าเป็นหลัก" หรือลูกค้าที่มีโครงสร้างสองโครงสร้างคือ "พลังงาน + อุปสงค์" ความซับซ้อนที่แท้จริงของโครงการเชิงพาณิชย์ขนาดเล็กจำนวนมากไม่ได้อยู่ในการติดตั้ง แต่ในข้อเท็จจริงที่ว่าหากคุณไม่เข้าใจด้วยซ้ำว่าลูกค้าอยู่ในตารางที่ 2 หรือตารางที่ 3 ก็จะเป็นการง่ายที่จะบิดเบือนการออมและระยะเวลาคืนทุนในภายหลัง</p>
+<p>ดังนั้นพนักงานใหม่จึงต้องดำเนินการอย่างหนัก: หลังจากได้รับบิลแล้ว ให้ตรวจสอบหมวดหมู่ผู้ใช้ก่อนว่ามีค่าใช้จ่ายความต้องการ (Demand Charge) ความต้องการสูงสุด 15 นาทีคือเท่าใด และมี TOU หรือไม่ ไม่ต้องรีบจัดแผนให้กำหนดโครงสร้างบิลก่อน</p>
+<table class="note-table"><tr><th>หมวดหมู่</th><th>เกณฑ์อย่างเป็นทางการ</th><th>ไฮไลท์การเรียกเก็บเงิน</th><th>ความสำคัญของการฝึกอบรม</th></tr><tr><td>Schedule 2</td><td>ความต้องการที่ครอบคลุมใน 15 นาที < 30 kW</td><td>ขึ้นอยู่กับค่าพลังงานและค่าไฟฟ้าเป็นหลัก</td><td>ใกล้กับการใช้งานในครัวเรือนมากขึ้น แต่ยังขึ้นอยู่กับเวลาทำการและ TOU</td></tr><tr><td>Schedule 3</td><td>ความต้องการพลังงานที่ครอบคลุมใน 15 นาที คือ 30 kW - < 1,000 kW และการใช้พลังงานเฉลี่ยในช่วง 3 เดือนที่ผ่านมาคือ ≤ 250,000 kWh/เดือน</td><td>อุปสงค์ + ไฟฟ้า</td><td>ต้องอธิบายค่าธรรมเนียมความต้องการและค่าธรรมเนียมขั้นต่ำ</td></tr><tr><td>กำหนดการ 4/5 หรือสูงกว่า</td><td>โหลดขนาดใหญ่หรืออุตสาหกรรมเฉพาะ</td><td>ซับซ้อนมากขึ้น</td><td>ระยะปัจจุบันสามารถใช้เป็นโปรเจ็กต์ขั้นสูงได้ และไม่เหมาะสำหรับผู้ใช้ที่จะทำไอเดีย</td></tr></table>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge official">ทางการ</span><b>[01]</b> <a href="https://www.pea.co.th/sites/default/files/documents/tariff/EN_Electricity_Tariffs_May_2023.pdf">PEA Electricity Tariffs (May 2023 onward) PDF</a><span class="source-note">: ระบุเงื่อนไขที่เกี่ยวข้องสำหรับประเภท 2 และประเภท 3 อย่างชัดเจน</span></li></ol></div>
+</section><section id="sec-02-3-2-การใช้งานเชิงพาณิชย์ขนาดเล็กไม่เพียงแต่ดูที่-kwh-แต่ยังดูที่ความต้องการ-15-นาทีและค่าธรรมเนียมความต้องการขั้นต่ำด้วย" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 02</div>
+<h3>3.2 การใช้งานเชิงพาณิชย์ขนาดเล็กไม่เพียงแต่ดูที่ kWh แต่ยังดูที่ความต้องการ 15 นาทีและค่าธรรมเนียมความต้องการขั้นต่ำด้วย</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>3.2 การใช้งานเชิงพาณิชย์ขนาดเล็กไม่เพียงแต่ดูที่ kWh แต่ยังดูที่ความต้องการ 15 นาทีและค่าธรรมเนียมความต้องการขั้นต่ำด้วย</h3>
+<p>เหตุผลที่ข้อเสนอเชิงพาณิชย์ขนาดเล็กจำนวนมากล้มเหลวไม่ใช่เพราะระบบไม่ได้ผลิตพลังงานเพียงพอ แต่ไม่ได้อธิบายความต้องการไฟฟ้าเลยในระหว่างข้อเสนอ สำหรับผู้ใช้ตามกำหนดการ 3 ขึ้นไป การเรียกเก็บเงินไม่เพียงแต่ "ราคาต่อกิโลวัตต์ชั่วโมงเท่าไร" แต่ยังรวมทั้งค่าใช้จ่ายความต้องการ (ค่าธรรมเนียมความต้องการ) และค่าพลังงาน (ค่าพลังงาน) เซลล์แสงอาทิตย์บนชั้นดาดฟ้าสามารถลดการซื้อไฟฟ้าในระหว่างวันได้อย่างมาก แต่ต้นทุนความต้องการที่เพิ่มขึ้นมักจะไม่มากเท่าที่พนักงานขายหลายคนจินตนาการ</p>
+<p>เหตุผลง่ายๆ ก็คือ ความต้องการมักจะถูกกำหนดโดยโหลดเฉลี่ยสูงสุดภายในกรอบเวลา 15 นาทีที่แน่นอน หากโหลดสูงสุดของโครงการเกิดขึ้นในช่วงเริ่มต้นในตอนเช้า วันที่เมฆมาก ผลกระทบในระยะสั้น หรือเกินกว่าความสามารถในการครอบคลุมของเซลล์แสงอาทิตย์ในทันที แม้ว่าการผลิตไฟฟ้าต่อปีของระบบจะดี แต่ค่าไฟฟ้าความต้องการไฟฟ้าก็อาจไม่ลดลงอย่างมีนัยสำคัญ ต้องมีการระบุให้ชัดเจน ไม่เช่นนั้นยอดขายจะเกินคาด</p>
+<p>ที่สำคัญคู่มือการไฟฟ้าส่วนภูมิภาคยังระบุด้วย<b>ค่าธรรมเนียมความต้องการขั้นต่ำ</b>กฎ: อัตรา TOU ของตาราง 3, 4, 5, 6 และ 7 ทั้งหมดมีข้อกำหนดว่า "ค่าใช้จ่ายขั้นต่ำจะต้องไม่น้อยกว่า 70% ของค่าธรรมเนียมความต้องการสูงสุดในช่วง 12 เดือนที่ผ่านมา" กล่าวอีกนัยหนึ่ง แม้ว่าปริมาณงานของลูกค้าจะลดลงอย่างมากในเดือนใดเดือนหนึ่ง พวกเขาอาจไม่สามารถลดการเรียกเก็บเงินความต้องการให้เป็นศูนย์ได้ หากประเด็นนี้ไม่ชัดเจน การคำนวณ ROI เชิงพาณิชย์จำนวนเล็กน้อยอาจเป็นแง่ดีเกินไปได้อย่างง่ายดาย</p>
+<div class="term-box"><strong>【คำพูดที่ต้องพูด】</strong><b>ความต้องการที่ครอบคลุม 15 นาที</b>: กฟภ. เป็นความสามารถสำคัญที่ใช้ในการจำแนกประเภทและคำนวณค่าธรรมเนียมอุปสงค์<br><b>Demand Charge</b>: ค่าบริการขึ้นอยู่กับความต้องการสูงสุด<br><b>Minimum Charge 70%</b>: กฎค่าธรรมเนียมความต้องการขั้นต่ำจะต้องไม่น้อยกว่า 70% ของค่าธรรมเนียมความต้องการสูงสุดในช่วง 12 เดือนที่ผ่านมา</div>
+<div class="critical-note"><strong>[จุดที่เข้าใจผิดบ่อยที่สุดเกี่ยวกับการใช้งานเชิงพาณิชย์ขนาดเล็ก]</strong>อย่าตั้งค่าเริ่มต้นเป็น "การติดตั้ง PV ค่าใช้จ่ายความต้องการจะลดลงอย่างมาก"; เฉพาะเมื่อระบบสามารถครอบคลุมหรือลดช่วงพีคสูงสุดจริงของลูกค้าในช่วง 15 นาทีได้ ค่าธรรมเนียมความต้องการจะมีพื้นที่ว่างที่สำคัญในการลด</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge official">ทางการ</span><b>[01]</b> <a href="https://www.pea.co.th/sites/default/files/documents/tariff/EN_Electricity_Tariffs_May_2023.pdf">PEA Electricity Tariffs (May 2023 onward) PDF</a><span class="source-note">: แสดงรายการกฎการเรียกเก็บเงินขั้นต่ำ 3/4/5 และข้อกำหนดความต้องการ 15 นาที</span></li><li><span class="source-badge official">ทางการ</span><b>[02]</b> <a href="https://www.boi.go.th/index.php?page=utility_costs">หน้าต้นทุนสาธารณูปโภคของบีโอไอ</a><span class="source-note">: จัดทำสรุปความต้องการและกฎการเรียกเก็บเงินขั้นต่ำต่อสาธารณะ</span></li></ol></div>
+</section><section id="sec-03-3-3-ตัวเลขสำคัญของตาราง-2-3-พนักงานขายจะต้องสามารถอ่านและพูดได้" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 03</div>
+<h3>3.3 ตัวเลขสำคัญของตาราง 2/3 พนักงานขายจะต้องสามารถอ่านและพูดได้</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>3.3 ตัวเลขสำคัญของตาราง 2/3 พนักงานขายจะต้องสามารถอ่านและพูดได้</h3>
+<p>ตัวเลขสำคัญในคู่มือภาษาอังกฤษฉบับปัจจุบันของการไฟฟ้าส่วนภูมิภาคมีความเหมาะสมที่จะรวมไว้ในการฝึกอบรมโดยตรง ยกตัวอย่างแรงดันไฟฟ้าต่ำกว่า 22 kV: ค่าพลังงาน TOU ของตารางที่ 2 คือ<b>Peak 5.7982 THB/kWh</b>、<b>Off-Peak 2.6369 THB/kWh</b>ค่าบริการอยู่ที่<b>33.29 บาท/เดือน</b>;ค่าธรรมเนียมการเรียกร้อง TOU สำหรับตารางที่ 3 คือ<b>210 THB/kW</b>ต้นทุนพลังงานคือ<b>Peak 4.3297 THB/kWh</b>、<b>Off-Peak 2.6369 THB/kWh</b>ค่าบริการอยู่ที่<b>312.24 บาท/เดือน</b>。</p>
+<p>การเปรียบเทียบนี้แสดงให้เห็นสองสิ่ง ประการแรก โครงสร้างค่าไฟฟ้าสำหรับลูกค้าเชิงพาณิชย์ขนาดเล็กอาจซับซ้อนกว่าโครงสร้างค่าไฟฟ้าสำหรับลูกค้าที่อยู่อาศัย แต่ก็คุ้มค่ากับการเพิ่มประสิทธิภาพเช่นกัน ประการที่สอง ผู้ใช้ Schedule 3 ไม่เพียงแต่ดูการประหยัดพลังงานเท่านั้น แต่ยังต้องดูความต้องการและกฎการชาร์จขั้นต่ำด้วย หากพนักงานใหม่สามารถอธิบายตัวเลขชุดนี้ได้อย่างราบรื่น พวกเขาจะมีความเป็นมืออาชีพมากกว่าพนักงานคนอื่นๆ ในตลาดอยู่แล้ว</p>
+<p>นอกจากนี้ คู่มือการไฟฟ้าส่วนภูมิภาคยังระบุด้วยว่า หากติดตั้งมิเตอร์ไว้ที่ด้านแรงดันต่ำของหม้อแปลงของลูกค้าจะต้องเพิ่มเติม<b>2%</b>kW และ kWh เพื่อชดเชยการสูญเสียของหม้อแปลง แม้ว่ารายละเอียดประเภทนี้อาจไม่ได้ใช้ในทุกโปรเจ็กต์ แต่ก็สามารถช่วยให้ทีมสร้างนิสัยได้: บิลเชิงพาณิชย์ขนาดเล็กนั้นไม่ใช่เรื่องง่าย และจะต้องเข้าใจโครงสร้างและข้อยกเว้นก่อนเมื่อคำนวณ</p>
+<table class="note-table"><tr><th>ให้คะแนนรายการ</th><th>กำหนดการ 2 TOU ไฟฟ้าแรงต่ำ</th><th>กำหนดการ 3 TOU ไฟฟ้าแรงต่ำ</th><th>ความหมายของการฝึกอบรม</th></tr><tr><td>ค่าพลังงานสูงสุด</td><td>5.7982 THB/kWh</td><td>4.3297 THB/kWh</td><td>มูลค่าสูงสำหรับการใช้งานโดยธรรมชาติในระหว่างวัน</td></tr><tr><td>ค่าธรรมเนียมพลังงานนอกช่วงพีค</td><td>2.6369 THB/kWh</td><td>2.6369 THB/kWh</td><td>ค่าการประหยัดเวลากลางคืนจะต่ำกว่า</td></tr><tr><td>ค่าใช้จ่ายความต้องการ</td><td>ไม่มี</td><td>210 THB/kW</td><td>กำหนดการ 3 ไม่สามารถละเลยตรรกะความต้องการได้</td></tr><tr><td>ค่าบริการ</td><td>33.29 บาท/เดือน</td><td>312.24 บาท/เดือน</td><td>สะท้อนถึงความแตกต่างของหมวดหมู่</td></tr><tr><td>การชดเชยด้านแรงดันต่ำของหม้อแปลงไฟฟ้า</td><td>ขึ้นอยู่กับสถานการณ์</td><td>บวก 2% กิโลวัตต์/กิโลวัตต์ชั่วโมง</td><td>รายละเอียดการเรียกเก็บเงินจะส่งผลต่อการคำนวณ</td></tr></table>
+</section><section id="sec-04-3-4-อัลกอริธึมข้อเสนอสำหรับโครงการเชิงพาณิชย์ขนาดเล็ก-แทนที่จะรายงานขนาดระบบก่อน-ให้คำนวณโครงสร้างการบันทึกก่อน" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 04</div>
+<h3>3.4 อัลกอริธึมข้อเสนอสำหรับโครงการเชิงพาณิชย์ขนาดเล็ก: แทนที่จะรายงานขนาดระบบก่อน ให้คำนวณโครงสร้างการบันทึกก่อน</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>3.4 อัลกอริธึมข้อเสนอสำหรับโครงการเชิงพาณิชย์ขนาดเล็ก: แทนที่จะรายงานขนาดระบบก่อน ให้คำนวณโครงสร้างการบันทึกก่อน</h3>
+<p>อัลกอริธึมข้อเสนอสำหรับธุรกิจขนาดเล็กที่เหมาะสมที่สุดสำหรับพนักงานใหม่ไม่ใช่การตัดสินใจเลือกขนาด 30kW หรือ 50kW ในตอนเริ่มต้น แต่ต้องแยกย่อยใบเรียกเก็บเงินของลูกค้าก่อน ชั้นแรกระบุสัดส่วนของค่าไฟฟ้าและค่าอุปสงค์ ชั้นที่สองระบุการทับซ้อนกันระหว่างเวลาทำการและช่วงที่มีการใช้งานสูงสุด ชั้นที่สามกำหนดการจับคู่ระหว่างการผลิตไฟฟ้าของระบบและจุดสูงสุด 15 นาที ชั้นที่สี่จะกำหนดขนาดของระบบ TOU และจำเป็นต้องจัดเก็บพลังงานหรือการจัดการโหลดหรือไม่</p>
+<p>ในทางปฏิบัติขอแนะนำให้สร้างสองเวอร์ชันก่อน:<b>แผนอนุรักษ์นิยม</b>คำนวณเฉพาะการประหยัดที่เกิดจากการใช้งานเองอย่างมีเสถียรภาพ และอย่าบันทึกการลดความต้องการและรายได้จากการส่งมอบสูงเกินไป<b>แผนขั้นสูง</b>การปรับปรุงความต้องการและมูลค่าการจัดเก็บพลังงานในอนาคตควรพูดคุยอย่างเหมาะสมเมื่อมีการรองรับข้อมูลโหลดเท่านั้น วิธีนี้จะทำให้ข้อเสนอมีเสถียรภาพมากขึ้นและเป็นเหมือนที่ปรึกษามืออาชีพมากกว่าพนักงานขาย</p>
+<p>คุณค่าหลักของอัลกอริธึมนี้คือการหลีกเลี่ยงคำสัญญาที่มากเกินไป ลูกค้าเชิงพาณิชย์ขนาดเล็กมักจะให้ความสำคัญกับความถูกต้องมากกว่าลูกค้าในครัวเรือน เนื่องจากพวกเขามักจะมีบุคลากรทางการเงิน นักบัญชี หรือเจ้านายที่ทำหน้าที่บัญชีของตนเอง เมื่อคุณประเมิน ROI ของคุณสูงเกินไป ความไว้วางใจในภายหลังจะซ่อมแซมได้ยาก</p>
+<div class="algorithm-box"><strong>[อัลกอริธึมการคำนวณหกขั้นตอนสำหรับธุรกิจขนาดเล็ก]</strong>1. ระบุหมวดหมู่กำหนดการ: 2 หรือ 3 ก่อน<br>2. อ่านบิล: ค่าพลังงานแยก ค่าอุปสงค์ ค่าบริการ ฟุต และภาษีมูลค่าเพิ่ม<br>3. การทำแผนที่เวลาทำการ: ยืนยันความบังเอิญระหว่างปริมาณงานของลูกค้าและช่วงที่มีการใช้งานสูงสุด<br>4. การจับคู่รุ่น: ประมาณสัดส่วนการใช้งานระบบด้วยตนเองในช่วงเวลาทำการ<br>5. การคำนวณการออม:<span class="formula">การประหยัดรายปี = การประหยัดค่าไฟฟ้า + ค่าธรรมเนียมความต้องการที่ตรวจสอบได้ + รายได้จากการจัดส่ง (ถ้ามี)</span>。<br>6. ระยะเวลาคืนทุน:<span class="formula">ระยะเวลาคืนทุนคงที่ = การลงทุนทั้งหมด KW เงินออมรายปี</span>และให้สองระดับของอนุรักษ์นิยม/เป็นกลางในเวลาเดียวกัน</div>
+<div class="quote-box"><strong>[คุยกับหัวหน้า]</strong>แทนที่จะถามว่า 'ค่าติดตั้งใหญ่แค่ไหน' ให้ถามก่อนว่า 'ค่าไฟส่วนไหนของคุณแพงที่สุด เสถียรที่สุด และคุ้มค่าที่สุดในการเปลี่ยน'</div>
+</section><section id="sec-05-3-5-เมื่อใดที่โครงการเชิงพาณิชย์ขนาดเล็กจำเป็นต้องพิจารณาการจัดเก็บพลังงาน-แทนที่จะเพิ่มส่วนประกอบเพิ่มเติม" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 05</div>
+<h3>3.5 เมื่อใดที่โครงการเชิงพาณิชย์ขนาดเล็กจำเป็นต้องพิจารณาการจัดเก็บพลังงาน แทนที่จะเพิ่มส่วนประกอบเพิ่มเติม</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>3.5 เมื่อใดที่โครงการเชิงพาณิชย์ขนาดเล็กจำเป็นต้องพิจารณาการจัดเก็บพลังงาน แทนที่จะเพิ่มส่วนประกอบเพิ่มเติม</h3>
+<p>หนึ่งในข้อผิดพลาดที่พบบ่อยที่สุดที่หลายทีมทำเมื่อทำงานในโครงการเชิงพาณิชย์ขนาดเล็กก็คือพวกเขาต้องการทำให้ระบบใหญ่ขึ้นเมื่อเห็นว่าลูกค้าค่าไฟฟ้าสูง อย่างไรก็ตาม หากจุดสูงสุดของลูกค้าเกิดขึ้นในตอนเย็น กลางคืน หรือในช่วงที่เกิดเหตุการณ์ไม่คาดคิดในระยะสั้น การเพิ่มส่วนประกอบเพิ่มเติมอาจไม่ได้นำไปสู่ผลลัพธ์ทางการเงินที่ดีขึ้นเสมอไป สิ่งที่ควรค่าแก่การพูดคุยในเวลานี้ก็คือ การจัดเก็บพลังงาน การจัดการโหลด หรือการก่อสร้างแบบเป็นขั้นตอน</p>
+<p>การกักเก็บพลังงานจะมีคุณค่าหรือไม่นั้นขึ้นอยู่กับสามสิ่ง: ประการแรก ไม่ว่าความต้องการสูงสุดจะเกิดขึ้นในช่วงเวลาที่ไม่สามารถครอบคลุมได้ด้วยพลังงานไฟฟ้าโซลาร์เซลล์หรือไม่; ประการที่สอง ไม่ว่าลูกค้าจะมีความต้องการที่สูงขึ้นสำหรับความต่อเนื่องของแหล่งจ่ายไฟหรือไม่ ประการที่สาม ไม่ว่าโครงสร้าง TOU และเวลาทำการจะทำให้การ 'เปลี่ยนจุดสูงสุดและเติมเต็มหุบเขา' มีความประหยัดหรือไม่ หากทั้งสามข้อนี้ไม่เป็นความจริง การเพิ่มเพียงการกักเก็บพลังงานจะทำให้โครงการมีราคาแพงขึ้นเท่านั้น</p>
+<p>ดังนั้น ในสถานการณ์เชิงพาณิชย์ขนาดเล็ก การจัดเก็บพลังงานควรถือเป็น 'เครื่องมือที่ตรงกับปัญหาโหลดเฉพาะ' แทนที่จะเป็นตัวเลือกระดับไฮเอนด์ ความสามารถในการอธิบายได้อย่างชัดเจนว่า 'เหตุใดจึงไม่แนะนำให้ใช้แบตเตอรี่ในตอนนี้' มีความสำคัญพอ ๆ กับการอธิบายได้อย่างชัดเจนว่า 'เหตุใดจึงควรผลิตแบตเตอรี่ในเวลานี้'</p>
+</section><section id="sec-06-3-6-วิธีที่ถูกต้องในการรวมภาษีนิติบุคคลและข้อเสนอของธุรกิจขนาดเล็ก" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 06</div>
+<h3>3.6 วิธีที่ถูกต้องในการรวมภาษีนิติบุคคลและข้อเสนอของธุรกิจขนาดเล็ก</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>3.6 วิธีที่ถูกต้องในการรวมภาษีนิติบุคคลและข้อเสนอของธุรกิจขนาดเล็ก</h3>
+<p>ในสถานการณ์ธุรกิจขนาดเล็ก การจัดเก็บภาษีไม่ใช่ตรรกะหลัก แต่มักจะเป็นตรรกะเสริมที่สำคัญที่ส่งเสริมการตัดสินใจ แนวทางที่ถูกต้องไม่ใช่การแยกแรงจูงใจทางภาษีและพูดเกินจริง แต่เพื่อนำเสนอเป็นข้อเสนอทางธุรกิจที่สมบูรณ์: ชั้นแรกคือการประหยัดค่าไฟฟ้า ชั้นที่สองคือการรักษาเสถียรภาพกระแสเงินสด ชั้นที่สามคือการเพิ่มประสิทธิภาพภาษีที่เป็นไปได้ และชั้นที่สี่เป็นการเล่าเรื่องแบรนด์และ ESG</p>
+<p>สำหรับลูกค้าที่มีสิทธิ์ได้รับสิทธิประโยชน์ทางภาษีสำหรับอุปกรณ์ประหยัดพลังงานฝั่งองค์กร ควรแจ้งให้ทราบอย่างชัดเจน โดยส่วนนี้จะต้องได้รับการยืนยันจากที่ปรึกษาด้านภาษีโดยพิจารณาจากรายการอุปกรณ์ ฉลากประสิทธิภาพพลังงาน ใบกำกับภาษีอิเล็กทรอนิกส์ เวลาดำเนินการ และสถานะสิทธิประโยชน์ทางภาษีที่มีอยู่ของบริษัท โดยเฉพาะอย่างยิ่ง จะต้องไม่รวมสิทธิประโยชน์ทางภาษีที่ทับซ้อนกัน เช่น BOI/EEC ค่านิยมของคุณในฐานะผู้วางแผนคือการอธิบายความเป็นไปได้และเงื่อนไขอย่างชัดเจน ไม่ใช่การสรุปในนามของนักบัญชีภาษี</p>
+<p>โซลูชันสำหรับธุรกิจขนาดเล็กที่เป็นมืออาชีพอย่างแท้จริงควรให้ลูกค้าทราบว่าประโยชน์ใดที่แน่นอนกว่า และประโยชน์ใดต้องมีการตรวจสอบเพิ่มเติม ตราบใดที่บรรทัดนี้ยังคงอยู่ คุณภาพของข้อเสนอก็จะได้รับการปรับปรุงอย่างมาก</p>
+<div class="critical-note"><strong>[ประเด็นสำคัญของการพูดคุยเรื่องภาษี]</strong>ข้อเสนอเชิงพาณิชย์ขนาดเล็กสามารถเขียนว่า "มีความเป็นไปได้ที่แรงจูงใจด้านภาษีสำหรับการลงทุนเพื่อการประหยัดพลังงานขององค์กร" แต่ไม่สามารถเขียนว่า "โครงการนี้สามารถหักลดหย่อนได้ 1.5 เท่าอย่างแน่นอน" ขั้นแรกให้พูดคุยเกี่ยวกับเงื่อนไข จากนั้นพูดคุยเกี่ยวกับความเป็นไปได้ และสุดท้ายขอให้ลูกค้าค้นหาที่ปรึกษาด้านภาษีเพื่อยืนยัน</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge official">ทางการ</span><b>[01]</b> <a href="https://www.rd.go.th/fileadmin/user_upload/news/2569thai/news3_2569.pdf">ข่าวประชาสัมพันธ์ กรมสรรพากร กขส. (ปชส.3/2569)</a><span class="source-note">: ให้ตรรกะและข้อจำกัดของการหักเงิน 1.5 เท่าสำหรับองค์กร/หน่วยงานปฏิบัติการ</span></li><li><span class="source-badge official">ทางการ</span><b>[02]</b> <a href="https://www.rd.go.th/fileadmin/user_upload/lorkhor/newsbanner/2025/11/solar.pdf">กรมสรรพากรสนับสนุนภาพประกอบ</a><span class="source-note">: ชี้แจงข้อกำหนด 40(5)-(8), บริษัท/ห้างหุ้นส่วน, BOI/EEC ที่ไม่ทับซ้อนกัน ฯลฯ</span></li></ol></div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">ฉบับแยกบทภาษาไทย · เหมาะสำหรับการฝึกอบรม การเรียนรู้ภายใน และการเผยแพร่บนเว็บ</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_03.html">บทก่อนหน้า</a>
+                        <a class="primary" href="index.html">กลับไปที่สารบัญ</a>
+                        <a href="chapter_05.html">บทถัดไป</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

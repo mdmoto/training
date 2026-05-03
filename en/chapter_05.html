@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Grid connection approval, information list, delivery documents and project process hard version - English Edition</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">Split Index</a>
+                <span>/</span>
+                <span>Chapter 05</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">Back to Index</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_en.html">Full Version</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">English Edition · Chapter 05</div>
+            <h1>Chapter 4: Grid connection approval, information list, delivery documents and project process hard version</h1>
+            <div class="split-hero-subtitle">This chapter puts the four things of "approval, grid connection, data, and acceptance" into one main line. The point is not to remember each form number, but to establish a clear understanding: grid connection is not an after-sales supplementary action, but the key line of the project from contract signing to COD. Any team with weak data awareness will sooner or later rework repeatedly in the grid connection, after-sales and tax links.</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">05</span><span class="split-meta-label">Current Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">Sections in This Chapter</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">Enabled</span><span class="split-meta-label">Quick Navigation</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_04.html">Previous</a>
+                <a class="split-pill" href="chapter_06.html">Next</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">Chapter Navigation</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-4-1-grid-connection-is-divided-into-two-categories-spontaneous-grid-connection-for-self-use-and-grid-connection-for-electricity-sales-retail-projects"><span class="split-nav-index">01</span><span class="split-nav-text">4.1 Grid connection is divided into two categories: spontaneous grid connection for self-use, and grid connection for electricity sales/retail projects.</span></a><a class="split-nav-item" href="#sec-02-4-2-what-does-the-mea-grid-connection-information-package-tell-us"><span class="split-nav-index">02</span><span class="split-nav-text">4.2 What does the MEA grid connection information package tell us?</span></a><a class="split-nav-item" href="#sec-03-4-3-in-the-pea-ppim-project-process-which-nodes-are-most-worthy-of-inclusion-in-training"><span class="split-nav-index">03</span><span class="split-nav-text">4.3 In the PEA PPIM project process, which nodes are most worthy of inclusion in training</span></a><a class="split-nav-item" href="#sec-04-4-4-why-you-must-understand-these-words-zero-export-anti-islanding-and-routine-test-report"><span class="split-nav-index">04</span><span class="split-nav-text">4.4 Why you must understand these words Zero Export, Anti-Islanding, and Routine Test Report</span></a><a class="split-nav-item" href="#sec-05-4-5-从签约到-cod-项目经理最实用的倒排法"><span class="split-nav-index">05</span><span class="split-nav-text">4.5 从签约到 COD：项目经理最实用的倒排法</span></a><a class="split-nav-item" href="#sec-06-4-6-delivery-document-checklist-why-after-sales-tax-and-capital-all-rely-on-it"><span class="split-nav-index">06</span><span class="split-nav-text">4.6 Delivery Document Checklist: Why After Sales, Tax and Capital all rely on it</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Quick Actions</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_04.html">Previous Chapter</a>
+                            <a href="chapter_06.html">Next Chapter</a>
+                            <a href="index.html">Back to Index</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">Reading Tips</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>Read the chapter intro first, then jump to the most relevant section.</li>
+                            <li>Sections with formulas, tables, and sources can be used directly as work references.</li>
+                            <li>For policy, tax, and grid-connection topics, always follow the latest official rules.</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">Chapter Introduction</div>
+                    <div class="chapter-intro">This chapter puts the four things of "approval, grid connection, data, and acceptance" into one main line. The point is not to remember each form number, but to establish a clear understanding: grid connection is not an after-sales supplementary action, but the key line of the project from contract signing to COD. Any team with weak data awareness will sooner or later rework repeatedly in the grid connection, after-sales and tax links.</div>
+                </div>
+        <section id="sec-01-4-1-grid-connection-is-divided-into-two-categories-spontaneous-grid-connection-for-self-use-and-grid-connection-for-electricity-sales-retail-projects" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 01</div>
+<h3>4.1 Grid connection is divided into two categories: spontaneous grid connection for self-use, and grid connection for electricity sales/retail projects.</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>4.1 Grid connection is divided into two categories: spontaneous grid connection for self-use, and grid connection for electricity sales/retail projects.</h3>
+<p>You must first distinguish the project types, otherwise all processes will be mixed. Taking MEA as an example, its official website specifically lists<b>Generator Paralleling (production for own use, not for sale)</b>As a clear entrance, it provides connection application form, Zero Export Controller form, inverter grid-connected routine test report, engineer certificate and grid-connected wiring form documents. This shows one thing: even if it is a grid-connected system that does not sell electricity and is only used for its own use, it must go through a formal connection and documentation process, rather than just "install it and connect it directly."</p>
+<p>PEA's PPIM project page shows another type of logic, that is, when participating in a specific rooftop project under the policy window and involving electricity sales arrangements, it needs to be executed according to project announcement, quota, application, review, payment, contracting, grid connection and COD nodes. In other words, grid connection is not a single action, but has different process levels depending on whether the project sells electricity, whether it participates in a specific project plan, and the local power agency.</p>
+<p>The most important thing here is not to memorize which system entrance of which unit, but to know:<b>Grid connection = a main line composed of project design, equipment, data, testing, contract, measurement and on-site inspection</b>. As long as grid connection is understood as "final procedures," there is a high probability that mines will be laid in the previous planning and construction stages.</p>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge official">Official</span><b>[01]</b> <a href="https://www.mea.or.th/other-services/electricity-producers/generator-paralleling/ngU5I3Gt3">MEA Generator Paralleling download page</a><span class="source-note">: Provide connection application form, Zero Export Controller form, grid connection test report, engineer certificate, etc.</span></li><li><span class="source-badge official">Official</span><b>[02]</b> <a href="https://ppim.pea.co.th/project/solar/detail/62885d055bdc7f264c5edcdd">PEA PPIM Rooftop Solar Project Page</a><span class="source-note">: Shows the process, payment, contract signing, COD and other nodes of electricity sales projects.</span></li></ol></div>
+</section><section id="sec-02-4-2-what-does-the-mea-grid-connection-information-package-tell-us" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 02</div>
+<h3>4.2 What does the MEA grid connection information package tell us?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>4.2 What does the MEA grid connection information package tell us?</h3>
+<p>MEA's "Made for Your Own Use Not for Sale" link download page is a good example in itself. Because it does not put only one application form, but also puts: connection application form, connection form document, engineer design/supervision certificate, routine test report for the inverter to be connected to the MEA power grid, Zero Export Controller form and filling instructions, and upload instructions when ready. This shows that grid connection essentially includes three types of data:<b>Project identity information</b>、<b>Technical design information</b>、<b>Equipment and test data</b>。</p>
+<p>These three types of data have different functions. The project identity information is used to confirm who you are, which CA number or power point you are connected to; the technical design information is used to explain how you plan to connect, what kind of connection, and who is responsible for the design and supervision; the equipment and test data answer the questions that the power agency is most concerned about: whether your inverter and control equipment have the ability to safely connect to the grid, whether it will cause the risk of reverse power transmission or islanding operation, and whether the system is ready according to the rules.</p>
+<p>This logic must be understood clearly, because many frontline personnel will feel that the information is just an administrative requirement. Not really. Documentation is the language that takes a project from 'equipment installed by the engineering team' to 'a grid-connected system acceptable to the utility'. If you don’t speak this language, it’s easy to get stuck on a project no matter how good it is.</p>
+<div class="term-box"><strong>【Data Classification】</strong><b>Identity information</b>: Customer subject, CA/meter information, authorization letter.<br><b>Design information</b>: Single line diagram, connection method, capacity description, engineer certification.<br><b>Equipment information</b>: Inverter test report, controller information, equipment nameplate, necessary certifications.</div>
+<div class="technical-spec"><strong>[Key awareness read directly from the MEA download page]</strong>1. When connecting an inverter to the grid, you don’t just need to look at the brand, but also the test report.<br>2. The engineer's certificate is not a formality, but a responsibility attribution.<br>3. Zero Export is not a verbal talk, but a form and controller declaration.<br>4. ‘Installation Completed’ and ‘Data Completed’ are two different nodes.</div>
+</section><section id="sec-03-4-3-in-the-pea-ppim-project-process-which-nodes-are-most-worthy-of-inclusion-in-training" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 03</div>
+<h3>4.3 In the PEA PPIM project process, which nodes are most worthy of inclusion in training</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>4.3 In the PEA PPIM project process, which nodes are most worthy of inclusion in training</h3>
+<p>PEA's PPIM page gives a sample process that is ideal for training. Taking the residential electricity sales project as an example, the page clearly states: After the project application, PEA will review the documents and technical capabilities; announce the results in the system; those who pass the project must pay the grid connection fee, submit originals and supplementary documents within the specified time; and then sign the contract; and are required to complete the system, apply for grid connection, first synchronization and commercial operation within the agreed SCOD.</p>
+<p>The page also gives specific time points when training is of high value:<b>Announcement of review results within 45 days</b>、<b>Pay the fee and submit original documents within 30 days</b>、<b>Complete COD within 270 days of contract signing</b>. These numbers may not necessarily apply to all project types, but they remind the team of one thing: grid connection is never about waiting indefinitely, it is a process with clear time limits and risks of failure.</p>
+<p>In addition, the PEA project page also lists key actions such as First Synchronization, COD, and exemption permit notices, which shows that the construction team, project manager, and customer all need to cooperate in advance. If these nodes are not explained clearly in the early stage, the front line will mistake "waiting for the power company" as a black box and ignore a lot of work that can actually be prepared in advance.</p>
+<table class="note-table"><tr><th>process node</th><th>Information visible on the PEA page</th><th>Training significance</th><th>Typical risks</th></tr><tr><td>censorship announcement</td><td>Results announced within 45 days</td><td>Reminder that application does not end after submission</td><td>Customers mistakenly believe that they can be installed immediately</td></tr><tr><td>Pay/supplement original documents</td><td>Complete within 30 days</td><td>Emphasis on data completeness and timeliness</td><td>Expiration will lead to invalidation</td></tr><tr><td>Signed to COD</td><td>within 270 days</td><td>Project scheduling must be pushed back</td><td>Construction and data are inconsistent and delayed</td></tr><tr><td>First Synchronization</td><td>PEA on-site inspection and first parallel connection</td><td>Grid connection does not mean closing the circuit breaker by itself</td><td>Device/data mismatch</td></tr></table>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge official">Official</span><b>[01]</b> <a href="https://ppim.pea.co.th/project/solar/detail/62885d055bdc7f264c5edcdd">PEA PPIM Rooftop Solar Project Page</a><span class="source-note">: List the process, timelines, costs and COD requirements.</span></li></ol></div>
+</section><section id="sec-04-4-4-why-you-must-understand-these-words-zero-export-anti-islanding-and-routine-test-report" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 04</div>
+<h3>4.4 Why you must understand these words Zero Export, Anti-Islanding, and Routine Test Report</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>4.4 Why you must understand these words Zero Export, Anti-Islanding, and Routine Test Report</h3>
+<p>The most easily overlooked category of words in front-line training is "control and protection vocabulary." Such as Zero Export, Anti-Islanding, Routine Test Report. Many teams will say, "Our inverter supports it," but if they don't even understand the meaning of the power grid behind these words, it will be difficult to truly stand firm in terms of approval, customer explanation, and fault response.</p>
+<p>The business meaning of Zero Export is very intuitive: the system is required not to send excess power back to the public grid, so a controller or inverter strategy is required to limit the output within the range that the local load can absorb. The significance of Anti-Islanding is to prevent islanding operation, that is, when the public grid loses power, the grid-connected inverter cannot continue to maintain the power supply of the external isolated small grid to avoid risks to line maintenance and personnel safety. IEC 62116 is one of the important standards related to inverter anti-islanding testing.</p>
+<p>Appears on the MEA download page<b>Routine Test Report for Inverter Connected to MEA Grid</b>, indicating that power agencies are not only concerned about the brand, but whether the inverter meets the grid connection behavior, protection action and testing requirements. This means: Don’t understand equipment compliance as “a certain brand is famous”, but as “equipment + test + file + access form” to jointly meet the requirements.</p>
+<div class="term-box"><strong>【Vocabulary of Protection and Control】</strong><b>Zero Export</b>: Restrict the system from sending power back to the public grid.<br><b>Anti-Islanding</b>: Anti-islanding protection, when the power grid loses power, the inverter needs to stop supplying power to the external isolated network.<br><b>Routine Test Report</b>: Routine equipment grid test report, used to prove that the equipment meets the access requirements.</div>
+<div class="source-box"><strong>[Sources & References]</strong><ol class="source-list"><li><span class="source-badge official">Official</span><b>[01]</b> <a href="https://www.mea.or.th/other-services/electricity-producers/generator-paralleling/ngU5I3Gt3">MEA Generator Paralleling download page</a><span class="source-note">: Contains Zero Export and Routine Test Report file entries.</span></li><li><span class="source-badge official">Official</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/29153">IEC 62116 official entry</a><span class="source-note">: Describes the anti-islanding test program for utility-interconnected PV inverter.</span></li></ol></div>
+</section><section id="sec-05-4-5-从签约到-cod-项目经理最实用的倒排法" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 05</div>
+<h3>4.5 从签约到 COD：项目经理最实用的倒排法</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>4.5 从签约到 COD：项目经理最实用的倒排法</h3>
+<p>Newcomers are most afraid that the project process will seem too long and they will not be able to remember it in the end. The most practical way is not to memorize the flow chart, but to learn to reverse it.先看客户希望什么时候用上系统，再看是否涉及售电项目或零回送要求，再倒推申请、勘测、设计、签约、设备采购、施工、资料归档、并网检查、首次并联、COD。 As long as you can work backwards, the collaboration between the project manager and sales will be much clearer.</p>
+<p>For project managers, the most common risk is not a single construction delay, but a lack of synchronization of materials, equipment, contracts and site preparation. For example, the data is prepared late, which results in the installation not being able to be connected to the grid; or the construction site and the application single-line diagram are inconsistent, resulting in the need to make corrections; or the customer authorization document is inconsistent with the meter user, resulting in the process being stuck. The greatest value of the inversion method is to expose such cross-departmental problems in advance.</p>
+<p>Therefore, project managers should at least have a standard inversion list, rather than relying on WeChat groups to push progress. Mature project management does not always focus on what to do today, but knows "if you don't do it today, which grid-connected node will have problems later."</p>
+<div class="algorithm-box"><strong>[8 steps of grid connection project]</strong>1. First determine the customer target online time/COD.<br>2. Push back the time for contract signing and grid connection application.<br>3. Work backwards in design and data preparation time.<br>4. Work backwards on equipment procurement, testing and arrival time.<br>5. Push back the construction window and cooperate with customers’ power outages.<br>6. Reverse the first parallel connection/inspection appointment.<br>7. Check that all identity, design, and device files are closed loop.<br>8. Give customers a clear node list instead of vaguely saying "coming soon".</div>
+</section><section id="sec-06-4-6-delivery-document-checklist-why-after-sales-tax-and-capital-all-rely-on-it" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">Section Content · 06</div>
+<h3>4.6 Delivery Document Checklist: Why After Sales, Tax and Capital all rely on it</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>4.6 Delivery Document Checklist: Why After Sales, Tax and Capital all rely on it</h3>
+<p>The delivery document list is not only for grid connection, but also for subsequent after-sales, tax incentives, liability boundaries and capitalization preparations. Especially in the context that you may do EaaS/EMC or connect with capital/banks in the future, the quality of documents will directly determine whether the project is readable, credible, and auditable.</p>
+<p>It is recommended to divide the files into four packages:<b>Customer contract package</b>、<b>Design and Construction Package</b>、<b>Grid connection and test package</b>、<b>Operation and maintenance and after-sales package</b>. The contract includes contracts, authorizations, payments and invoices; the design and construction package includes drawings, photos, materials, and equipment serial numbers; the grid-connected test package includes application forms, access forms, test records, and power agency contacts; the operation and maintenance after-sales package includes monitoring accounts, instructions, warranty responsibilities, and return visit records.</p>
+<p>A bottom line must be made clear: without documentation, there is no closed loop. Without a closed loop, there is no real completion.</p>
+<div class="kpi-box"><strong>[Chapter 4 Implementation KPI]</strong>1. Complete rate of grid connection data submission at one time.<br>2. Average number of days from completion to first parallel connection.<br>3. The consistency rate between the application information and the site.<br>4. Completeness rate of delivery document package archiving.<br>5. Rework rate due to data problems within 30 days.</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">English split edition · suitable for training, internal learning, and web deployment</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_04.html">Previous Chapter</a>
+                        <a class="primary" href="index.html">Back to Index</a>
+                        <a href="chapter_06.html">Next Chapter</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

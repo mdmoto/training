@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战略总纲：为什么做泰国户用 + 小商用光伏，以及这件事还能做多久 - 硬核修订分章版</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">分章目录</a>
+                <span>/</span>
+                <span>第 01 章</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">返回目录</a>
+                <a class="split-pill" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">硬核修订分章版 · 第 01 章</div>
+            <h1>战略总纲：为什么做泰国户用 + 小商用光伏，以及这件事还能做多久</h1>
+            <div class="split-hero-subtitle">本章围绕 5W1H 展开，集中回答六个核心问题：为什么现在值得做、这件事本质是什么、主要给谁做、在泰国哪些区域更适合做、这个窗口还能持续多久、以及我们应当如何把事情做好。</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">01</span><span class="split-meta-label">当前章节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">4</span><span class="split-meta-label">本章小节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">可跳读</span><span class="split-meta-label">支持按小节快速定位</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="index.html">上一章</a>
+                <a class="split-pill" href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">下一章</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">本章导航</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-1-1-why-为什么现在做-而不是再等两年"><span class="split-nav-index">01</span><span class="split-nav-text">1.1 Why：为什么现在做，而不是再等两年</span></a><a class="split-nav-item" href="#sec-02-1-2-what-这门生意本质上卖的是什么"><span class="split-nav-index">02</span><span class="split-nav-text">1.2 What：这门生意本质上卖的是什么</span></a><a class="split-nav-item" href="#sec-03-1-3-who-where-做给谁-优先打哪些区域和客群"><span class="split-nav-index">03</span><span class="split-nav-text">1.3 Who / Where：做给谁，优先打哪些区域和客群</span></a><a class="split-nav-item" href="#sec-04-1-4-when-how-long-how-窗口还有多久-我们怎样把事做好"><span class="split-nav-index">04</span><span class="split-nav-text">1.4 When / How long / How：窗口还有多久，我们怎样把事做好</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">快捷跳转</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="index.html">上一章</a>
+                            <a href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">下一章</a>
+                            <a href="index.html">章节目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">阅读提示</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>先看章节导语，再按导航选择重点小节。</li>
+                            <li>带公式、表格、出处的内容可直接作为工作参考。</li>
+                            <li>涉及政策、税务和并网时，以最新官方口径为准。</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">章节导语</div>
+                    <div class="chapter-intro">本章围绕 5W1H 展开，集中回答六个核心问题：为什么现在值得做、这件事本质是什么、主要给谁做、在泰国哪些区域更适合做、这个窗口还能持续多久、以及我们应当如何把事情做好。</div>
+                </div>
+        <section id="sec-01-1-1-why-为什么现在做-而不是再等两年" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 01</div>
+<h3>1.1 Why：为什么现在做，而不是再等两年</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>1.1 Why：为什么现在做，而不是再等两年</h3>
+<p>从经营逻辑上看，泰国户用与小商用光伏成立，不靠一个单点政策，而靠四个条件叠加：第一，空调主导下的白天负荷真实存在；第二，零售购电价格显著高于屋顶光伏的长期度电成本；第三，并网型屋顶系统已经具备足够成熟的标准化设备和安装体系；第四，2026 年开始税务激励和市场教育明显加快，使客户从“看热闹”转入“认真比较方案”。</p>
+<p>对户用客户来说，真正的驱动力不是把多余电卖出去，而是把最贵的白天零售电先替掉。对小商用客户来说，驱动力则更偏向现金流稳定和经营成本可预测。这门生意的核心不是发多少电，而是替掉了多少原本必须高价购买的电。</p>
+<p>从公开信息看，PEA 已公布 2026 年 5-8 月现行 Ft 为 <span class="highlight">0.1623 THB/kWh</span>；而 MEA/PEA 的电价体系中，电费账单由基础电价、Ft 和 VAT 共同构成。换句话说，客户实际支付的不是单一“几块钱一度”的静态数字，而是一个会随着 Ft 调整的动态结构。Ft 每 4 个月审查一次，这使“锁定部分未来电费成本”本身就具有商业意义。</p>
+<p>泰国市场并不是一个只能靠故事驱动的市场，而是一个已经可以用账单、负荷、Ft 调整周期和系统发电量去做测算的市场。能把测算讲清楚，就能把成交和交付做稳。</p>
+<div class="term-box"><strong>【名词解释】</strong>1. <b>Ft</b>：Fuel Adjustment Cost at the given time，即燃料调节费，反映基础电价之外的燃料和购电成本变化。<br>2. <b>TOU</b>：Time of Use，分时电价机制，按峰谷时段区别计费。<br>3. <b>自发自用率</b>：系统发出的电中，被客户自身负荷即时消纳的比例。<br>4. <b>LCOE</b>：Levelized Cost of Electricity，平准化度电成本，用于把全生命周期成本折算到每度电。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.pea.co.th/en/our-services/tariff">PEA Tariff 官方页</a><span class="source-note">：说明电费由基础电价、Ft、VAT 等构成。</span></li><li><span class="source-badge official">官方</span><b>[02]</b> <a href="https://www.pea.co.th/en/our-services/tariff/ft">PEA Latest Ft 官方页</a><span class="source-note">：列出 2026 年 5-8 月 Ft 为 0.1623 THB/Unit。</span></li><li><span class="source-badge official">官方</span><b>[03]</b> <a href="https://www.mea.or.th/en/our-services/tariff-calculation/ft/-Y6fw2KMUPAfV">MEA What is Ft? 官方页</a><span class="source-note">：说明 Ft 的含义、审查周期和账单显示方式。</span></li></ol></div>
+</section><section id="sec-02-1-2-what-这门生意本质上卖的是什么" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 02</div>
+<h3>1.2 What：这门生意本质上卖的是什么</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>1.2 What：这门生意本质上卖的是什么</h3>
+<p>如果把这门生意理解成“卖组件”，你最终只能和最低价竞争；如果把它理解成“卖发电量”，你会过度强调理论年发电；但如果把它理解成“替客户重构未来 10-25 年电费支出”，你的销售、设计、施工、售后和金融逻辑才会统一。</p>
+<p>对户用客户，产品本质是‘家庭能源成本管理工具’；对小商用客户，产品本质是‘营业时段电费对冲工具’；对未来 EaaS/EMC 而言，产品本质又会变成‘长期能源服务合约’。同一套屋顶系统，在不同商业模式下代表的东西并不一样；先把这个区别理解清楚，后续的销售、交付和运维逻辑才不会混乱。</p>
+<p>理解这门业务时，不应把重点放在‘我们卖最好的品牌’，而应放在：我们用标准化设备、标准化工艺和标准化交付，帮助客户把未来部分电费从波动支出转成可管理、可预测、可追踪的长期成本。</p>
+<div class="algorithm-box"><strong>【最基础的收益判断算法】</strong>第一步：先看客户 12 个月账单，估算月均用电量与季节波动。<br>第二步：判断白天负荷是否稳定，特别是 09:00-16:00 时段的空调、制冷、办公、泳池泵、门店营业负荷。<br>第三步：计算候选系统年发电量，再乘以 <b>自发自用率</b>，得到真正对账单有价值的电量。<br>第四步：用 <span class="formula">年节省 = 自用电量 × 零售购电边际电价 + 外送电量 × 上网结算单价</span> 做保守测算。<br>第五步：用 <span class="formula">静态回收期 = 项目总投资 ÷ 年节省</span> 做第一层判断，再进入融资、衰减、运维等细化模型。</div>
+<div class="preserve-box"><strong>【保留原大纲观点，并做校正】</strong>原始大纲把这件事定义为“从用电权到发电权”，这句话适合做培训动员，但落地时要改写为：客户真正获得的并不是抽象的“发电权”，而是白天部分电量的自我对冲能力，以及更可预测的现金流结构。这样更适合新员工理解，也更利于客户沟通。</div>
+</section><section id="sec-03-1-3-who-where-做给谁-优先打哪些区域和客群" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 03</div>
+<h3>1.3 Who / Where：做给谁，优先打哪些区域和客群</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>1.3 Who / Where：做给谁，优先打哪些区域和客群</h3>
+<p>你的业务结构已经非常明确：80% 户用，20% 小商用。组织设计要围绕高质量户用成交来搭，而不是以大型工商业 EPC 的思路反推。最优先的客群，不是所有‘想装的人’，而是那些具备稳定白天负荷、房产长期持有意愿、对审美和售后有要求、且愿意听懂方案逻辑的人。</p>
+<p>区域上，应优先选择空调负荷重、别墅和低层住宅密度高、以及中小商户白天营业时间长的区域。曼谷及周边更适合高品质户用与小商用示范；旅游和别墅型区域更适合高净值户用与短租物业；产业带周边则更适合作为小商用和轻工厂储备市场。</p>
+<p>客群优先级上，建议按三层筛选：A 类为高净值自住房、日间有人在家或白天办公的别墅客户；B 类为诊所、门店、民宿、小型工坊等白天营业负荷稳定客户；C 类为未来有电池、EV 或 EaaS 潜力的客户。不同咨询对象的优先级并不相同，真正重要的是筛选能力。</p>
+<table class="note-table"><tr><th>客群</th><th>为什么值得做</th><th>典型风险</th><th>建议打法</th></tr><tr><td>高净值户用</td><td>审美与售后溢价空间高、转介绍强</td><td>方案不专业会迅速失单</td><td>勘测+效果图+精品交付</td></tr><tr><td>小商用门店/诊所</td><td>白天负荷稳定、现金流逻辑清楚</td><td>施工影响营业</td><td>财务测算+低干扰施工</td></tr><tr><td>短租/民宿物业</td><td>账单高、宣传效果强</td><td>淡旺季波动明显</td><td>收益做区间、不做绝对承诺</td></tr></table>
+</section><section id="sec-04-1-4-when-how-long-how-窗口还有多久-我们怎样把事做好" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 04</div>
+<h3>1.4 When / How long / How：窗口还有多久，我们怎样把事做好</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>1.4 When / How long / How：窗口还有多久，我们怎样把事做好</h3>
+<p>如果问这件事还能做多久，答案不是一个简单年份，而是一个窗口判断。只要泰国白天空调负荷仍然强、零售购电成本明显高于自建屋顶光伏长期成本、并网型设备继续标准化、而客户对电费稳定性的关注不下降，这个市场就不会在短期内消失。真正会消失的，只是粗放安装商的利润窗口，而不是行业本身。</p>
+<p>从经营节奏看，未来 3 年更像是‘标准化建能力’阶段：客户教育仍在继续，税务激励提升了咨询意愿，融资与 EaaS 刚开始具备讨论空间，但组织质量差异会迅速拉大。现在不是拼故事的时候，而是拼流程、拼工艺、拼解释能力、拼资料完整度的时候。</p>
+<p>你们怎么把这件事做好？答案是四件事并行：一，用中国供应链把成本和交期做稳；二，用日本工艺把细节和返工率做稳；三，用户用顾问式销售把项目筛选做对；四，用数据和资料沉淀为未来 EaaS/EMC 做准备。培训总纲如果不能把这四条打透，后面章节就会散掉。</p>
+<div class="kpi-box"><strong>【总纲落地 KPI】</strong>1. 新员工必须能解释 Ft、TOU、自发自用率、静态回收期。<br>2. 销售必须会做 12 个月账单分析。<br>3. 工程必须知道何种客户不应盲目做大系统。<br>4. 管理层必须按户用/小商用分开看获客、回款、投诉和转介绍。</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">硬核修订分章版 · 更适合培训阅读、内部学习与网页部署浏览</div>
+                    <div class="split-footer-actions">
+                        <a href="index.html">上一章</a>
+                        <a class="primary" href="index.html">返回目录</a>
+                        <a href="02_第一章_泰国电力市场FtTOU并网与_805_号法令硬核解读.html">下一章</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

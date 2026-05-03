@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第七章：报价、毛利、现金流、汇率与库存模型硬核版 - 硬核修订分章版</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">分章目录</a>
+                <span>/</span>
+                <span>第 08 章</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">返回目录</a>
+                <a class="split-pill" href="../泰国户用与小商用光伏全员培训资料_硬核修订版.html">查看整合版</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">硬核修订分章版 · 第 08 章</div>
+            <h1>第七章：报价、毛利、现金流、汇率与库存模型硬核版</h1>
+            <div class="split-hero-subtitle">财务章的核心不是记账，而是帮助业务和工程理解：为什么有些单子看上去赚钱，最后却把现金流和售后都拖垮。本章重点重构五件事：税务底座、报价结构、真实利润、回款设计、汇率与库存控制。</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">08</span><span class="split-meta-label">当前章节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">7</span><span class="split-meta-label">本章小节</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">可跳读</span><span class="split-meta-label">支持按小节快速定位</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="07_第六章_主体合规合同边界劳动义务与保险留痕硬核版.html">上一章</a>
+                <a class="split-pill" href="09_第八章_监控告警运维清洗与_SLA_硬核版.html">下一章</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">本章导航</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-7-1-先把税务底座讲清-vat-cit-服务费预提这些基础口径"><span class="split-nav-index">01</span><span class="split-nav-text">7.1 先把税务底座讲清：VAT、CIT、服务费预提这些基础口径</span></a><a class="split-nav-item" href="#sec-02-7-2-报价不是拍脑袋-标准报价结构应该怎么拆"><span class="split-nav-index">02</span><span class="split-nav-text">7.2 报价不是拍脑袋：标准报价结构应该怎么拆</span></a><a class="split-nav-item" href="#sec-03-7-3-毛利不等于真实利润-必须用利润瀑布图思维"><span class="split-nav-index">03</span><span class="split-nav-text">7.3 毛利不等于真实利润：必须用利润瀑布图思维</span></a><a class="split-nav-item" href="#sec-04-7-4-回款设计-为什么节点安排比催款话术更重要"><span class="split-nav-index">04</span><span class="split-nav-text">7.4 回款设计：为什么节点安排比催款话术更重要</span></a><a class="split-nav-item" href="#sec-05-7-5-汇率不是财务抽象词-而是中国供应链公司的真实成本变量"><span class="split-nav-index">05</span><span class="split-nav-text">7.5 汇率不是财务抽象词，而是中国供应链公司的真实成本变量</span></a><a class="split-nav-item" href="#sec-06-7-6-库存和备件-为什么-备太多-和-什么都不备-都危险"><span class="split-nav-index">06</span><span class="split-nav-text">7.6 库存和备件：为什么‘备太多’和‘什么都不备’都危险</span></a><a class="split-nav-item" href="#sec-07-7-7-管理层必须看的财务-kpi-不然利润只会停在感觉里"><span class="split-nav-index">07</span><span class="split-nav-text">7.7 管理层必须看的财务 KPI，不然利润只会停在感觉里</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">快捷跳转</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="07_第六章_主体合规合同边界劳动义务与保险留痕硬核版.html">上一章</a>
+                            <a href="09_第八章_监控告警运维清洗与_SLA_硬核版.html">下一章</a>
+                            <a href="index.html">章节目录</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">阅读提示</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>先看章节导语，再按导航选择重点小节。</li>
+                            <li>带公式、表格、出处的内容可直接作为工作参考。</li>
+                            <li>涉及政策、税务和并网时，以最新官方口径为准。</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">章节导语</div>
+                    <div class="chapter-intro">财务章的核心不是记账，而是帮助业务和工程理解：为什么有些单子看上去赚钱，最后却把现金流和售后都拖垮。本章重点重构五件事：税务底座、报价结构、真实利润、回款设计、汇率与库存控制。</div>
+                </div>
+        <section id="sec-01-7-1-先把税务底座讲清-vat-cit-服务费预提这些基础口径" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 01</div>
+<h3>7.1 先把税务底座讲清：VAT、CIT、服务费预提这些基础口径</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>7.1 先把税务底座讲清：VAT、CIT、服务费预提这些基础口径</h3>
+<p>Revenue Department 英文页给了非常适合培训的基础口径。第一，泰国 VAT 的一般税率当前为 <b>7%</b>；第二，凡在泰国持续销售货物或提供服务且年营业额超过 <b>1.8 million THB</b> 的主体，一般应纳入 VAT 体系；第三，企业所得税（CIT）一般税率为 <b>20%</b> 的净利润。报价和利润讨论不能只看‘总价’，还要理解税和票据如何影响现金流。</p>
+<p>同一套 RD 材料还给出了常见代扣税口径：例如支付给泰国公司或在泰有常设机构的外国公司的 <b>服务及专业服务费</b>，常见预提税率为 <b>3%</b>；支付给在泰无常设机构的外国公司则常见为 <b>5%</b>。这对你和中国供应商、海外技术服务或本地分包的结算设计都有意义。</p>
+<p>业务团队需要知道：税不只是会计师的事。VAT 影响客户票据与回款体验，CIT 影响利润口径，预提税影响服务费结算与合同净额。不会讲税，报价很容易看起来高或低，但团队自己都不知道为什么。</p>
+<div class="term-box"><strong>【财务底座名词】</strong><b>VAT</b>：增值税。<br><b>CIT</b>：企业所得税。<br><b>WHT</b>：预提税/代扣税。<br><b>Output Tax / Input Tax</b>：销项税 / 进项税。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.rd.go.th/english/6043.html">RD Value Added Tax 英文页</a><span class="source-note">：给出 VAT 7%、1.8 million THB 注册门槛、VAT 30 与 VAT 36 说明。</span></li><li><span class="source-badge official">官方</span><b>[02]</b> <a href="https://www.rd.go.th/english/6044.html">RD Corporate Income Tax 英文页</a><span class="source-note">：给出 CIT 20%、CIT 50/51/54、服务费预提税等信息。</span></li><li><span class="source-badge official">官方</span><b>[03]</b> <a href="https://www.rd.go.th/english/52471.html">RD Thailand Tax Rate 页面</a><span class="source-note">：汇总 VAT、CIT、服务费预提税等公开口径。</span></li></ol></div>
+</section><section id="sec-02-7-2-报价不是拍脑袋-标准报价结构应该怎么拆" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 02</div>
+<h3>7.2 报价不是拍脑袋：标准报价结构应该怎么拆</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>7.2 报价不是拍脑袋：标准报价结构应该怎么拆</h3>
+<p>培训业务和财务最有效的方式，不是告诉大家‘毛利要多少’，而是先把报价结构拆开。一个标准光伏项目报价至少应拆为：设备主材、辅材、人工、勘测设计、物流吊装、并网与资料、售后准备金、营销分摊、汇率缓冲和目标毛利。只有拆开后，团队才知道自己到底在卖什么。</p>
+<p>很多项目前线报价看上去合理，但后期发现根本没把并网资料、售后上门、影像归档、客户培训、甚至监控开通的人力算进去。结果不是客户占了便宜，而是公司自己把必须承担的成本忘了。</p>
+<p>报价模板一定要标准化。不是为了行政美观，而是为了防止同一家公司给同类项目报出两套完全不同的成本逻辑。</p>
+<div class="algorithm-box"><strong>【标准报价公式】</strong><span class="formula">报价未税总成本 = 主材 + 辅材 + 人工 + 勘测设计 + 物流吊装 + 并网资料 + 售后准备金 + 营销分摊 + 汇率缓冲</span><br><span class="formula">未税报价 = 未税总成本 ÷ (1 - 目标毛利率)</span><br><span class="formula">含税报价 = 未税报价 × (1 + VAT)</span></div>
+</section><section id="sec-03-7-3-毛利不等于真实利润-必须用利润瀑布图思维" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 03</div>
+<h3>7.3 毛利不等于真实利润：必须用利润瀑布图思维</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>7.3 毛利不等于真实利润：必须用利润瀑布图思维</h3>
+<p>业务最容易误解的地方，就是把签约毛利当成最终利润。实际上，签约那一刻你得到的只是‘报价毛利’，距离真实利润还隔着大量可能侵蚀项目收益的变量。正确的培训方式，是用利润瀑布图来讲。</p>
+<p>利润瀑布的基本逻辑是：从合同收入出发，先减去直接材料和直接人工，得到项目毛利；再减去勘测设计、并网资料、运输、安装管理，得到贡献毛利；再减去返工、售后准备金、汇率损失、坏账准备和营销分摊，才接近真实经营利润。只要团队没有这个意识，就会不断高估自己赚钱能力。</p>
+<p>管理层应要求项目复盘至少看三层利润：报价毛利、完工毛利、90 天后真实利润。这样才能看见问题是出在报价、交付还是售后。</p>
+<table class="note-table"><tr><th>利润层级</th><th>包含内容</th><th>为什么重要</th></tr><tr><td>报价毛利</td><td>合同额 - 直接主材/人工预算</td><td>最容易好看，也最容易失真</td></tr><tr><td>完工毛利</td><td>加上实际采购、实际人工、运输、管理</td><td>反映执行偏差</td></tr><tr><td>真实利润</td><td>再扣返工、售后、汇率、坏账、营销分摊</td><td>反映这单到底值不值得做</td></tr></table>
+</section><section id="sec-04-7-4-回款设计-为什么节点安排比催款话术更重要" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 04</div>
+<h3>7.4 回款设计：为什么节点安排比催款话术更重要</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>7.4 回款设计：为什么节点安排比催款话术更重要</h3>
+<p>现金流好的公司，不一定催款最狠，但一定在合同一开始就把回款节点设计得更科学。对户用项目，建议至少把回款和项目可验证节点绑定，例如签约定金、开工前/材料进场、主体安装完成、并网/验收交付。对小商用和复杂项目，则应更强调与设计、设备采购和并网节点同步。</p>
+<p>回款设计最怕两种极端：一种是为了签单把尾款放得过后，导致系统都在发电了客户却没有付款压力；另一种是节点设置脱离项目实际，客户觉得被迫付款而缺乏配合。成熟的节点设计，既保护现金流，也符合项目现实。</p>
+<p>销售必须知道：每放松一个节点，公司都在承担额外融资成本。项目经理也要知道：如果因为资料或验收动作没做好导致尾款拖延，那本质上不是财务问题，而是交付问题。</p>
+<div class="algorithm-box"><strong>【回款风险的简单量化】</strong><span class="formula">加权回款天数 = ∑(每笔回款金额占比 × 预计回款天数)</span><br><span class="formula">项目现金缺口 ≈ 采购与人工高峰支出 - 同期已回款</span><br>管理层至少应看：每类项目的加权回款天数、尾款逾期率、并网前未收尾款项目数。</div>
+</section><section id="sec-05-7-5-汇率不是财务抽象词-而是中国供应链公司的真实成本变量" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 05</div>
+<h3>7.5 汇率不是财务抽象词，而是中国供应链公司的真实成本变量</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>7.5 汇率不是财务抽象词，而是中国供应链公司的真实成本变量</h3>
+<p>既然你的主材大量来自中国，汇率就不是财务部门自己的问题，而是报价、采购和回款共同决定的利润变量。BOT 的外汇页面每天公布商业银行平均买卖汇率和加权银行间汇率，这说明公司完全可以建立自己的汇率观察习惯，而不是等采购付款时再被动接受结果。</p>
+<p>例如 2026 年 4 月 30 日，BOT 页面显示加权银行间汇率约为 <b>32.769 THB/USD</b>。这个数字本身不会告诉你项目是否赚钱，但它提醒你：跨币种采购必须有缓冲逻辑。若报价以 THB 锁定，采购以人民币/美元结算，则报价有效期、预付款时间和锁价节奏都会影响最终毛利。</p>
+<p>培训里最重要的，不是让业务学做套期保值，而是让业务知道：报价有效期、订金比例、采购锁价和汇率缓冲并不是财务故意保守，而是在保护项目利润。</p>
+<div class="sop-box"><strong>【汇率风险简化管法】</strong>1. 超过一定金额的项目设置报价有效期。<br>2. 拿到首付款后优先锁关键设备。<br>3. 报价模板中设汇率缓冲栏。<br>4. 每周固定查看 BOT 汇率，而不是临付款才关心。</div>
+<div class="source-box"><strong>【出处与参考】</strong><ol class="source-list"><li><span class="source-badge official">官方</span><b>[01]</b> <a href="https://www.bot.or.th/en/statistics/exchange-rate.html">BOT Daily Foreign Exchange Rates</a><span class="source-note">：可查每日汇率与商业银行平均买卖价。</span></li></ol></div>
+</section><section id="sec-06-7-6-库存和备件-为什么-备太多-和-什么都不备-都危险" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 06</div>
+<h3>7.6 库存和备件：为什么‘备太多’和‘什么都不备’都危险</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>7.6 库存和备件：为什么‘备太多’和‘什么都不备’都危险</h3>
+<p>库存管理最怕两个极端：要么为了怕缺货，把大量资金压在慢动件上；要么为了减少库存，现场和售后频繁因为缺件中断。尤其在户用项目多、小商用分散的情况下，真正需要的是分层库存：标准辅材常备、关键备件有限备、主设备按项目锁定。</p>
+<p>采购和仓库必须知道：库存不是越多越安全，而是越清楚越安全。你至少要知道哪些是 A 类高频标准件、哪些是 B 类按项目采购件、哪些是 C 类售后关键备件。对未来 EaaS/EMC 来说，这种分层更重要，因为停机损失会更敏感。</p>
+<p>如果没有分层，公司就会陷入一个很常见的恶循环：平时感觉库存很多，出问题时又总是缺关键东西。</p>
+<div class="algorithm-box"><strong>【库存分层思路】</strong>A 类：高频、低价、标准件，适合安全库存。<br>B 类：中价、项目差异大，尽量按项目采购。<br>C 类：低频但关键的售后件，按历史故障率做少量储备。<br><span class="formula">安全库存 ≈ 平均日消耗 × 补货周期 + 风险缓冲</span></div>
+</section><section id="sec-07-7-7-管理层必须看的财务-kpi-不然利润只会停在感觉里" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">章节内容 · 07</div>
+<h3>7.7 管理层必须看的财务 KPI，不然利润只会停在感觉里</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#07</div>
+</div>
+<h3>7.7 管理层必须看的财务 KPI，不然利润只会停在感觉里</h3>
+<p>财务 KPI 不应该只剩一个‘本月签约额’。对你这样的业务结构，更有意义的是同时看利润、现金流和质量。至少建议固定看：报价毛利率、完工毛利率、90 天真实利润率、加权回款天数、尾款逾期率、汇率损失率、库存周转天数和售后准备金使用率。</p>
+<p>只要这几项同时看，管理层就能很快判断：问题是出在前端报价、采购执行、现场交付还是售后尾部。真正好的财务章，不是让财务更辛苦，而是让业务和工程也学会看钱是怎么留下来的。</p>
+<div class="kpi-box"><strong>【第七章落地 KPI】</strong>1. 报价毛利率。<br>2. 完工毛利率。<br>3. 90 天真实利润率。<br>4. 加权回款天数。<br>5. 尾款逾期率。<br>6. 汇率损失率。<br>7. 库存周转天数。<br>8. 售后准备金使用率。</div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">硬核修订分章版 · 更适合培训阅读、内部学习与网页部署浏览</div>
+                    <div class="split-footer-actions">
+                        <a href="07_第六章_主体合规合同边界劳动义务与保险留痕硬核版.html">上一章</a>
+                        <a class="primary" href="index.html">返回目录</a>
+                        <a href="09_第八章_监控告警运维清洗与_SLA_硬核版.html">下一章</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>

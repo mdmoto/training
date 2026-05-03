@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บทที่ 2: ข้อมูลจำเพาะทางเทคนิคในครัวเรือน ขอบเขตโครงสร้าง พารามิเตอร์หลัก และโหมดความล้มเหลว - ฉบับภาษาไทย</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #0056b3;
+            --accent-color: #d4380d;
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --border-color: #e8e8e8;
+            --expert-bg: #e6f7ff;
+            --sop-bg: #f6ffed;
+            --warning-bg: #fff2f0;
+        }
+
+        body {
+            font-family: 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 70px 90px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 封面与标题 */
+        .header {
+            text-align: center;
+            border-bottom: 5px double var(--primary-color);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* 目录样式 */
+        .toc {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            font-size: 24px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* 章节标题 */
+        h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-top: 80px;
+            border-left: 12px solid var(--primary-color);
+            padding-left: 25px;
+            background: #f9fbff;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-top: 45px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* 特色功能框 */
+        .expert-debate {
+            background: var(--expert-bg);
+            border: 1px solid #91d5ff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 35px 0;
+            font-style: italic;
+        }
+
+        .expert-debate strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 10px;
+            font-style: normal;
+        }
+
+        .sop-box {
+            background: var(--sop-bg);
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #52c41a;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .sop-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .critical-note {
+            background: var(--warning-bg);
+            border: 1px solid #ffccc7;
+            padding: 25px;
+            margin: 35px 0;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+
+        .technical-spec {
+            background: #fffbe6;
+            border: 1px solid #ffe58f;
+            padding: 25px;
+            margin: 25px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 16px;
+        }
+
+        table th, table td {
+            border: 1px solid #e8e8e8;
+            padding: 18px;
+            text-align: left;
+        }
+
+        table th {
+            background: #fafafa;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background: #fcfcfc;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        @media print {
+            .container { box-shadow: none; margin: 0; padding: 20px; max-width: 100%; }
+            .toc { page-break-after: always; }
+            h2 { page-break-before: always; }
+        }
+    
+
+        .chapter-intro {
+            background: #f7fbff;
+            border: 1px solid #d6e4ff;
+            padding: 22px 24px;
+            border-radius: 6px;
+            margin: 20px 0 30px 0;
+        }
+        .case-box {
+            background: #faf5ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 24px;
+            margin: 28px 0;
+        }
+        .case-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .kpi-box {
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+            border-left: 6px solid #389e0d;
+            padding: 22px;
+            margin: 28px 0;
+        }
+        .kpi-box strong {
+            color: #237804;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+        .quote-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 24px 0;
+        }
+        .checklist {
+            margin: 18px 0 28px 0;
+            padding-left: 22px;
+        }
+        .checklist li {
+            margin-bottom: 10px;
+        }
+        .source-list li {
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+        .small {
+            color: #666;
+            font-size: 14px;
+        }
+        .portal-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(0, 86, 179, 0.18), transparent 28%),
+                radial-gradient(circle at top right, rgba(212, 56, 13, 0.12), transparent 24%),
+                linear-gradient(180deg, #eef4ff 0%, #f6f9fc 42%, #f4f7f9 100%);
+            padding: 42px 20px 70px;
+        }
+        .portal-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .portal-hero {
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 58%, #1a5ea8 100%);
+            color: #fff;
+            border-radius: 28px;
+            padding: 54px 56px;
+            box-shadow: 0 24px 80px rgba(11, 35, 64, 0.24);
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+        .portal-hero::after {
+            content: "";
+            position: absolute;
+            right: 160px;
+            bottom: -70px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .portal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #eaf2ff;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+        .portal-title {
+            margin: 0;
+            font-size: 46px;
+            line-height: 1.15;
+            color: #fff;
+        }
+        .portal-subtitle {
+            max-width: 860px;
+            margin-top: 18px;
+            color: rgba(255,255,255,0.86);
+            font-size: 18px;
+            line-height: 1.9;
+        }
+        .portal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+        .portal-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .portal-button.primary {
+            color: #0b2340;
+            background: #fff;
+            box-shadow: 0 10px 28px rgba(255,255,255,0.18);
+        }
+        .portal-button.secondary {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+        .portal-button:hover {
+            transform: translateY(-2px);
+        }
+        .portal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .portal-stat {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 20px 22px;
+            backdrop-filter: blur(4px);
+        }
+        .portal-stat-value {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .portal-stat-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 14px;
+        }
+        .portal-info-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .9fr;
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .portal-panel {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(225,233,244,0.8);
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(11, 35, 64, 0.08);
+        }
+        .portal-panel h2 {
+            margin: 0 0 14px 0;
+            padding-left: 0;
+            border-left: none;
+            background: none;
+            font-size: 24px;
+        }
+        .portal-panel p {
+            margin-top: 0;
+        }
+        .portal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .portal-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf4ff;
+            color: #16477b;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+        .chapter-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #e7edf5;
+            border-radius: 22px;
+            padding: 24px 24px 20px;
+            box-shadow: 0 12px 34px rgba(16, 36, 94, 0.07);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .chapter-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,86,179,0.03), transparent 42%);
+            pointer-events: none;
+        }
+        .chapter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(16, 36, 94, 0.12);
+            border-color: #cfe0f5;
+        }
+        .chapter-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .chapter-index {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 10px 24px rgba(0, 51, 102, 0.18);
+        }
+        .chapter-open {
+            color: #0f4d8a;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .chapter-card h3 {
+            margin: 0 0 12px 0;
+            padding-bottom: 0;
+            border-bottom: none;
+            color: #0b2340;
+            font-size: 22px;
+            line-height: 1.45;
+        }
+        .chapter-summary {
+            color: #4b5b73;
+            font-size: 15px;
+            line-height: 1.85;
+            margin: 0;
+        }
+        .portal-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #6b7788;
+            font-size: 14px;
+        }
+        @media (max-width: 980px) {
+            .portal-stats,
+            .portal-info-grid,
+            .chapter-grid {
+                grid-template-columns: 1fr;
+            }
+            .portal-hero {
+                padding: 34px 28px;
+                border-radius: 22px;
+            }
+            .portal-title {
+                font-size: 34px;
+            }
+        }
+    
+        .term-box {
+            background: #f0f5ff;
+            border: 1px solid #adc6ff;
+            border-left: 6px solid #2f54eb;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .term-box strong {
+            color: #1d39c4;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .algorithm-box {
+            background: #f9f0ff;
+            border: 1px solid #d3adf7;
+            border-left: 6px solid #722ed1;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .algorithm-box strong {
+            color: #531dab;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .source-box {
+            background: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-left: 6px solid #595959;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .source-box strong {
+            color: #262626;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .preserve-box {
+            background: #fff7e6;
+            border: 1px solid #ffd591;
+            border-left: 6px solid #fa8c16;
+            padding: 22px;
+            margin: 26px 0;
+        }
+        .preserve-box strong {
+            color: #ad4e00;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .note-table th {
+            white-space: nowrap;
+        }
+        .micro {
+            font-size: 13px;
+            color: #666;
+        }
+        .source-list {
+            margin: 0;
+            padding-left: 22px;
+        }
+        .source-list li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        .source-badge {
+            display: inline-block;
+            min-width: 56px;
+            padding: 2px 8px;
+            margin-right: 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: baseline;
+        }
+        .source-badge.official {
+            background: #e6f4ff;
+            color: #0958d9;
+        }
+        .source-badge.international {
+            background: #f6ffed;
+            color: #389e0d;
+        }
+        .source-badge.industry {
+            background: #fff7e6;
+            color: #d46b08;
+        }
+        .source-badge.interpretation {
+            background: #f9f0ff;
+            color: #722ed1;
+        }
+        .source-note {
+            color: #595959;
+        }
+        .split-shell {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(47, 84, 235, 0.10), transparent 24%),
+                radial-gradient(circle at top right, rgba(250, 140, 22, 0.10), transparent 22%),
+                linear-gradient(180deg, #eef4ff 0%, #f5f8fc 40%, #f3f6fb 100%);
+            padding: 28px 18px 56px;
+        }
+        .split-page {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+        .split-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .split-crumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #5b6b82;
+            font-size: 14px;
+        }
+        .split-crumbs a,
+        .split-quicklinks a,
+        .split-nav-actions a,
+        .split-mobile-actions a {
+            text-decoration: none;
+        }
+        .split-crumbs a {
+            color: #245b98;
+            font-weight: 700;
+        }
+        .split-quicklinks {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .split-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid #d7e4f2;
+            color: #173d67;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(12, 33, 68, 0.05);
+        }
+        .split-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b2340 0%, #123a66 52%, #1d67b4 100%);
+            color: #fff;
+            border-radius: 30px;
+            padding: 42px 44px 34px;
+            box-shadow: 0 26px 72px rgba(11, 35, 64, 0.22);
+        }
+        .split-hero::before {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+        .split-hero::after {
+            content: "";
+            position: absolute;
+            right: 140px;
+            bottom: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+        .split-kicker {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #e8f2ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .4px;
+            margin-bottom: 18px;
+        }
+        .split-hero h1 {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            color: #fff;
+            font-size: 40px;
+            line-height: 1.22;
+        }
+        .split-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.84);
+            font-size: 17px;
+            line-height: 1.85;
+            max-width: 920px;
+        }
+        .split-meta {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+        .split-meta-card {
+            min-width: 132px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+        }
+        .split-meta-value {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .split-meta-label {
+            color: rgba(255,255,255,0.78);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .split-mobile-actions {
+            display: none;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+            position: relative;
+            z-index: 1;
+        }
+        .split-layout {
+            display: grid;
+            grid-template-columns: 320px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+            margin-top: 26px;
+        }
+        .split-sidebar {
+            position: sticky;
+            top: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .split-panel {
+            background: rgba(255,255,255,0.94);
+            border: 1px solid #e0e8f2;
+            border-radius: 24px;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.08);
+        }
+        .split-panel-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 22px 22px 12px;
+            color: #0b2340;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .split-panel-body {
+            padding: 0 22px 22px;
+        }
+        .split-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .split-nav-item {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid #e6edf6;
+            background: #f8fbff;
+            color: #193b63;
+            transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+        }
+        .split-nav-item:hover {
+            transform: translateY(-1px);
+            border-color: #c9daf0;
+            background: #f2f7ff;
+            box-shadow: 0 10px 20px rgba(27, 63, 112, 0.08);
+        }
+        .split-nav-index {
+            display: inline-flex;
+            width: 28px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #003366, #1d67b4);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .split-nav-text {
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+        .split-nav-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-nav-actions a {
+            flex: 1 1 120px;
+            text-align: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f5f9ff;
+            border: 1px solid #deebf8;
+            color: #1f4f84;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .split-nav-actions a:hover {
+            background: #edf5ff;
+            border-color: #cfe1f5;
+        }
+        .split-highlight-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4d5f79;
+        }
+        .split-highlight-list li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .split-intro-card {
+            background: rgba(255,255,255,0.96);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-intro-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #edf5ff;
+            color: #1f5f9b;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+        .split-intro-card .chapter-intro {
+            margin: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #24405f;
+            font-size: 18px;
+            line-height: 1.95;
+        }
+        .split-section {
+            background: rgba(255,255,255,0.97);
+            border: 1px solid #dfe8f2;
+            border-radius: 26px;
+            padding: 28px 30px 26px;
+            box-shadow: 0 16px 40px rgba(12, 33, 68, 0.08);
+        }
+        .split-section + .split-section {
+            margin-top: 0;
+        }
+        .split-section-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #edf1f6;
+        }
+        .split-section-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .split-section h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: #0c2545;
+            font-size: 30px;
+            line-height: 1.35;
+        }
+        .split-section-anchor {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: #f4f8fd;
+            color: #5e6f84;
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid #e2ebf5;
+        }
+        .split-section p:first-of-type {
+            margin-top: 0;
+        }
+        .split-section p:last-child {
+            margin-bottom: 0;
+        }
+        .split-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+            padding: 22px 24px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid #dfe8f2;
+            box-shadow: 0 14px 34px rgba(12, 33, 68, 0.06);
+        }
+        .split-footer-note {
+            color: #67788f;
+            font-size: 14px;
+        }
+        .split-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .split-footer-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            background: #eff5fc;
+            color: #214e82;
+            border: 1px solid #d9e6f4;
+        }
+        .split-footer-actions a.primary {
+            background: linear-gradient(135deg, #0d2d50 0%, #1d67b4 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 14px 28px rgba(21, 74, 131, 0.18);
+        }
+        .split-content .source-box,
+        .split-content .algorithm-box,
+        .split-content .term-box,
+        .split-content .preserve-box,
+        .split-content .quote-box,
+        .split-content .kpi-box,
+        .split-content .technical-spec,
+        .split-content .critical-note,
+        .split-content .case-box,
+        .split-content .sop-box,
+        .split-content .expert-debate {
+            border-radius: 22px;
+            border-left-width: 0;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+            margin: 24px 0;
+        }
+        .split-content .note-table {
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(12, 33, 68, 0.06);
+        }
+        .split-content .note-table th {
+            background: #f3f7fc;
+        }
+        @media (max-width: 1080px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .split-sidebar {
+                position: static;
+            }
+            .split-mobile-actions {
+                display: flex;
+            }
+        }
+        @media (max-width: 768px) {
+            .split-shell {
+                padding: 18px 12px 34px;
+            }
+            .split-hero {
+                padding: 30px 22px 24px;
+                border-radius: 24px;
+            }
+            .split-hero h1 {
+                font-size: 30px;
+            }
+            .split-intro-card,
+            .split-section {
+                padding: 22px 20px;
+                border-radius: 22px;
+            }
+            .split-section h3 {
+                font-size: 24px;
+            }
+            .split-topbar {
+                margin-bottom: 14px;
+            }
+        }
+    
+    </style>
+        <style>
+            body, table, td, th, a, div, span, p, li {
+                font-family: 'Noto Sans Thai', 'Sarabun', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            }
+        </style>
+        
+</head>
+<body>
+<div class="split-shell"><div class="split-page">
+        <div class="split-topbar">
+            <div class="split-crumbs">
+                <a href="index.html">สารบัญแยกบท</a>
+                <span>/</span>
+                <span>บทที่ 03</span>
+            </div>
+            <div class="split-quicklinks">
+                <a class="split-pill" href="index.html">กลับไปที่สารบัญ</a>
+                <a class="split-pill" href="../thailand_solar_training_manual_th.html">ฉบับเต็ม</a>
+            </div>
+        </div>
+        <section class="split-hero">
+            <div class="split-kicker">ฉบับภาษาไทย · บทที่ 03</div>
+            <h1>บทที่ 2: ข้อมูลจำเพาะทางเทคนิคในครัวเรือน ขอบเขตโครงสร้าง พารามิเตอร์หลัก และโหมดความล้มเหลว</h1>
+            <div class="split-hero-subtitle">บทนี้จะแจกแจงโครงการในครัวเรือนที่สำคัญที่สุดสี่ประเภทและอธิบาย: อุปกรณ์และมาตรฐาน หลังคาและโครงสร้าง การออกแบบ DC และอินเวอร์เตอร์ โหมดการจัดส่งและความล้มเหลว ประเด็นไม่ใช่แค่การรู้ว่า "คนอื่นทำได้อย่างไร" แต่ยังต้องรู้ว่า "ทำไมพวกเขาถึงทำ" ด้วย</div>
+            <div class="split-meta">
+                <div class="split-meta-card"><span class="split-meta-value">03</span><span class="split-meta-label">บทปัจจุบัน</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">6</span><span class="split-meta-label">หัวข้อย่อยในบทนี้</span></div>
+                <div class="split-meta-card"><span class="split-meta-value">พร้อมใช้งาน</span><span class="split-meta-label">การนำทางด่วน</span></div>
+            </div>
+            <div class="split-mobile-actions">
+                <a class="split-pill" href="chapter_02.html">บทก่อนหน้า</a>
+                <a class="split-pill" href="chapter_04.html">บทถัดไป</a>
+            </div>
+        </section>
+        <div class="split-layout">
+            <aside class="split-sidebar">
+                <div class="split-panel">
+                    <div class="split-panel-title">นำทางภายในบท</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-list">
+                            <a class="split-nav-item" href="#sec-01-2-1-ระบบไฟฟ้าโซลาร์เซลล์ในครัวเรือนประกอบด้วยอะไรบ้าง-และแต่ละองค์ประกอบมีหน้าที่รับผิดชอบอย่างไร"><span class="split-nav-index">01</span><span class="split-nav-text">2.1 ระบบไฟฟ้าโซลาร์เซลล์ในครัวเรือนประกอบด้วยอะไรบ้าง และแต่ละองค์ประกอบมีหน้าที่รับผิดชอบอย่างไร?</span></a><a class="split-nav-item" href="#sec-02-2-2-พารามิเตอร์ทางเทคนิคที่สำคัญที่สุด-8-รายการระหว่างโมดูล-อินเวอร์เตอร์-และหลังคา"><span class="split-nav-index">02</span><span class="split-nav-text">2.2 พารามิเตอร์ทางเทคนิคที่สำคัญที่สุด 8 รายการระหว่างโมดูล อินเวอร์เตอร์ และหลังคา</span></a><a class="split-nav-item" href="#sec-03-2-3-อัลกอริธึมพื้นฐานและใช้งานได้จริง-จะกำหนดความยาวของสตริงได้อย่างไร-ทำไมคุณถึงไม่พึ่งพาประสบการณ์"><span class="split-nav-index">03</span><span class="split-nav-text">2.3 อัลกอริธึมพื้นฐานและใช้งานได้จริง: จะกำหนดความยาวของสตริงได้อย่างไร ทำไมคุณถึงไม่พึ่งพาประสบการณ์?</span></a><a class="split-nav-item" href="#sec-04-2-4-การจำแนกโครงสร้างหลังคาและจุดกันซึม-แทนที่จะทากาวเป็นวงกลมให้กำหนดเส้นทางการรับน้ำหนักและการรั่วไหลก่อน"><span class="split-nav-index">04</span><span class="split-nav-text">2.4 การจำแนกโครงสร้างหลังคาและจุดกันซึม: แทนที่จะทากาวเป็นวงกลมให้กำหนดเส้นทางการรับน้ำหนักและการรั่วไหลก่อน</span></a><a class="split-nav-item" href="#sec-05-2-5-เหตุใดจึงต้องปรับปรุงวัสดุและระดับการทดสอบในสภาพแวดล้อมริมทะเล-สเปรย์เกลือ-และสภาพแวดล้อมที่มีอุณหภูมิสูง"><span class="split-nav-index">05</span><span class="split-nav-text">2.5 เหตุใดจึงต้องปรับปรุงวัสดุและระดับการทดสอบในสภาพแวดล้อมริมทะเล สเปรย์เกลือ และสภาพแวดล้อมที่มีอุณหภูมิสูง</span></a><a class="split-nav-item" href="#sec-06-2-6-การทดสอบการใช้งาน-การส่งมอบ-และเอกสารประกอบ-การดำเนินการเสร็จสิ้นไม่ได้หมายความว่าการส่งมอบเสร็จสมบูรณ์"><span class="split-nav-index">06</span><span class="split-nav-text">2.6 การทดสอบการใช้งาน การส่งมอบ และเอกสารประกอบ: การดำเนินการเสร็จสิ้นไม่ได้หมายความว่าการส่งมอบเสร็จสมบูรณ์</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">ทางลัด</div>
+                    <div class="split-panel-body">
+                        <div class="split-nav-actions">
+                            <a href="chapter_02.html">บทก่อนหน้า</a>
+                            <a href="chapter_04.html">บทถัดไป</a>
+                            <a href="index.html">กลับไปที่สารบัญ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-panel">
+                    <div class="split-panel-title">คำแนะนำการอ่าน</div>
+                    <div class="split-panel-body">
+                        <ul class="split-highlight-list">
+                            <li>อ่านคำนำของบทก่อน แล้วจึงเลือกหัวข้อย่อยที่เกี่ยวข้องมากที่สุด</li>
+                            <li>หัวข้อที่มีสูตร ตาราง และแหล่งอ้างอิง สามารถใช้เป็นเอกสารอ้างอิงในการทำงานได้ทันที</li>
+                            <li>ประเด็นด้านนโยบาย ภาษี และการเชื่อมต่อโครงข่าย ต้องอ้างอิงกติกาทางการล่าสุดเสมอ</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <main class="split-content">
+                <div class="split-intro-card">
+                    <div class="split-intro-label">บทนำของบทนี้</div>
+                    <div class="chapter-intro">บทนี้จะแจกแจงโครงการในครัวเรือนที่สำคัญที่สุดสี่ประเภทและอธิบาย: อุปกรณ์และมาตรฐาน หลังคาและโครงสร้าง การออกแบบ DC และอินเวอร์เตอร์ โหมดการจัดส่งและความล้มเหลว ประเด็นไม่ใช่แค่การรู้ว่า "คนอื่นทำได้อย่างไร" แต่ยังต้องรู้ว่า "ทำไมพวกเขาถึงทำ" ด้วย</div>
+                </div>
+        <section id="sec-01-2-1-ระบบไฟฟ้าโซลาร์เซลล์ในครัวเรือนประกอบด้วยอะไรบ้าง-และแต่ละองค์ประกอบมีหน้าที่รับผิดชอบอย่างไร" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 01</div>
+<h3>2.1 ระบบไฟฟ้าโซลาร์เซลล์ในครัวเรือนประกอบด้วยอะไรบ้าง และแต่ละองค์ประกอบมีหน้าที่รับผิดชอบอย่างไร?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#01</div>
+</div>
+<h3>2.1 ระบบไฟฟ้าโซลาร์เซลล์ในครัวเรือนประกอบด้วยอะไรบ้าง และแต่ละองค์ประกอบมีหน้าที่รับผิดชอบอย่างไร?</h3>
+<p>หนึ่งในข้อผิดพลาดที่พบบ่อยที่สุดที่ผู้มาใหม่ทำคือการทำความเข้าใจ "ระบบไฟฟ้าโซลาร์เซลล์" เป็นสองสิ่ง: โมดูล + อินเวอร์เตอร์ ระบบในครัวเรือนที่เชื่อมต่อกับกริดอย่างแท้จริงประกอบด้วยอย่างน้อย: ส่วนประกอบ ระบบขายึด สายไฟ DC และตัวเชื่อมต่อ การลู่เข้า/การแยกและการป้องกัน อินเวอร์เตอร์ การกระจายและการป้องกันไฟฟ้ากระแสสลับ การต่อลงดินและศักย์ไฟฟ้าเท่ากัน ระบบตรวจสอบ ป้าย และโหนดโครงสร้างและกันน้ำที่เชื่อมต่อกับอาคาร หากลิงก์ใดผิดพลาด ระบบอาจประสบปัญหาภายในไม่กี่ปี</p>
+<p>ต้องชัดเจน: โครงการในครัวเรือนไม่ได้ชนะเพียงแค่การซื้อส่วนประกอบที่เหมาะสมเท่านั้น ส่วนประกอบต่างๆ จะกำหนดจุดสิ้นสุดของการผลิตไฟฟ้าและความทนทาน อินเวอร์เตอร์จะกำหนดการแปลง การเชื่อมต่อโครงข่าย และประสบการณ์ในการตรวจสอบ กรอบยึดและการเชื่อมต่อจะกำหนดความเสถียรทางกล ด้าน DC และสายดินจะกำหนดความปลอดภัย และโหนดการเชื่อมต่อของอาคารจะกำหนดการรั่วไหลและความเสี่ยงในการบำรุงรักษา เฉพาะเมื่อระบบถูกมองว่าเป็นระบบที่สมบูรณ์ แทนที่จะเป็นอุปกรณ์จำนวนมาก ทีมจึงสามารถสร้างโครงการที่ดีได้อย่างแท้จริง</p>
+<p>จากมุมมองของมาตรฐาน มาตรฐานระดับแรกทั่วไปสำหรับส่วนประกอบต่างๆ ได้แก่<b>IEC 61215</b>ซึ่งมุ่งเป้าไปที่การระบุการออกแบบและการทดสอบประเภทที่จำเป็นสำหรับการใช้งานกลางแจ้งในระยะยาว ชั้นที่สองคือ<b>IEC 61730</b>ซึ่งเน้นความปลอดภัยทางไฟฟ้าและเครื่องกล การป้องกันไฟฟ้าช็อต ไฟไหม้ และความเสี่ยงต่อการบาดเจ็บ กล่าวอีกนัยหนึ่ง 61215 มี "คุณสมบัติการออกแบบและความทนทาน" มากกว่า และ 61730 มี "คุณสมบัติด้านความปลอดภัย" มากกว่า อย่างน้อยฝ่ายขายและฝ่ายวิศวกรรมก็ต้องรู้ว่าสองมาตรฐานนี้ไม่เหมือนกัน</p>
+<div class="term-box"><strong>[ข้อกำหนดที่ต้องจดจำในส่วนนี้]</strong><b>IEC 61215</b>: การระบุการออกแบบโมดูลไฟฟ้าโซลาร์เซลล์และการอนุมัติประเภท โดยมุ่งเน้นไปที่การใช้งานกลางแจ้งในระยะยาว<br><b>IEC 61730</b>: คุณสมบัติด้านความปลอดภัยของแผงเซลล์แสงอาทิตย์ โดยเน้นการป้องกันไฟฟ้าช็อต การป้องกันอัคคีภัย และความปลอดภัยส่วนบุคคลภายใต้ความเครียดทางกล/สิ่งแวดล้อม<br><b>IEC 62548</b>: ข้อกำหนดในการออกแบบแผงเซลล์แสงอาทิตย์ ครอบคลุมการเดินสายไฟฟ้ากระแสตรง การป้องกันไฟฟ้า การสลับและการต่อสายดิน<br><b>IEC 62446-1</b>: ข้อกำหนดสำหรับการทดสอบ การถ่ายโอนเอกสาร การแก้ไขจุดบกพร่อง และการตรวจสอบระบบไฟฟ้าโซลาร์เซลล์ที่เชื่อมต่อกับโครงข่าย</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[01]</b> <a href="https://reference.globalspec.com/standard/14643871/iec-61215-1-2021">สรุปรายการ IEC 61215-1</a><span class="source-note">: บ่งชี้ว่าเป็นการระบุการออกแบบและการอนุมัติประเภทของส่วนประกอบการทำงานกลางแจ้งระยะยาว</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/59803">หน้าอย่างเป็นทางการ IEC 61730-1</a><span class="source-note">: เน้นความปลอดภัยของโมดูล PV และการป้องกันไฟฟ้าช็อต/ไฟไหม้/ความเสียหายทางกล</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[03]</b> <a href="https://webstore.iec.ch/en/publication/64171">หน้าอย่างเป็นทางการ IEC 62548-1</a><span class="source-note">: คำแนะนำประกอบด้วยการเดินสายไฟ DC การป้องกันไฟฟ้า การสลับและการต่อสายดิน</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[04]</b> <a href="https://webstore.iec.ch/en/publication/24057">หน้าอย่างเป็นทางการ IEC 62446-1</a><span class="source-note">: อธิบายเอกสารการจัดส่ง การทดสอบการใช้งาน การตรวจสอบ และข้อกำหนดการตรวจสอบซ้ำ</span></li></ol></div>
+</section><section id="sec-02-2-2-พารามิเตอร์ทางเทคนิคที่สำคัญที่สุด-8-รายการระหว่างโมดูล-อินเวอร์เตอร์-และหลังคา" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 02</div>
+<h3>2.2 พารามิเตอร์ทางเทคนิคที่สำคัญที่สุด 8 รายการระหว่างโมดูล อินเวอร์เตอร์ และหลังคา</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#02</div>
+</div>
+<h3>2.2 พารามิเตอร์ทางเทคนิคที่สำคัญที่สุด 8 รายการระหว่างโมดูล อินเวอร์เตอร์ และหลังคา</h3>
+<p>หากไม่มีเหตุผลสำหรับผู้มาใหม่ที่จะจดจำโมเดลจำนวนมาก สิ่งที่ควรจดจำจริงๆ คือพารามิเตอร์และความสัมพันธ์ระหว่างโมเดลเหล่านั้น พารามิเตอร์ที่สำคัญที่สุดในโครงการในครัวเรือน ได้แก่ กำลังของโมดูล Voc, Vmp, Isc, ค่าสัมประสิทธิ์อุณหภูมิ, ช่วงแรงดันไฟฟ้า MPPT ของอินเวอร์เตอร์, แรงดันไฟฟ้าอินพุต DC สูงสุดของอินเวอร์เตอร์ และการวางแนวหลังคา/ความเอียง/พื้นที่ว่าง ตราบใดที่ความสัมพันธ์ระหว่างชุดพารามิเตอร์เหล่านี้ไม่ชัดเจน การจัดเรียงและการเลือกในภายหลังอาจมีอคติ</p>
+<p>โดยเฉพาะอย่างยิ่ง เราจำเป็นต้องแก้ไขความเข้าใจผิดทั่วไป: ส่วนประกอบที่มีกำลังสูงกว่าไม่จำเป็นต้องหมายความว่าระบบดีขึ้นเสมอไป หากขนาดของโมดูลใหญ่ขึ้น แรงดันไฟฟ้าวงจรเปิดจะสูงขึ้น ความยาวสายถูกจำกัด การกระจายตัวของหลังคารุนแรงมากขึ้น หรือการจับคู่ MPPT ของอินเวอร์เตอร์แย่ลง ดังนั้น 'กำลังโมดูลเดี่ยวที่สูงขึ้น' อาจไม่ได้นำไปสู่ผลลัพธ์ของระบบที่ดีขึ้นเสมอไป เมื่อตัดสินข้อดีข้อเสียของแผน จำเป็นต้องอัพเกรดจาก "เปรียบเทียบพารามิเตอร์บล็อกเดียว" เป็น "ดูการจับคู่ระบบ"</p>
+<p>พารามิเตอร์อินเวอร์เตอร์ขึ้นอยู่กับอย่างน้อยสี่สิ่ง: แรงดันไฟฟ้าอินพุต DC สูงสุด, ช่วงการทำงานของ MPPT, จำนวนสตริง/กระแสไฟที่อนุญาตโดย MPPT แต่ละรายการ และความสามารถในการเชื่อมต่อกริดและการตรวจสอบ ปัญหาในโครงการครัวเรือนจำนวนมากไม่ใช่ว่าแบรนด์อินเวอร์เตอร์ไม่ดี แต่การออกแบบความยาวสตริงในช่วงแรกและการจัดสรร MPPT ไม่ถูกต้อง ส่งผลให้ประสิทธิภาพถูกกินในช่วงเช้า เย็น และช่วงที่มีอุณหภูมิสูง</p>
+<table class="note-table"><tr><th>พารามิเตอร์</th><th>มันตัดสินใจอะไร</th><th>ความเข้าใจผิดที่พบบ่อยในหมู่ผู้มาใหม่</th><th>ความสามารถในการฝึกอบรม</th></tr><tr><td>Voc</td><td>ความเสี่ยงต่อแรงดันไฟฟ้าสูงสุดของสายไฟที่อุณหภูมิต่ำ</td><td>ดูเฉพาะค่าที่ระบุของ STC ไม่ใช่การแก้ไขอุณหภูมิต่ำ</td><td>จะต้องตรวจสอบว่าเกินขีดจำกัดบนของอินเวอร์เตอร์ภายใต้สภาวะการทำงานที่มีอุณหภูมิต่ำสุดหรือไม่</td></tr><tr><td>Vmp</td><td>แรงดันใช้งานหลักของส่วนประกอบ</td><td>เชื่อผิดๆว่าตราบใดที่โวคไม่เกิน</td><td>ตรวจสอบให้แน่ใจว่าสภาพการทำงานส่วนใหญ่อยู่ในช่วง MPPT</td></tr><tr><td>Isc</td><td>กระแสไฟฟ้าลัดวงจรและการป้องกัน/การตรวจสอบสายเคเบิล</td><td>ดูแต่พลังแต่อย่าดูกระแส</td><td>เมื่อจำนวนการเชื่อมต่อแบบขนานเปลี่ยนแปลง ความเสี่ยงในด้านปัจจุบันจะเพิ่มขึ้น</td></tr><tr><td>ค่าสัมประสิทธิ์อุณหภูมิกำลัง</td><td>การลดพิกัดที่อุณหภูมิสูง</td><td>ความจุของสนามแฟนตาซีขึ้นอยู่กับการให้คะแนนของห้องปฏิบัติการ</td><td>การลดทอนความร้อนจะต้องพิจารณาในสภาพแวดล้อมที่มีอุณหภูมิสูงของประเทศไทย</td></tr><tr><td>ปริมาณ MPPT</td><td>การปรับตัวหลายทิศทาง/การบดเคี้ยว</td><td>ผสานทิศทางที่แตกต่างกันเข้าด้วยกัน</td><td>กลยุทธ์ MPPT มีความสำคัญอย่างยิ่งเมื่อหลังคาแตกกระจาย</td></tr><tr><td>พื้นที่หลังคาใช้งานได้</td><td>กำลังการผลิตติดตั้งสูงสุด</td><td>ประมาณคร่าวๆตามพื้นที่ทั้งหมด</td><td>จะต้องหักขอบเขต ทางเดิน เงา และพื้นที่บำรุงรักษาออก</td></tr></table>
+</section><section id="sec-03-2-3-อัลกอริธึมพื้นฐานและใช้งานได้จริง-จะกำหนดความยาวของสตริงได้อย่างไร-ทำไมคุณถึงไม่พึ่งพาประสบการณ์" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 03</div>
+<h3>2.3 อัลกอริธึมพื้นฐานและใช้งานได้จริง: จะกำหนดความยาวของสตริงได้อย่างไร ทำไมคุณถึงไม่พึ่งพาประสบการณ์?</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#03</div>
+</div>
+<h3>2.3 อัลกอริธึมพื้นฐานและใช้งานได้จริง: จะกำหนดความยาวของสตริงได้อย่างไร ทำไมคุณถึงไม่พึ่งพาประสบการณ์?</h3>
+<p>สถานที่ที่ "ข้อผิดพลาดเชิงประจักษ์" มักเกิดขึ้นที่ไซต์ครัวเรือนคือการออกแบบความยาวสตริง เมื่อมองเผินๆ มันเป็นเพียงอีกหนึ่งชิ้นและน้อยกว่าหนึ่งชิ้น ในความเป็นจริง มันเกี่ยวข้องกับแรงดันไฟฟ้าสูงสุดที่อุณหภูมิต่ำ ขีดจำกัดล่าง MPPT ที่อุณหภูมิสูง การผสมทิศทาง ผลการบดเคี้ยว และความสะดวกในการบำรุงรักษา ในหลายระบบ ไม่ใช่ว่าอุปกรณ์ไม่ดี แต่การออกแบบสตริงไม่ได้คำนวณตามขอบเขตตั้งแต่ต้น</p>
+<p>ที่ระดับเริ่มต้น คุณต้องเชี่ยวชาญอัลกอริทึมแบบอนุรักษ์นิยมอย่างน้อยหนึ่งรายการ: ขั้นแรกให้ตรวจสอบอุณหภูมิแวดล้อมต่ำสุดที่คาดไว้<b>แรงดันไฟฟ้าสตริงสูงสุด</b>,ตรวจสอบให้แน่ใจ<span class="formula">จำนวนสตริง × Voc ที่แก้ไขแล้ว &lt; แรงดันไฟฟ้าอินพุต DC สูงสุดของอินเวอร์เตอร์</span>; จากนั้นใช้สภาพการทำงานที่มีอุณหภูมิสูงเพื่อตรวจสอบ<b>แรงดันใช้งาน</b>,ตรวจสอบให้แน่ใจ<span class="formula">จำนวนสตริง × Vmp ที่แก้ไขแล้ว</span>ยังคงอยู่ในช่วงที่สามารถใช้งานได้ของ MPPT แบบแรกป้องกันแรงดันไฟฟ้าเกิน และแบบหลังป้องกัน 'ความล้มเหลวในการสตาร์ท'</p>
+<p>แม้ว่าประเทศไทยจะไม่ใช่พื้นที่ที่มีอากาศหนาวจัด แต่ก็ไม่สามารถละเลยขอบเขตอุณหภูมิต่ำได้ ที่สำคัญกว่านั้น อุณหภูมิสูงถือเป็นสถานการณ์ในชีวิตจริงที่พบบ่อยในระบบครัวเรือนไทย อุณหภูมิสูงจะลดแรงดันไฟฟ้าในการทำงานของส่วนประกอบต่างๆ และทำให้กำลังไฟฟ้าลดลง ดังนั้น พนักงานใหม่ควรเข้าใจว่าในโครงการเขตร้อน ความยาวของสตริงต้องไม่เพียงแต่ป้องกันข้อผิดพลาดขอบเขตที่รุนแรงเท่านั้น แต่ยังพยายามสร้างสมดุลระหว่างความพร้อมใช้งานและประสิทธิภาพภายใต้อุณหภูมิสูงอีกด้วย</p>
+<div class="algorithm-box"><strong>[อัลกอริธึมเวอร์ชันการฝึกอบรมการออกแบบความยาวสตริง]</strong>1. ได้มาจากแผ่นป้ายส่วนประกอบ<b>Voc, Vmp, ค่าสัมประสิทธิ์อุณหภูมิ</b>。<br>2. ได้มาจากข้อมูลอินเวอร์เตอร์<b>Max DC Voltage、MPPT Min/Max</b>。<br>3. ใช้สภาวะการทำงานที่อุณหภูมิต่ำสุดเพื่อประมาณและแก้ไข Voc และตรวจสอบ:<span class="formula">N × Voc(Tmin) &lt; Max DC Voltage</span>。<br>4. ใช้สภาวะการทำงานที่อุณหภูมิสูงเพื่อประมาณและแก้ไข Vmp และตรวจสอบ:<span class="formula">N × Vmp(Thot) อยู่ในช่วงการทำงานของ MPPT</span>。<br>5. หากหลังคามีหลายทิศทางหรือมีการป้องกันหลายชั้น ให้กำหนดให้กับ MPPT ที่แตกต่างกันก่อนแทนที่จะบังคับให้ผสมพวกมัน</div>
+<div class="critical-note"><strong>[ข้อผิดพลาดทั่วไป 3 ประการที่ผู้มาใหม่ทำ]</strong>1. ดูที่กำลังส่วนประกอบเท่านั้น ไม่ใช่ Voc/Vmp<br>2. ดูเฉพาะกำลังรวมของอินเวอร์เตอร์ ไม่ใช่ขอบเขต MPPT<br>3. แทบจะไม่รวมส่วนประกอบที่มีทิศทางต่างกันในทิศตะวันออก ตะวันตก และทิศใต้เข้าด้วยกัน ส่งผลให้เกิดการบิดเบือนของกราฟการผลิตไฟฟ้า</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/64171">หน้าอย่างเป็นทางการ IEC 62548-1</a><span class="source-note">: มีความเกี่ยวข้องกับข้อกำหนดการออกแบบอย่างชัดเจน เช่น การเดินสายอาร์เรย์ DC การป้องกันไฟฟ้า การสลับและการต่อสายดิน</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[02]</b> <a href="https://reference.globalspec.com/standard/14643871/iec-61215-1-2021">สรุป IEC 61215-1</a><span class="source-note">: เน้นขอบเขตคุณสมบัติการออกแบบของส่วนประกอบสำหรับการใช้งานกลางแจ้งในระยะยาว</span></li></ol></div>
+</section><section id="sec-04-2-4-การจำแนกโครงสร้างหลังคาและจุดกันซึม-แทนที่จะทากาวเป็นวงกลมให้กำหนดเส้นทางการรับน้ำหนักและการรั่วไหลก่อน" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 04</div>
+<h3>2.4 การจำแนกโครงสร้างหลังคาและจุดกันซึม: แทนที่จะทากาวเป็นวงกลมให้กำหนดเส้นทางการรับน้ำหนักและการรั่วไหลก่อน</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#04</div>
+</div>
+<h3>2.4 การจำแนกโครงสร้างหลังคาและจุดกันซึม: แทนที่จะทากาวเป็นวงกลมให้กำหนดเส้นทางการรับน้ำหนักและการรั่วไหลก่อน</h3>
+<p>ข้อผิดพลาดที่แพงที่สุดในโครงการบ้านเรือนมักไม่ใช่การสูญเสียการผลิตไฟฟ้า 3% แต่เป็นปัญหาการรั่วไหลและโครงสร้าง ต้องเข้าใจ "โครงสร้าง" และ "การกันซึม" แยกกัน คำถามเชิงโครงสร้างก่อนอื่นถาม: หลังคาทำจากวัสดุอะไร, ขอบเขตการรับน้ำหนักอยู่ที่ไหน, วิธีการยึดนั้นเหมาะสมหรือไม่, และแรงลมในระยะยาวและการขยายตัวและการหดตัวจากความร้อนจะทำให้เกิดแรงที่ใด? คำถามเรื่องการกันน้ำจึงถามว่า น้ำมาจากไหน ต้องใช้เส้นทางใด ส่วนต่างๆ จะช่วยนำทางน้ำออกไปหรือไม่ และการปิดผนึกเป็นเพียงส่วนเสริมเท่านั้น ไม่ใช่เพียงการพึ่งพาเพียงอย่างเดียว</p>
+<p>หลังคาทั่วไปในตลาดไทยสามารถแบ่งคร่าวๆ ได้เป็นหลังคาแผ่นคอนกรีต หลังคากระเบื้องพอร์ซเลน/กระเบื้องซีเมนต์ หลังคาโลหะ และหลังคาที่ต่อเติมบางส่วน โครงสร้างที่แตกต่างกันหมายถึงตรรกะคงที่ที่แตกต่างกันโดยสิ้นเชิง อย่าเข้าใจผิดว่า 'หลังคาทั้งหมดใช้ตะขอและกาวแบบเดียวกัน' หากการปรับโครงสร้างไม่ถูกต้อง น้ำรั่วที่ตามมามักจะเป็นเพียงผลลัพธ์ ไม่ใช่สาเหตุที่แท้จริง</p>
+<p>การกันซึมในครัวเรือนต้องเน้นที่ 'โครงสร้างมาก่อน ปิดผนึกที่สอง' กล่าวอีกนัยหนึ่ง ควรให้ความสำคัญกับการป้องกันน้ำฝนให้ห่างจากโหนดที่มีความเสี่ยงสูงผ่านโครงสร้างและการควบคุมเส้นทาง จากนั้นควรใช้การปิดผนึกเป็นชั้นที่สองของการประกัน ตราบใดที่ใช้กาวเป็นวิธีแก้ปัญหา ปัญหาจะเกิดขึ้นหลังจากผ่านไปไม่กี่ปี เมื่อวัสดุมีอายุมากขึ้น การขยายตัวและการหดตัวจากความร้อน และฝนตกหนักทับซ้อนกัน</p>
+<div class="sop-box"><strong>[วิธีการตรวจสอบ 4 ขั้นตอนสำหรับโหนดกันน้ำ]</strong>1. หาทางน้ำก่อน โดยไม่ต้องทากาวก่อน<br>2. กำหนดโครงสร้างก่อนแล้วจึงกำหนดจุดคงที่<br>3. ช่องเปิดที่จำเป็นต้องมีแนวคิดการนำน้ำ<br>4. โหนดที่มีความเสี่ยงสูงทั้งหมดจะต้องถูกถ่ายรูปและบันทึกไว้เพื่ออำนวยความสะดวกในการตรวจสอบย้อนกลับในภายหลัง</div>
+<table class="note-table"><tr><th>ประเภทหลังคา</th><th>เน้นลำดับความสำคัญ</th><th>ความเสี่ยงความถี่สูง</th><th>การฝึกเคลื่อนไหว</th></tr><tr><td>แผ่นคอนกรีต</td><td>แก้ไขจุด รอยแตก ทางลาดระบายน้ำ</td><td>การขยายตัวของรอยแตกขนาดเล็กดั้งเดิมและการสะสมของน้ำ</td><td>ตรวจสอบรอยแตกและการระบายน้ำก่อน ไม่ต้องรีบจัด</td></tr><tr><td>กระเบื้องพอร์ซเลน/กระเบื้องซีเมนต์</td><td>ตำแหน่งตะขอ ตัดกระเบื้อง เปลี่ยนกระเบื้องแตก</td><td>กระเบื้องแตก ความเค้นเข้มข้น การเจาะ และการรั่วซึม</td><td>มุ่งเน้นไปที่การตรวจสอบตะขอและโหนดนำน้ำ</td></tr><tr><td>หลังคาโลหะ</td><td>แคลมป์หรือจุดยึด การป้องกันการกัดกร่อน และการขยายตัวและการหดตัวเนื่องจากความร้อน</td><td>การกัดกร่อน สกรูหลวม การเปลี่ยนรูปเนื่องจากความร้อน</td><td>ให้ความสนใจกับแรงบิด การป้องกันการกัดกร่อน และช่วงการตรวจสอบซ้ำ</td></tr><tr><td>ต่อเติม/หลังคาน้ำหนักเบา</td><td>การรับน้ำหนักและความมั่นคง</td><td>โครงสร้างไม่เพียงพอ</td><td>ทำการตัดสินเชิงโครงสร้างก่อน และปฏิเสธคำสั่งหากไม่เหมาะสม</td></tr></table>
+</section><section id="sec-05-2-5-เหตุใดจึงต้องปรับปรุงวัสดุและระดับการทดสอบในสภาพแวดล้อมริมทะเล-สเปรย์เกลือ-และสภาพแวดล้อมที่มีอุณหภูมิสูง" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 05</div>
+<h3>2.5 เหตุใดจึงต้องปรับปรุงวัสดุและระดับการทดสอบในสภาพแวดล้อมริมทะเล สเปรย์เกลือ และสภาพแวดล้อมที่มีอุณหภูมิสูง</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#05</div>
+</div>
+<h3>2.5 เหตุใดจึงต้องปรับปรุงวัสดุและระดับการทดสอบในสภาพแวดล้อมริมทะเล สเปรย์เกลือ และสภาพแวดล้อมที่มีอุณหภูมิสูง</h3>
+<p>ประเทศไทยไม่ใช่ฉากภูมิอากาศเดียว อุณหภูมิสูงภายในประเทศ สเปรย์เกลือริมทะเล ความชื้นสูง และฝนตกหนักในพื้นที่ท่องเที่ยวอยู่ร่วมกัน ดังนั้น "การติดตั้งวัสดุชุดเดียวกันทุกที่" จึงไม่ใช่แนวทางแบบมืออาชีพ โดยเฉพาะอย่างยิ่งในพื้นที่ชายทะเลและพื้นที่ที่มีความชื้นและความร้อนสูง ต้องมีการประเมินความต้านทานการกัดกร่อนของฉากยึด ตัวยึด ขั้วต่อ กล่องรวมสัญญาณ ปลอกหุ้มสายเคเบิล และโครงส่วนประกอบอย่างระมัดระวังมากขึ้น</p>
+<p>IEC 61701 อธิบายลำดับการทดสอบการกัดกร่อนของสเปรย์เกลือสำหรับโมดูลเซลล์แสงอาทิตย์โดยเฉพาะ ซึ่งใช้เพื่อประเมินความต้านทานของโมดูลต่อสภาพแวดล้อมสเปรย์เกลือที่มีคลอรีน สำหรับโครงการริมทะเล มาตรฐานนี้ไม่ใช่พารามิเตอร์ในการตกแต่ง แต่เป็นข้อมูลอ้างอิงที่สำคัญเพื่อช่วยให้คุณแยกแยะระหว่าง 'โครงการที่ยอมรับได้สำหรับโครงการภายในประเทศทั่วไป' และ 'ควรมีข้อกำหนดที่สูงกว่าสำหรับโครงการริมทะเล'</p>
+<p>นอกจากนี้ PID (Potential-Induced Degradation) ยังสมควรได้รับความสนใจในสภาพแวดล้อมที่มีอุณหภูมิสูงและมีความชื้นสูงอีกด้วย IEC TS 62804 series เป็นวิธีทดสอบความทนทานต่อ PID บุคลากรแนวหน้าไม่จำเป็นต้องเป็นผู้เชี่ยวชาญด้านการวิเคราะห์ความล้มเหลว แต่ต้องรู้ว่าเมื่อเลือกส่วนประกอบสำหรับโครงการในไทย นอกเหนือจากกำลังและราคาแล้ว ยังต้องพิจารณาความเสถียรในระยะยาวภายใต้อุณหภูมิสูง ความชื้นสูง สเปรย์เกลือ และความเครียดแรงดันไฟฟ้าของระบบด้วย</p>
+<div class="term-box"><strong>[เงื่อนไขสภาพแวดล้อมที่มีความเสี่ยงสูง]</strong><b>IEC 61701</b>: การทดสอบการกัดกร่อนของสเปรย์เกลือ<br><b>PID</b>: การย่อยสลายที่เกิดจากศักยภาพ การลดทอนที่อาจเกิดขึ้นจะส่งผลกระทบต่อผลผลิตในระยะยาวของส่วนประกอบ<br><b>การลดความร้อน</b>: เอาท์พุตของส่วนประกอบและอินเวอร์เตอร์จะลดลงที่อุณหภูมิสูง</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/59588">รายการอย่างเป็นทางการของ IEC 61701</a><span class="source-note">: มาตรฐานการทดสอบการกัดกร่อนของสเปรย์เกลือ</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[02]</b> <a href="https://webstore.iec.ch/en/publication/71747">รายการ IEC TS 62804-1</a><span class="source-note">: วิธีทดสอบและการประเมินความทนทานต่อ PID</span></li></ol></div>
+</section><section id="sec-06-2-6-การทดสอบการใช้งาน-การส่งมอบ-และเอกสารประกอบ-การดำเนินการเสร็จสิ้นไม่ได้หมายความว่าการส่งมอบเสร็จสมบูรณ์" class="split-section">
+
+    <div class="split-section-header">
+        <div>
+    
+<div class="split-section-meta">เนื้อหาส่วนย่อย · 06</div>
+<h3>2.6 การทดสอบการใช้งาน การส่งมอบ และเอกสารประกอบ: การดำเนินการเสร็จสิ้นไม่ได้หมายความว่าการส่งมอบเสร็จสมบูรณ์</h3>
+
+        </div>
+    
+<div class="split-section-anchor">#06</div>
+</div>
+<h3>2.6 การทดสอบการใช้งาน การส่งมอบ และเอกสารประกอบ: การดำเนินการเสร็จสิ้นไม่ได้หมายความว่าการส่งมอบเสร็จสมบูรณ์</h3>
+<p>หลายทีมถือว่าเสร็จสิ้นเมื่อมีการติดตั้งส่วนประกอบและอินเวอร์เตอร์สว่างขึ้น แต่แนวคิดของ IEC 62446-1 นั้นชัดเจนมาก: การส่งมอบระบบ PV ที่เชื่อมต่อกับกริดยังต้องมีเอกสาร การทดสอบการทำงาน การตรวจสอบ และการส่งมอบลูกค้าอีกด้วย จุดเน้นที่นี่ไม่ใช่การจดจำตัวเลขมาตรฐาน แต่เป็นการเรียนรู้กรอบการจัดส่งขั้นพื้นฐาน</p>
+<p>อย่างน้อยชุดเอกสารการจัดส่งที่ผ่านการรับรองควรประกอบด้วย: แผนภาพบรรทัดเดียวของระบบ รายการอุปกรณ์ ข้อมูลป้ายชื่อที่สำคัญ บันทึกการดีบักและการตรวจสอบ ฉนวน/ขั้ว/ความต่อเนื่อง และผลการทดสอบอื่นๆ การส่งมอบแท่นตรวจสอบ คำแนะนำในการรับประกัน และคู่มือการใช้งานที่ลูกค้าเข้าใจได้ หากไม่มีระบบที่เป็นเอกสาร บริการหลังการขายในอนาคต การซ่อมแซมที่เชื่อมต่อกับโครงข่าย และคำจำกัดความของความรับผิดชอบจะเป็นเรื่องที่เจ็บปวดมาก</p>
+<p>ในตอนท้ายของบทที่ 2 เราจำเป็นต้องสร้างแนวคิด: ความสามารถทางเทคนิคไม่เพียงสะท้อนถึงความสามารถในการแต่งตัวเท่านั้น แต่ยังสะท้อนให้เห็นในความสามารถในการตรวจสอบ บันทึก อธิบาย และส่งมอบด้วย โครงการบ้านที่ดีอย่างแท้จริงคือเมื่อลูกค้ามองย้อนกลับไป 3 เดือนต่อมาแล้วยังรู้สึกว่า "บริษัทนี้มีระบบ"</p>
+<div class="algorithm-box"><strong>[6 จะต้องได้รับการตรวจสอบก่อนส่งมอบ]</strong>1. การตรวจสอบรูปลักษณ์/แรงบิดของอาร์เรย์ส่วนประกอบและการยึด<br>2. การตรวจสอบขั้วไฟฟ้ากระแสตรง ฉนวน และแรงดันไฟฟ้าวงจรเปิดแบบสุ่ม<br>3. ตรวจสอบสายไฟ AC การป้องกัน และความต่อเนื่องของสายดิน<br>4. การแจ้งเตือนอินเวอร์เตอร์ การตรวจสอบ และการยืนยันสถานะการเชื่อมต่อกริด<br>5. การเก็บถาวรภาพวาด ภาพถ่าย หมายเลขซีเรียลของอุปกรณ์ และข้อมูล<br>6. คำอธิบายลูกค้าและการส่งมอบลายเซ็น</div>
+<div class="source-box"><strong>[แหล่งที่มาและข้อมูลอ้างอิง]</strong><ol class="source-list"><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[01]</b> <a href="https://webstore.iec.ch/en/publication/24057">หน้าอย่างเป็นทางการ IEC 62446-1</a><span class="source-note">: ต้องมีเอกสารการจัดส่ง การทดสอบการใช้งาน และการตรวจสอบอย่างชัดเจน</span></li><li><span class="source-badge international">สากล/มาตรฐาน</span><b>[02]</b> <a href="https://www.hioki.com/us-en/learning/common-devices/PV-test-standard.html">คำอธิบายของ Hioki เกี่ยวกับ IEC 62446-1</a><span class="source-note">: การทดสอบ DC เอกสารประกอบ และการตรวจสอบตามระยะเวลาที่อธิบายไว้ในการปฏิบัติงานด้านวิศวกรรม</span></li></ol></div>
+</section>
+                <div class="split-footer">
+                    <div class="split-footer-note">ฉบับแยกบทภาษาไทย · เหมาะสำหรับการฝึกอบรม การเรียนรู้ภายใน และการเผยแพร่บนเว็บ</div>
+                    <div class="split-footer-actions">
+                        <a href="chapter_02.html">บทก่อนหน้า</a>
+                        <a class="primary" href="index.html">กลับไปที่สารบัญ</a>
+                        <a href="chapter_04.html">บทถัดไป</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        </div></div>
+</body>
+</html>
